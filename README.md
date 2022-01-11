@@ -1,2 +1,2 @@
-# terraform_lab
+# My Terraform Lab
 Terraform Labratory
