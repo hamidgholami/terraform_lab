@@ -15,8 +15,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  #   ami           = "ami-830c94e3"
-  ami           = "ami-08e4e35cccc6189f4"
+  ami = "ami-083602cee93914c0c" # kernel 4.14
+  #   ami           = "ami-08e4e35cccc6189f4" # kernel 5.10
   instance_type = "t2.micro"
 
   tags = {
