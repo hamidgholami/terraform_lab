@@ -2,6 +2,11 @@
 *.tfstate
 *.tfstate.backup
 *.tfstate.lock.info
+*.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.backup
+**/*.tfstate.lock.info
+**/*.terraform.lock.hcl
 
 # Local .terraform directories
 **/.terraform/*
