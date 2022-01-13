@@ -8,3 +8,7 @@ terraform apply -auto-approve
 # or
 terraform destroy -auto-approve
 ```
+* For running Terraform from a different directory than the root module directory, we can use `-chdir=...`
+```bash
+terraform -chdir=terraform_lab/learn-terraform-aws-instance apply
+```
