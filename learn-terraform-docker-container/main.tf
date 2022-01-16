@@ -18,9 +18,11 @@ resource "docker_image" "nginx" {
 
 resource "docker_container" "nginx" {
   image = docker_image.nginx.latest
-  name  = "tutorial"
+  # name  = "tutorial"
+  name  = var.container_name # Or you can run this command: terraform apply -var "container_name=YetAnotherName"
   ports {
     internal = 80
-    external = 8000
+    # external = 8000
+    external = 8080
   }
 }
