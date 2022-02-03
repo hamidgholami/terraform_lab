@@ -190,9 +190,23 @@ Workspaces in Terraform are simply independently managed state files. We can man
   <img src="./img/workspaces.PNG" width="500" title="workspaces">
 </p>
 
+For example, creating a new workspace:
+```bash
+[hamid@funlife]$ terraform workspace new dev
+Created and switched to workspace "dev"!
 
+You're now on a new, empty workspace. Workspaces isolate their state,
+so if you run "terraform plan" Terraform will not see any existing state
+for this configuration.
+```
 
+With bellow command we can see all available workspaces and with `select` option we cand choose it.
 
+```bash
+[hamid@funlife]$ terraform workspace list
+  default
+* dev
+```
 
 5. `terraform state`
 
