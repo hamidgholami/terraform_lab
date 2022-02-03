@@ -27,6 +27,61 @@ resource "aws_security_group" "sg_8080" {
 }
 ```
 
+Now we can check which file needs formatting correction by bfollowing command
+```bash
+[hamid@funlife]$ terraform fmt -check
+main.tf
+```
+
+We can also use `-diff` option to preview the changes and use `-recursive` to check all sub-directories.
+
+```bash
+[hamid@funlife]$ terraform fmt -check -diff -recursive
+main.tf
+--- old/main.tf
++++ new/main.tf
+@@ -13,7 +13,7 @@
+ }
+ 
+ provider "aws" {
+-#   region = var.region
++  #   region = var.region
+   region = "us-east-1"
+ }
+ 
+@@ -54,8 +54,8 @@
+     to_port     = "8080"
+     protocol    = "tcp"
+     cidr_blocks = ["0.0.0.0/0"]
+-## It's deliberately for to demonstrate how to apply the correct formatting ##
+-}
++    ## It's deliberately for to demonstrate how to apply the correct formatting ##
++  }
+ }
+```
+
+Following command is for applying the proper Terraform format
+```bash
+[hamid@funlife]$ terraform fmt
+# OR 
+[hamid@funlife]$ terraform fmt <FILE_NAME>
+```
+
+You've now formatted `main.tf` file.
+
+```tf
+resource "aws_security_group" "sg_8080" {
+  name = "terraform-learn-state-sg-8080"
+  ingress {
+    from_port   = "8080"
+    to_port     = "8080"
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    ## It's deliberately for to demonstrate how to apply the correct formatting ##
+  }
+}
+```
+
 2. `terraform taint`  Replace a resource with CLI
 Replacing a resource is also useful in cases where a user manually changes a setting on a resource or when you need to update a provisioning script. This allows you to rebuild specific resources and avoid a full terraform destroy operation on your configuration. The -replace flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
 
