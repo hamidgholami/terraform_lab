@@ -13,7 +13,7 @@ variable "region" {
 }
 
 provider "aws" {
-#   region = var.region
+  #   region = var.region
   region = "us-east-1"
 }
 
@@ -54,8 +54,8 @@ resource "aws_security_group" "sg_8080" {
     to_port     = "8080"
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-## It's deliberately for to demonstrate how to apply the correct formatting ##
-}
+    ## It's deliberately for to demonstrate how to apply the correct formatting ##
+  }
 }
 
 
