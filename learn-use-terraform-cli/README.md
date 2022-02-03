@@ -79,7 +79,9 @@ It's very useful in cases where a user **manually** changes a setting on a resou
 
 **Usages and Options**
 
-- Replace a resource with CLI.
+- Replacing specific resource with CLI.
+- Rebuilding particular resource as you need to update a provisioning script.
+- Using as a force-reload resource even though there are no configuration changes that would require it.
 - 
 
 ```sh
