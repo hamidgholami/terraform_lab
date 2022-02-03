@@ -163,16 +163,34 @@ The resources that were imported are shown above. These resources are now in
 your Terraform state and will henceforth be managed by Terraform.
 ```
 
+Now we should prepare configuration file:
+
+1. Current state
+```bash
+[hamid@funlife]$ terraform show -no-color > aws-ec2.tf
+```
+Afterwards, when we run `terraform plan` we will faced some warnings and errors which are related to deprecated or read-only argument. So remove all of these attributes and again run `terraform plan`
+
+```bash
+[hamid@funlife]$ terraform plan
+aws_instance.manually-launched: Refreshing state... [id=i-0b29c9420c8b83ce6]
+
+No changes. Your infrastructure matches the configuration.
+```
+2. Cherry-pick configuration
+
+Run terraform show to find the correct values for the missing attributes and copy and past it in configuration file.
 
 
 
 
 
 
-1. `terraform import`
 
-2. `terraform workspace`
+3. `terraform import`
 
-3. `terraform state`
+4. `terraform workspace`
 
-4. debbuging terraform
+5. `terraform state`
+
+6. debbuging terraform
