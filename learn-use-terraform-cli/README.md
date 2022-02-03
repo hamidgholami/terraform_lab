@@ -200,7 +200,7 @@ so if you run "terraform plan" Terraform will not see any existing state
 for this configuration.
 ```
 
-With bellow command we can see all available workspaces and with `select` option we cand choose it.
+With bellow command we can see all available workspaces and with `select` option we can choose it.
 
 ```bash
 [hamid@funlife]$ terraform workspace list
