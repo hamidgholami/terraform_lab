@@ -77,17 +77,27 @@ resource "aws_security_group" "sg_8080" {
 
 It's very useful in cases where a user **manually** changes a setting on a resource or when <ins>you need to update a provisioning script</ins>. This allows you to rebuild **specific** resources and *avoid* a full terraform destroy operation on your configuration. The `-replace` flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
 
+> The terraform taint command manually marks a Terraform-managed <br> resource as tainted, forcing it to be destroyed and recreated on the <ins>**next apply**</ins>.
+
+
 **Usages and Options**
 
-- Replacing specific resource with CLI.
+- Replacing specific resource with CLI.(re-create)
 - Rebuilding particular resource as you need to update a provisioning script.
 - Using as a force-reload resource even though there are no configuration changes that would require it.
 - 
 
 ```sh
-terraform taint
+terraform taint "<resource>" && terraform plan && terraform apply
 # OR
 terraform plan|apply -replace="<resource>"
+```
+
+**Secnario (`-replace`)**
+
+After apply the `main.tf` file we can check the state list with following command
+```bash
+[hamid@funlife]$ terraform state list
 ```
 
 3. `terraform import`
