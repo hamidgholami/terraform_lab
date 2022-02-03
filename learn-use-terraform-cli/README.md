@@ -1,6 +1,6 @@
 # Use the Terraform CLI (outside of core workflow)
 
-## Command: fmt
+### Command: fmt
 
 The terraform fmt command is used to <ins>rewrite Terraform configuration files</ins> to a **canonical format and style**. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
 
