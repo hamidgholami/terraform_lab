@@ -40,22 +40,11 @@ We can also use `-diff` option to preview the changes and use `-recursive` to ch
 main.tf
 --- old/main.tf
 +++ new/main.tf
-@@ -13,7 +13,7 @@
- }
- 
- provider "aws" {
--#   region = var.region
-+  #   region = var.region
-   region = "us-east-1"
- }
- 
-@@ -54,8 +54,8 @@
-     to_port     = "8080"
+@@ -55,7 +55,7 @@
      protocol    = "tcp"
      cidr_blocks = ["0.0.0.0/0"]
--## It's deliberately for to demonstrate how to apply the correct formatting ##
+     ## It's deliberately for to demonstrate how to apply the correct formatting ##
 -}
-+    ## It's deliberately for to demonstrate how to apply the correct formatting ##
 +  }
  }
 ```
