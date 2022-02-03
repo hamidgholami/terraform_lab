@@ -8,9 +8,9 @@ terraform {
   required_version = ">= 0.15.2"
 }
 
-variable "region" {
-  description = "The AWS region your resources will be deployed"
-}
+# variable "region" {
+#   description = "The AWS region your resources will be deployed"
+# }
 
 provider "aws" {
   #   region = var.region
