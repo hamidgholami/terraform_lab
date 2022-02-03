@@ -187,7 +187,7 @@ Run terraform show to find the correct values for the missing attributes and cop
 Workspaces in Terraform are simply independently managed state files. We can manage *multiple environments* with *Workspaces*.
 
 <p align="center">
-  <img src="./img/workspaces.PNG" width="500" title="workspaces">
+  <img src="./img/workspaces.PNG" width="600" title="workspaces">
 </p>
 
 For example, creating a new workspace:
