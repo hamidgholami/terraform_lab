@@ -95,10 +95,43 @@ terraform plan|apply -replace="<resource>"
 
 **Secnario (`-replace`)**
 
-After apply the `main.tf` file we can check the state list with following command
+After apply the `main.tf` file we can check the state list and output informations by following commands.
 ```bash
 [hamid@funlife]$ terraform state list
+data.aws_ami.ubuntu
+aws_instance.example
+aws_security_group.sg_8080
 ```
+```bash
+[hamid@funlife]$ terraform output
+instance_id = "i-0dc637fd3ac572929"
+public_ip = "34.205.20.4"
+security_group = "sg-083239250de08e8d2"
+```
+
+Now we can use `-replace` option with `terraform plan` that shows we will have two changes for public ip and instance_id since they will be recreated.
+
+```bash
+[hamid@funlife]$ terraform plan -replace="aws_instance.example"
+## ....
+Plan: 1 to add, 0 to change, 1 to destroy.
+
+Changes to Outputs:
+  ~ instance_id = "i-0dc637fd3ac572929" -> (known after apply)
+  ~ public_ip   = "34.205.20.4" -> (known after apply)
+## ...
+```
+```bash
+[hamid@funlife]$ terraform apply -replace="aws_instance.example"
+## ...
+aws_instance.example: Destroying... [id=i-0dc637fd3ac572929]
+## ...
+aws_instance.example: Creation complete after 1m7s [id=i-0b318400b8d0d3f57]
+```
+
+### Command: import
+
+
 
 3. `terraform import`
 
