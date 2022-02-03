@@ -131,12 +131,48 @@ aws_instance.example: Creation complete after 1m7s [id=i-0b318400b8d0d3f57]
 
 ### Command: import
 
+Import will find the **existing resource** from ID and import it into your Terraform state at the **given** ADDRESS.
+
+**Usages and Options**
+
+- Importing exicting resources in Terraform repository.
+
+*NOTE:* Bringing existing infrastructure under Terraform's control involves five main steps ([link](https://learn.hashicorp.com/tutorials/terraform/state-import)):
+
+1. Identify the existing infrastructure to be imported.
+2. Import infrastructure into your Terraform state.
+3. Write Terraform configuration that matches that infrastructure.
+4. Review the Terraform plan to ensure the configuration matches the expected state and infrastructure.
+5. Apply the configuration to update your Terraform state.
+
+**Secnario**
+
+It is assumed that we have manually launched aws ec2 instance with instance_id: `i-0b29c9420c8b83ce6` 
+
+With bellow command we can import the existing resource to Terraform state.
+```bash
+[hamid@funlife]$ terraform import aws_instance.manually-launched i-0b29c9420c8b83ce6
+aws_instance.manually-launched: Importing from ID "i-0b29c9420c8b83ce6"...
+aws_instance.manually-launched: Import prepared!
+  Prepared aws_instance for import
+aws_instance.manually-launched: Refreshing state... [id=i-0b29c9420c8b83ce6]
+
+Import successful!
+
+The resources that were imported are shown above. These resources are now in
+your Terraform state and will henceforth be managed by Terraform.
+```
 
 
-3. `terraform import`
 
-4. `terraform workspace`
 
-5. `terraform state`
 
-6. debbuging terraform
+
+
+1. `terraform import`
+
+2. `terraform workspace`
+
+3. `terraform state`
+
+4. debbuging terraform
