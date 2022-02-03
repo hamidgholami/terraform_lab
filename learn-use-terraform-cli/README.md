@@ -182,14 +182,17 @@ No changes. Your infrastructure matches the configuration.
 Run terraform show to find the correct values for the missing attributes and copy and past it in configuration file.
 
 
+### Workspaces
+
+Workspaces in Terraform are simply independently managed state files. We can manage *multiple environments* with *Workspaces*.
+
+<p align="center">
+  <img src="./img/workspaces.PNG" width="500" title="workspaces">
+</p>
 
 
 
 
-
-3. `terraform import`
-
-4. `terraform workspace`
 
 5. `terraform state`
 
