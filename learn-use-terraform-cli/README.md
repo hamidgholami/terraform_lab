@@ -4,7 +4,7 @@
 
 The terraform fmt command is used to <ins>rewrite Terraform configuration files</ins> to a **canonical format and style**. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
 
-**Usage and Options**
+**Usages and Options**
 
 - It possesses enhancing code readability. (`terraform fmt`)
 - Cheking files for formating inconsistencies. (`-check` option)
@@ -71,8 +71,16 @@ resource "aws_security_group" "sg_8080" {
 }
 ```
 
-2. `terraform taint`  Replace a resource with CLI
-Replacing a resource is also useful in cases where a user manually changes a setting on a resource or when you need to update a provisioning script. This allows you to rebuild specific resources and avoid a full terraform destroy operation on your configuration. The -replace flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
+### Command: taint (or `-replace` option)
+
+> Warning: This command is <ins>**deprecated**</ins>. For Terraform v0.15.2 and later, we recommend using the `-replace` option with `terraform apply` instead.
+
+It's very useful in cases where a user **manually** changes a setting on a resource or when <ins>you need to update a provisioning script</ins>. This allows you to rebuild **specific** resources and *avoid* a full terraform destroy operation on your configuration. The `-replace` flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
+
+**Usages and Options**
+
+- Replace a resource with CLI.
+- 
 
 ```sh
 terraform taint
