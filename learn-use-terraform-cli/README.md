@@ -85,7 +85,6 @@ It's very useful in cases where a user **manually** changes a setting on a resou
 - Replacing specific resource with CLI.(re-create)
 - Rebuilding particular resource as you need to update a provisioning script.
 - Using as a force-reload resource even though there are no configuration changes that would require it.
-- 
 
 ```sh
 terraform taint "<resource>" && terraform plan && terraform apply
