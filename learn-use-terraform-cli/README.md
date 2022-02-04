@@ -221,6 +221,12 @@ With bellow command we can see all available workspaces and with `select` option
 There are some cases where you may need to **modify** the Terraform state.<br>
 All terraform state subcommands that modify the state <ins>write backup files</ins>. The path of these backup file can be controlled with `-backup` and backups for state modification *can not be disabled*.
 
+**Purpose of Terraform State** ([link](https://www.terraform.io/language/state/purpose))
+- Mapping to the Real World
+- Metadata
+- Performance
+- Syncing
+
 
 
 
