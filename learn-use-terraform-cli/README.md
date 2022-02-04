@@ -172,7 +172,7 @@ Now we should prepare configuration file:
 ```bash
 $ terraform show -no-color > aws-ec2.tf
 ```
-Afterwards, when we run `terraform plan` we will faced some warnings and errors which are related to deprecated or read-only argument. So remove all of these attributes and again run `terraform plan`
+Afterwards, when we run `terraform plan` we will face some warnings and errors which are related to deprecated or read-only argument. So remove all of these attributes and again run `terraform plan`
 
 ```bash
 $ terraform plan
