@@ -212,7 +212,18 @@ With bellow command we can see all available workspaces and with `select` option
 * dev
 ```
 
-5. `terraform state`
+### State Command
+
+> **NOTE:** Terraform stores state about your infrastructure and configuration.<br> It's used by Terraform for keep track of metadata and improve performance for large scale infrastructure.<br> 
+> - `local state` This state is stored by default in **local** file named "terraform.tfstate".
+> - `remote state` This state can be stored **remotely**, which works better in a team environment and for larg scale project.
+
+There are some cases where you may need to **modify** the Terraform state.<br>
+All terraform state subcommands that modify the state <ins>write backup files</ins>. The path of these backup file can be controlled with `-backup` and backups for state modification *can not be disabled*.
+
+
+
+
 
 ### Debugging Terraform
 
