@@ -251,8 +251,9 @@ All terraform state subcommands that modify the state <ins>write backup files</i
 </details>
 <br />
 
-`terraform state mv` command is used for renaming a resource, or moving a resource into or out of a child module.
+`terraform state mv` command is used for renaming a resource, or moving a resource into or out of a child module.<br />
 
+`terraform state rm` command tells Terraform to stop managing and tracking a resource as part of current configuration without destroying it. For starting managing and tracking the resource again we can use `terraform import`.
 
 
 
