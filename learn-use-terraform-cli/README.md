@@ -213,7 +213,7 @@ $ terraform workspace list
 
 ### State Command
 
-> **NOTE:** Terraform stores state about your infrastructure and configuration.<br> It's used by Terraform for keep track of metadata and improve performance for large scale infrastructure.<br> 
+> **NOTE:** Terraform stores state about your infrastructure and configuration.<br> It's used by Terraform for keeping track of metadata and improving performance for large scale infrastructure.<br> 
 > - `local state` This state is stored by default in **local** file named "<ins>terraform.tfstate</ins>".
 > - `remote state` This state can be stored **remotely**, which works better in a team environment and for larg scale project.
 
