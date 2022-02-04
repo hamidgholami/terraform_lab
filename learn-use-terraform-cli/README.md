@@ -27,7 +27,7 @@ resource "aws_security_group" "sg_8080" {
 }
 ```
 
-Now we can check which file needs formatting correction by bfollowing command
+Now we can check which file needs formatting correction by the following command
 ```bash
 $ terraform fmt -check
 main.tf
