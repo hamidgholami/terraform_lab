@@ -29,14 +29,14 @@ resource "aws_security_group" "sg_8080" {
 
 Now we can check which file needs formatting correction by bfollowing command
 ```bash
-[hamid@funlife]$ terraform fmt -check
+$ terraform fmt -check
 main.tf
 ```
 
 We can also use `-diff` option to preview the changes and use `-recursive` to check all sub-directories.
 
 ```bash
-[hamid@funlife]$ terraform fmt -check -diff -recursive
+$ terraform fmt -check -diff -recursive
 main.tf
 --- old/main.tf
 +++ new/main.tf
@@ -51,9 +51,9 @@ main.tf
 
 Following command is for applying the proper Terraform format
 ```bash
-[hamid@funlife]$ terraform fmt
+$ terraform fmt
 # OR 
-[hamid@funlife]$ terraform fmt <FILE_NAME>
+$ terraform fmt <FILE_NAME>
 ```
 
 You've now formatted `main.tf` file.
@@ -96,13 +96,13 @@ terraform plan|apply -replace="<resource>"
 
 After apply the `main.tf` file we can check the state list and output informations by following commands.
 ```bash
-[hamid@funlife]$ terraform state list
+$ terraform state list
 data.aws_ami.ubuntu
 aws_instance.example
 aws_security_group.sg_8080
 ```
 ```bash
-[hamid@funlife]$ terraform output
+$ terraform output
 instance_id = "i-0dc637fd3ac572929"
 public_ip = "34.205.20.4"
 security_group = "sg-083239250de08e8d2"
@@ -111,7 +111,7 @@ security_group = "sg-083239250de08e8d2"
 Now we can use `-replace` option with `terraform plan` that shows we will have two changes for public ip and instance_id since they will be recreated.
 
 ```bash
-[hamid@funlife]$ terraform plan -replace="aws_instance.example"
+$ terraform plan -replace="aws_instance.example"
 ## ....
 Plan: 1 to add, 0 to change, 1 to destroy.
 
@@ -121,7 +121,7 @@ Changes to Outputs:
 ## ...
 ```
 ```bash
-[hamid@funlife]$ terraform apply -replace="aws_instance.example"
+$ terraform apply -replace="aws_instance.example"
 ## ...
 aws_instance.example: Destroying... [id=i-0dc637fd3ac572929]
 ## ...
@@ -154,7 +154,7 @@ It is assumed that we have manually launched aws ec2 instance with instance_id: 
 
 With bellow command we can import the existing resource to Terraform state.
 ```bash
-[hamid@funlife]$ terraform import aws_instance.manually-launched i-0b29c9420c8b83ce6
+$ terraform import aws_instance.manually-launched i-0b29c9420c8b83ce6
 aws_instance.manually-launched: Importing from ID "i-0b29c9420c8b83ce6"...
 aws_instance.manually-launched: Import prepared!
   Prepared aws_instance for import
@@ -170,12 +170,12 @@ Now we should prepare configuration file:
 
 1. Current state
 ```bash
-[hamid@funlife]$ terraform show -no-color > aws-ec2.tf
+$ terraform show -no-color > aws-ec2.tf
 ```
 Afterwards, when we run `terraform plan` we will faced some warnings and errors which are related to deprecated or read-only argument. So remove all of these attributes and again run `terraform plan`
 
 ```bash
-[hamid@funlife]$ terraform plan
+$ terraform plan
 aws_instance.manually-launched: Refreshing state... [id=i-0b29c9420c8b83ce6]
 
 No changes. Your infrastructure matches the configuration.
@@ -195,7 +195,7 @@ Workspaces in Terraform are simply independently managed state files. We can man
 
 For example, creating a new workspace:
 ```bash
-[hamid@funlife]$ terraform workspace new dev
+$ terraform workspace new dev
 Created and switched to workspace "dev"!
 
 You're now on a new, empty workspace. Workspaces isolate their state,
@@ -206,7 +206,7 @@ for this configuration.
 With bellow command we can see all available workspaces and with `select` option we can choose it.
 
 ```bash
-[hamid@funlife]$ terraform workspace list
+$ terraform workspace list
   default
 * dev
 ```
@@ -250,29 +250,68 @@ All terraform state subcommands that modify the state <ins>write backup files</i
 </details>
 <br />
 
-`terraform state mv` command is used for renaming a resource, or moving a resource into or out of a child module.<br />
+`terraform state mv` command is used for renaming a resource, or moving a resource into or out of a child module. The move command will update the resource in state, but **not** in your *configuration file*. Also it moves resources from one state file to another.<br />
 
 `terraform state rm` command tells Terraform to stop managing and tracking a resource as part of current configuration without destroying it. For starting managing and tracking the resource again we can use `terraform import`.
 
+**Secnario**
+
+The new_state subdirectory contains a new Terraform configuration. This configuration creates a new EC2 instance named `aws_instance.example_new` and uses a data resource to use the same security group from your root configuration file. Change into the subdirectory.<br />
+After `cd` in new_state directory and running `terraform init` and `terraform apply` we will have a second state file. Now we want to move new ec2 instance to the old configuration's file which will specified with the `-state-out` flag.<br />
+
+Set the destination name to the same name, since in this case <ins>there is no resource with the same name</ins> in the target state file.
+
+```bash
+$ terraform state mv -state-out=../terraform.tfstate aws_instance.example_new aws_instance.example_new
+Move "aws_instance.example_new" to "aws_instance.example_new"
+Successfully moved 1 object(s).
+```
+Check `terraform state list` in current directory and previous.
+
+```bash
+$ terraform state list
+data.aws_ami.ubuntu
+data.terraform_remote_state.root
+## ...
+$ terraform state list
+data.aws_ami.ubuntu
+aws_instance.example
+aws_instance.example_new
+aws_security_group.sg_8080
+```
+Without adding the ec2 resource in configuration file you moved, if you run `terraform apply`  it will be removed ec2 new instance since it's not in configuration file.
+<br />
+
+`terraform state rm` removes specific resources from your state file. (NOT from your configuration file) <br />
+
+Remove your `security_group` resource from state.
+```bash
+$ terraform state rm aws_security_group.sg_8080
+```
+Run `terraform import` for adding security group to state file again.
+```bash
+$ terraform import aws_security_group.sg_8080 $(terraform output -raw security_group)
+```
+Use `terraform refresh` command for updating the state file.
 
 
 ### Debugging Terraform
 
 You can generate logs from the Terraform provider and the core application separately.<br> loge levels includes `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR` to change the verbosity of the logs. For **bug** reports, you should set the `TF_LOG_CORE` to the `TRACE` level.
 ```bash
-[hamid@funlife]$ export TF_LOG_CORE=TRACE
+$ export TF_LOG_CORE=TRACE
 ```
 `TRACE` provides the highest level of logging and contains all the information the development teams need.<br>
 
 You can also generate **provider** logs by setting the `TF_LOG_PROVIDER` environment variable.
 ```bash
-[hamid@funlife]$ export TF_LOG_PROVIDER=TRACE
+$ export TF_LOG_PROVIDER=TRACE
 ```
 Once you have configured your logging, set the path for your error logs as an environment variable. If your `TF_LOG_CORE` or `TF_LOG_PROVIDER` environment variables are enabled, the `TF_LOG_PATH` variable will create the specified file and append logs generated by Terraform.
 ```bash
-[hamid@funlife]$ export TF_LOG_PATH=logs.txt
+$ export TF_LOG_PATH=logs.txt
 ```
 To generate an example of the core and provider logs, run a `terraform refresh` operation.
 ```bash
-[hamid@funlife]$ terraform refresh
+$ terraform refresh
 ```
