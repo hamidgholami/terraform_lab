@@ -8,7 +8,7 @@ The terraform fmt command is used to <ins>rewrite Terraform configuration files<
 
 - It possesses enhancing code readability. (`terraform fmt`)
 - Cheking files for formating inconsistencies. (`-check` option)
--  It can to preview the inconsistencies and changes. (`-diff` option) 
+-  It can preview the inconsistencies and changes. (`-diff` option) 
 
 **Secnario**
 
