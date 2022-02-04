@@ -257,7 +257,7 @@ All terraform state subcommands that modify the state <ins>write backup files</i
 **Secnario**
 
 The new_state subdirectory contains a new Terraform configuration. This configuration creates a new EC2 instance named `aws_instance.example_new` and uses a data resource to use the same security group from your root configuration file. Change into the subdirectory.<br />
-After `cd` in new_state directory and running `terraform init` and `terraform apply` we will have a second state file. Now we want to move new ec2 instance to the old configuration's file which will specified with the `-state-out` flag.<br />
+After `cd` in new_state directory and running `terraform init` and `terraform apply` we will have a second state file. Now we want to move new ec2 instance to the old configuration's file which will be specified by the `-state-out` flag.<br />
 
 Set the destination name to the same name, since in this case <ins>there is no resource with the same name</ins> in the target state file.
 
