@@ -94,7 +94,7 @@ terraform plan|apply -replace="<resource>"
 
 **Secnario (`-replace`)**
 
-After apply the `main.tf` file we can check the state list and output informations by following commands.
+After applying the `main.tf` file we can check the state list and output informations by following commands.
 ```bash
 $ terraform state list
 data.aws_ami.ubuntu
