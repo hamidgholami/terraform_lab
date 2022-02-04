@@ -218,15 +218,40 @@ With bellow command we can see all available workspaces and with `select` option
 > - `local state` This state is stored by default in **local** file named "<ins>terraform.tfstate</ins>".
 > - `remote state` This state can be stored **remotely**, which works better in a team environment and for larg scale project.
 
-There are some cases where you may need to **modify** the Terraform state.<br>
-All terraform state subcommands that modify the state <ins>write backup files</ins>. The path of these backup file can be controlled with `-backup` and backups for state modification *can not be disabled*.
-
 **Purpose of Terraform State** ([link](https://www.terraform.io/language/state/purpose))
 - Mapping to the Real World
 - Metadata
 - Performance
 - Syncing
 
+
+There are some cases where you may need to **modify** the Terraform state.<br>
+All terraform state subcommands that modify the state <ins>write backup files</ins>. The path of these backup file can be controlled with `-backup` and backups for state modification *can not be disabled*.
+
+**Manipulating State**
+<details>
+<summary> Preview </summary>
+
+- Inspecting State
+  - `state list`
+  - `state show`
+  - `refresh`
+- Force Re-creating (Tainting)
+  - `taint`
+  - `untaint`
+- Moving Resources
+  - `state mv`
+  - `state rm`
+  - `state replace-provider`
+- Disaster Recovery
+  - `state pull`
+  - `state push`
+  - `force-unlock`
+
+</details>
+<br />
+
+`terraform state mv` command is used for renaming a resource, or moving a resource into or out of a child module.
 
 
 
