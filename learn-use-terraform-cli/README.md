@@ -297,7 +297,7 @@ Use `terraform refresh` command for updating the state file.
 
 ### Debugging Terraform
 
-You can generate logs from the Terraform provider and the core application separately.<br> loge levels includes `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR` to change the verbosity of the logs. For **bug** reports, you should set the `TF_LOG_CORE` to the `TRACE` level.
+You can generate logs from the Terraform provider and the core application separately.<br> loge levels include `TRACE`, `DEBUG`, `INFO`, `WARN` or `ERROR` to change the verbosity of the logs. For **bug** reports, you should set the `TF_LOG_CORE` to the `TRACE` level.
 ```bash
 $ export TF_LOG_CORE=TRACE
 ```
