@@ -139,6 +139,10 @@ Import will find the **existing resource** from ID and import it into your Terra
 
 *NOTE:* Bringing existing infrastructure under Terraform's control involves five main steps ([link](https://learn.hashicorp.com/tutorials/terraform/state-import)):
 
+<p align="center">
+  <img src="./img/terraform-import-workflow-diagram.png" width="700" title="workspaces">
+</p>
+
 1. Identify the existing infrastructure to be imported.
 2. Import infrastructure into your Terraform state.
 3. Write Terraform configuration that matches that infrastructure.
