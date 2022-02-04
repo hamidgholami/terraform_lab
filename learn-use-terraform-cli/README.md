@@ -75,7 +75,7 @@ resource "aws_security_group" "sg_8080" {
 
 > Warning: This command is <ins>**deprecated**</ins>. For Terraform v0.15.2 and later, <br> we recommend using the `-replace` option with `terraform apply` instead.
 
-It's very useful in cases where a user **manually** changes a setting on a resource or when <ins>you need to update a provisioning script</ins>. This allows you to rebuild **specific** resources and *avoid* a full terraform destroy operation on your configuration. The `-replace` flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
+It's very useful in cases where a user **manually** changes a setting on a resource or when <ins>you need to update a provisioning script</ins>. This command allows you to rebuild **specific** resources and *avoid* a full terraform destroy operation on your configuration. The `-replace` flag allows you to target specific resources and avoid destroying all the resources in your workspace just to fix one of them.
 
 > The terraform taint command manually marks a Terraform-managed <br> resource as tainted, forcing it to be destroyed and recreated on the <ins>**next apply**</ins>.
 
