@@ -17,4 +17,24 @@
 
 ### What is a Terraform module?
 
-A Terraform module is a set of *Terraform configuration files* in *a single directory*. When you run Terraform commands directly from such a directory, it is considered the **root module**.
+- A Terraform module is a set of *Terraform configuration files* in *a single directory*. When you run Terraform commands directly from such a directory, it is considered the **root module**.
+
+### Calling modules | Local and remote modules
+
+- A module that is called by another configuration is sometimes referred to as a "**child module**" of that configuration.
+- Modules can either be loaded from the **local filesystem**, or a **remote source**. and it supports:
+  - Terraform Registry
+  - Most version controls
+  - HTTP URLs
+  - Terraform Cloud
+  - . . .
+
+### Module best practices
+
+- Name your provider `terraform-<PROVIDER>-<NAME>`. You must follow this convention in order to publish to the Terraform Cloud.
+- Start writing your configuration with modules in mind.
+- Use the public Terraform Registry to find useful modules.
+- Publish and share modules with your team.
+
+### Use Modules from the Registry
+
