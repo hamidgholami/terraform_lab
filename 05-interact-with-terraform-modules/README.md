@@ -17,4 +17,4 @@
 
 ### What is a Terraform module?
 
-A Terraform module is a set of *Terraform configuration files* in *a single directory*. 
+A Terraform module is a set of *Terraform configuration files* in *a single directory*. When you run Terraform commands directly from such a directory, it is considered the **root module**.
