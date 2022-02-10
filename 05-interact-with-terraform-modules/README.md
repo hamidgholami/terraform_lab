@@ -38,3 +38,6 @@
 
 ### Use Modules from the Registry
 
+- You can use modules from [the Terraform Registry](https://registry.terraform.io/).
+- When calling a module, the `source` argument is <ins>**required**</ins>.
+- 
