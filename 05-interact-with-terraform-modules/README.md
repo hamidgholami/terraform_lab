@@ -41,3 +41,12 @@
 - You can use modules from [the Terraform Registry](https://registry.terraform.io/).
 - When calling a module, the `source` argument is <ins>**required**</ins>.
 - The other argument is the `version`. For supported sources, the version will let you define *which version or versions* of the module *will be loaded*.
+
+### Define root input variables
+
+- A common pattern is to identify which module **input variables** you might want to change in the future, and create matching variables in your configuration's `variables.tf` file with sensible default values. Those variables can then be passed to the module block as arguments.
+
+
+### Define root output values
+
+- Modules also have output values, which are defined within the module with the `output` keyword. You can access them by referring to `module.<MODULE NAME>.<OUTPUT NAME>`. Module outputs are listed under the outputs tab in the Terraform registry.
