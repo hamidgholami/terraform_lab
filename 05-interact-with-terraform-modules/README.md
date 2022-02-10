@@ -40,4 +40,4 @@
 
 - You can use modules from [the Terraform Registry](https://registry.terraform.io/).
 - When calling a module, the `source` argument is <ins>**required**</ins>.
-- 
+- The other argument is the `version`. For supported sources, the version will let you define *which version or versions* of the module *will be loaded*.
