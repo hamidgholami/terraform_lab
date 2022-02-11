@@ -64,3 +64,9 @@
     └── providers
         └── registry.terraform.io
     ```
+### Difference between `variable.tf` and `*.tfvars`
+
+- The `variables.tf` just <ins>defines valid variables</ins> for your templates. The `tfvars` file <ins>declares</ins> them thus giving those variables values.
+- The `tfvars` file extension is in the **root folder** of an environment to define values to variables, and the `.tf` uses modules to declare them.
+- In the `variables.tf`,you define the variables that <ins>must have values</ins> in order for your Terraform code to validate and run. You can also <ins>define **default values** for your variables in this file.</ins>
+- The `*.tfvars` contains one or more `variablename=variablevalue` pairs. When Terraform loads this file, it looks for any variables in your Terraform with the name `variablename` and sets their value to be `variablevalue`. <ins>You can't define new variables here</ins>, and can only set the values of existing ones defined in `variables.tf`.
