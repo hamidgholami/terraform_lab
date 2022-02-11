@@ -118,3 +118,20 @@
 
 - Data sources provide <ins>dynamic information</ins> about entities that are not managed by the current Terraform and configuration. Variables provide <ins>static information</ins>.
 - Data sources in Terraform are used to <ins>get information about resources external to Terraform</ins>, and use them to set up your Terraform resources. For example, a list of IP addresses a cloud provider exposes.
+
+  ```tf
+  # Find the latest available AMI that is tagged with Component = web
+  data "aws_ami" "web" {
+    filter {
+      name   = "state"
+      values = ["available"]
+    }
+
+    filter {
+      name   = "tag:Component"
+      values = ["web"]
+    }
+
+    most_recent = true
+  }
+  ```
