@@ -74,3 +74,10 @@
 ### Add module configuration
 
 - Notice that there is *no provider block* in the module configuration. When Terraform processes a module block, it <ins>will inherit</ins> the provider from the enclosing configuration. Because of this, we recommend that *you do not include provider blocks in modules*.
+
+### Module Creation - Recommended Pattern
+
+-  Terraform modules should use coding best practices such as **clear organization** and the **DRY** ("Don't Repeat Yourself") principle wherever possible.
+-  If a module's function or purpose is **hard to explain**, the module is probably too complex.
+-  Output as much information as possible from your module MVP even if you do not currently have a use for it. This will make your module more useful for end users.<br> so **Maximize outputs**.
+-  Use `terraform.tfvars.example` file.
