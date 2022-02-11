@@ -88,4 +88,4 @@
 
 ### Meta-tag: `depends_on`
 
-- It is a meta tag that allows you to specify dependencies between resources and modules. For example, you can have <ins>a Google cloud instance</ins> that *depends on* <ins>a specific bucket.</ins> Using the depends_on tag allows Terraform to create or destroy resources correctly. When Terraform sees the depends_on module, it will first create or kill the bucket before performing the actions specified in the instance. 
+- It is a meta tag that allows you to specify dependencies between resources and modules. For example, you can have <ins>a Google cloud instance</ins> that *depends on* <ins>a specific bucket.</ins> Using the `depends_o`n tag allows Terraform to create or destroy resources correctly. When Terraform sees the `depends_on` module, it will **first** create or kill the bucket before performing the actions specified in the instance. 
