@@ -70,3 +70,7 @@
 - The `tfvars` file extension is in the **root folder** of an environment to define values to variables, and the `.tf` uses modules to declare them.
 - In the `variables.tf`,you define the variables that <ins>must have values</ins> in order for your Terraform code to validate and run. You can also <ins>define **default values** for your variables in this file.</ins>
 - The `*.tfvars` contains one or more `variablename=variablevalue` pairs. When Terraform loads this file, it looks for any variables in your Terraform with the name `variablename` and sets their value to be `variablevalue`. <ins>You can't define new variables here</ins>, and can only set the values of existing ones defined in `variables.tf`.
+
+### Add module configuration
+
+- Notice that there is *no provider block* in the module configuration. When Terraform processes a module block, it <ins>will inherit</ins> the provider from the enclosing configuration. Because of this, we recommend that *you do not include provider blocks in modules*.
