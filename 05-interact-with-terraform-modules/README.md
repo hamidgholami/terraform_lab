@@ -50,3 +50,17 @@
 ### Define root output values
 
 - Modules also have output values, which are defined within the module with the `output` keyword. You can access them by referring to `module.<MODULE NAME>.<OUTPUT NAME>`. Module outputs are listed under the outputs tab in the Terraform registry.
+
+###  Understand how modules work
+
+- When either of these commands are run, Terraform will install any new modules in the `.terraform/modules` directory within your configuration's working directory. For local modules, Terraform will create a `symlink` to the module's directory.
+
+    ```sh
+    .
+    ├── modules
+    │   ├── ec2_instances
+    │   ├── modules.json
+    │   └── vpc
+    └── providers
+        └── registry.terraform.io
+    ```
