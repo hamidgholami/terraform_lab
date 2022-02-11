@@ -81,3 +81,11 @@
 -  If a module's function or purpose is **hard to explain**, the module is probably too complex.
 -  Output as much information as possible from your module MVP even if you do not currently have a use for it. This will make your module more useful for end users.<br> so **Maximize outputs**.
 -  Use `terraform.tfvars.example` file.
+
+### Meta-tag: `for_each` or `count`
+
+-  Sometimes you want to manage **several similar objects** (like a fixed pool of compute instances) without writing a separate block for each one. Terraform has two ways to do this: `count` and `for_each`.
+
+### Meta-tag: `depends_on`
+
+- It is a meta tag that allows you to specify dependencies between resources and modules. For example, you can have <ins>a Google cloud instance</ins> that *depends on* <ins>a specific bucket.</ins> Using the depends_on tag allows Terraform to create or destroy resources correctly. When Terraform sees the depends_on module, it will first create or kill the bucket before performing the actions specified in the instance. 
