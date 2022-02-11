@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
   bucket = aws_s3_bucket.s3_bucket.id
 
   policy = jsonencode({
-    Version = "2022-02-11"
+    Version = "2012-10-17"
     Statement = [
       {
         Sid       = "PublicReadGetObject"
