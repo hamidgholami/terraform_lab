@@ -82,10 +82,34 @@
 -  Output as much information as possible from your module MVP even if you do not currently have a use for it. This will make your module more useful for end users.<br> so **Maximize outputs**.
 -  Use `terraform.tfvars.example` file.
 
-### Meta-tag: `for_each` or `count`
+### Meta-arguments: `for_each` or `count`
 
 -  Sometimes you want to manage **several similar objects** (like a fixed pool of compute instances) without writing a separate block for each one. Terraform has two ways to do this: `count` and `for_each`.
+-  The `count` meta-argument accepts a whole **number**, and creates that many instances of the resource or module. 
 
-### Meta-tag: `depends_on`
+### Meta-arguments: `depends_on`
 
-- It is a meta tag that allows you to specify dependencies between resources and modules. For example, you can have <ins>a Google cloud instance</ins> that *depends on* <ins>a specific bucket.</ins> Using the `depends_o`n tag allows Terraform to create or destroy resources correctly. When Terraform sees the `depends_on` module, it will **first** create or kill the bucket before performing the actions specified in the instance. 
+- It is a meta tag that allows you to specify dependencies between resources and modules. For example, you can have <ins>a Google cloud instance</ins> that *depends on* <ins>a specific bucket.</ins> Using the `depends_o`n tag allows Terraform to create or destroy resources correctly. When Terraform sees the `depends_on` module, it will **first** create or kill the bucket before performing the actions specified in the instance.
+
+### Meta-arguments: `providers`
+
+- In a module call block, the optional `providers` meta-argument specifies which provider configurations from the parent module will be available inside the child module.
+  ```tf
+    provider "aws" {
+      alias  = "usw1"
+      region = "us-west-1"
+    }
+
+    provider "aws" {
+      alias  = "usw2"
+      region = "us-west-2"
+    }
+
+    module "tunnel" {
+      source    = "./tunnel"
+      providers = {
+        aws.src = aws.usw1
+        aws.dst = aws.usw2
+      }
+    }
+  ```
