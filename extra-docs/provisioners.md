@@ -126,3 +126,12 @@
     }
   }
   ```
+### TO DO
+<details>
+<summary> Preview </summary>
+
+- [ ] trrigers
+- [ ] for_each
+- [ ] filter
+
+</details>
