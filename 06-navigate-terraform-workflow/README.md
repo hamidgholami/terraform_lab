@@ -68,3 +68,8 @@ There are many different ways to use Terraform:
 
     ### Copy a Source Module
     -  `init` can be run against an empty directory with the `-from-module=MODULE-SOURCE` option, in which case the given module will be copied into the target directory before any other initialization steps are run.
+       -  This special mode of operation supports two use-cases:
+          -  Given a version control source, it can serve as a shorthand for checking out a configuration from version control and then initializing the working directory for it.
+          -  If the source refers to an example configuration, it can be copied into a local directory to be used as a basis for a new configuration.
+    - For routine use it is recommended to check out configuration from version control separately, using the version control system's own commands.
+    - 
