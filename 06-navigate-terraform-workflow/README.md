@@ -24,7 +24,9 @@
     - Working in **branches** enables team members to resolve mutually incompatible infrastructure changes using their normal merge conflict workflow.
     - As the team and the infrastructure grows, so does the number of <ins>sensitive input variables</ins> (e.g. API Keys, SSL Cert Pairs) *required* to run a plan.
     - For resolving previus challenge it's common for teams to **migrate** to a model in which Terraform operations are executed <br /> in <ins>a shared **C**ontinuous **I**ntegration (**CI**) environment</ins>.
-  <br />
+  
+    <br />
+
     > ### Running Terraform in Automation
     >When running Terraform in automation, the focus is usually on the core plan/>apply cycle. The main path, then, is broadly the same as for CLI usage:
     >
