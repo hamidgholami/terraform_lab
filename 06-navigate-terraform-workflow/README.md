@@ -23,7 +23,7 @@
     ### Write
     - Working in **branches** enables team members to resolve mutually incompatible infrastructure changes using their normal merge conflict workflow.
     - As the team and the infrastructure grows, so does the number of <ins>sensitive input variables</ins> (e.g. API Keys, SSL Cert Pairs) *required* to run a plan.
-    - For resolving previus challenge it's common for teams to **migrate** to a model in which Terraform operations are executed <br /> in <ins>a shared **C**ontinuous **I**ntegration (**CI**) environment</ins>.
+    - For resolving previous challenge it's common for teams to **migrate** to a model in which Terraform operations are executed <br /> in <ins>a shared **C**ontinuous **I**ntegration (**CI**) environment</ins>. We can use `CircleCI`, `Gihub Action`, `Gitlab`, `Jenkins` etc.
   
     <br />
 
