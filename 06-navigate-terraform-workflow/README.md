@@ -35,10 +35,10 @@
     >3. Have a human operator review that plan, to ensure it is acceptable.
     >4. Apply the changes described by the plan.
     >
-    >Steps 1, 2 and 4 can be carried out using the familiar Terraform CLI commands, >with some additional options:
+    >Steps 1, 2 and 4 can be carried out using the familiar Terraform CLI commands, with some additional options:
     >
-    >`terraform init -input=false` to initialize the working directory.
-    >`terraform plan -out=tfplan -input=false` to create a plan and save it to the local file `tfplan`.
+    >`terraform init -input=false` to initialize the working directory.<br />
+    >`terraform plan -out=tfplan -input=false` to create a plan and save it to the local file `tfplan`.<br />
     >`terraform apply -input=false tfplan` to apply the plan stored in the file `tfplan`.
 
     ### Plan
