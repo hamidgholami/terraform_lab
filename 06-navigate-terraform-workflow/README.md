@@ -43,7 +43,7 @@
     >`terraform apply -input=false tfplan` to apply the plan stored in the file `tfplan`.
 
     ### Plan
-    - For teams collaborating on infrastructure, Terraform's plan output creates an opportunity for team members to **review each other's work**.
+    - For teams collaborating on infrastructure, Terraform's plan output creates an opportunity for team members<br /> to **review each other's work**.
     - The natural place for these reviews to occur is alongside **pull requests** within version control.
     - For example, if a team notices that a certain change could result in service *disruption*, they may decide to *delay merging* its pull request until they can *schedule a maintenance window*.
 
