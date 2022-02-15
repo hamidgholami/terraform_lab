@@ -1,5 +1,9 @@
 # Navigate Terraform workflow
 
+There are many different ways to use Terraform: 
+1. As an individual user 
+2. A single team
+3. An entire organization at scale. 
 ### The Core Terraform Workflow
 - The core Terraform workflow has three steps:
   1. **Write** - Author infrastructure as code.
@@ -55,3 +59,4 @@
       - Is there anything in our system that we should be watching as we apply this?
       - Is there anyone we need to notify that this change is happening?
 ### The Core Workflow Enhanced by Terraform Cloud
+-  Terraform Cloud is designed to support and enhance the core Terraform workflow for anyone collaborating on infrastructure, from small teams to large organizations.
