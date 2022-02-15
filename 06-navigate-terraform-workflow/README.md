@@ -23,7 +23,7 @@
     ### Write
     - Working in **branches** enables team members to resolve mutually incompatible infrastructure changes using their normal merge conflict workflow.
     - As the team and the infrastructure grows, so does the number of <ins>sensitive input variables</ins> (e.g. API Keys, SSL Cert Pairs) *required* to run a plan.
-    - For resolving previous challenge it's common for teams to **migrate** to a model in which Terraform operations are executed <br /> in <ins>a shared **C**ontinuous **I**ntegration (**CI**) environment</ins>. We can use `CircleCI`, `Gihub Action`, `Gitlab`, `Jenkins` etc.
+    - For resolving previous challenge it's common for teams to **migrate** to a model in which **Terraform operations are executed** <br /> in <ins>a shared **C**ontinuous **I**ntegration (**CI**) environment</ins>. We can use `CircleCI`, `Gihub Action`, `Gitlab`, `Jenkins` etc.
   
     <br />
 
@@ -43,9 +43,15 @@
     >`terraform apply -input=false tfplan` to apply the plan stored in the file `tfplan`.
 
     ### Plan
+    - For teams collaborating on infrastructure, Terraform's plan output creates an opportunity for team members to **review each other's work**.
+    - The natural place for these reviews to occur is alongside **pull requests** within version control.
+    - For example, if a team notices that a certain change could result in service *disruption*, they may decide to *delay merging* its pull request until they can *schedule a maintenance window*.
 
     ### Apply
-
-
-
+    - Once a pull request has been approved and merged, it's important for the team to review the final **concrete plan** that's run against the shared team branch and the *latest version of the state file*.
+    - Operation team might be asked these questions:
+      - Do we expect any service disruption from this change?
+      - Is there any part of this change that is high risk?
+      - Is there anything in our system that we should be watching as we apply this?
+      - Is there anyone we need to notify that this change is happening?
 ### The Core Workflow Enhanced by Terraform Cloud
