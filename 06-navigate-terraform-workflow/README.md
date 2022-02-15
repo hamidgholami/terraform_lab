@@ -60,3 +60,5 @@ There are many different ways to use Terraform:
       - Is there anyone we need to notify that this change is happening?
 ### The Core Workflow Enhanced by Terraform Cloud
 -  Terraform Cloud is designed to support and enhance the core Terraform workflow for anyone collaborating on infrastructure, from small teams to large organizations.
+
+### Command: init
