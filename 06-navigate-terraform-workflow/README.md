@@ -28,7 +28,8 @@
     <br />
 
     > ### Running Terraform in Automation
-    >When running Terraform in automation, the focus is usually on the core plan/>apply cycle. The main path, then, is broadly the same as for CLI usage:
+    ><br />
+    >When running Terraform in automation, the focus is usually on the core plan/apply cycle. The main path, then, is broadly the same as for CLI usage:
     >
     >1. Initialize the Terraform working directory.
     >2. Produce a plan for changing resources to match the current configuration.
