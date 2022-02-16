@@ -152,8 +152,8 @@ There are many different ways to use Terraform:
 - You can use the optional `-out=FILE` option to save the generated plan to a file on disk.
 
     ### Planning Modes
-    - **Destroy mode:** creates a plan whose goal is to *destroy all remote objects* that currently exist, leaving an empty Terraform state. (`-destroy`)
-    - **Refresh-only mode:** creates a plan whose goal is only to update the Terraform state. (-refresh-only)
+    - **Destroy mode:** creates a plan whose goal is to *destroy all remote objects* that currently exist, <br />leaving an empty Terraform state. (`-destroy`)
+    - **Refresh-only mode:** creates a plan whose goal is only to update the Terraform state. (`-refresh-only`)
 
     ### Planning Options
     - `-refresh=false` - Disables the default behavior of synchronizing the Terraform state with remote objects before checking for configuration changes. This can make the planning operation **faster**.
