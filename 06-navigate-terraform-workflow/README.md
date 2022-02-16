@@ -143,4 +143,20 @@ There are many different ways to use Terraform:
 - `detail` (string): An optional additional message giving more detail about the problem.
 
 ### Command: plan
-- The `terraform plan` command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure
+- The `terraform plan` command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure.
+- By default, when Terraform creates a plan it:
+  - Reads the current state of any already-existing remote objects.
+  - Compares the current configuration to the prior state.
+  - Proposes a set of change actions that should.
+
+- You can use the optional `-out=FILE` option to save the generated plan to a file on disk.
+
+    ### Planning Modes
+    - **Destroy mode:** creates a plan whose goal is to *destroy all remote objects* that currently exist, leaving an empty Terraform state. (`-destroy`)
+    - **Refresh-only mode:** creates a plan whose goal is only to update the Terraform state. (-refresh-only)
+
+    ### Planning Options
+    - `-refresh=false` - Disables the default behavior of synchronizing the Terraform state with remote objects before checking for configuration changes. This can make the planning operation **faster**.
+    - `-target=ADDRESS` - Instructs Terraform to focus its planning efforts only on resource instances which match the given address and on any objects that those instances depend on.
+    - `-var-file=FILENAME` - Sets values for potentially many input variables declared in the root module of the configuration, using definitions from a "`tfvars`" file.
+    - `-out=FILENAME` - Writes the generated plan to the given filename in an opaque file format
