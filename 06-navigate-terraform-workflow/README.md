@@ -72,4 +72,6 @@ There are many different ways to use Terraform:
           -  Given a version control source, it can serve as a shorthand **for checking out** a configuration <ins>from version control</ins> and then initializing the working directory for it.
           -  If the source refers to an example configuration, it can be copied into a local directory to be used as a basis for a new configuration.
     - For routine use it is recommended to check out configuration from version control separately, using the version control system's own commands.
-    - 
+  
+
+- **Backends** define where <ins>Terraform's state snapshots</ins> are stored.
