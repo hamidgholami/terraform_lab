@@ -117,3 +117,30 @@ There are many different ways to use Terraform:
     ```sh
     terraform init -backend=false
     ```
+- JSON output format for validate command. Below is an example of that ouput
+  
+    ```sh
+    {
+      "format_version": "1.0",
+      "valid": false,
+      "error_count": 1,
+      "warning_count": 0,
+      "diagnostics": [
+        {
+          "severity": "error",
+          "summary": "Cycle: aws_security_group.sg_ping, aws_security_group.sg_8080",
+          "detail": ""
+        }
+      ]
+    }
+    ```
+- `valid` (boolean): Summarizes the overall validation result
+- `error_count` (number): A zero or positive whole number giving the count of errors Terraform detected.
+- `warning_count` (number): A zero or positive whole number giving the count of warnings Terraform detected. 
+- `diagnostics` (array of objects): A JSON array of nested objects that each describe an error or warning from Terraform.
+- `severity` (string): A string keyword, currently either "error" or "warning", indicating the diagnostic severity.
+- `summary` (string): A short description of the nature of the problem that the diagnostic is reporting.
+- `detail` (string): An optional additional message giving more detail about the problem.
+
+### Command: plan
+- The `terraform plan` command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure
