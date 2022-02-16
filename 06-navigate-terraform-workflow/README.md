@@ -62,14 +62,14 @@ There are many different ways to use Terraform:
 -  Terraform Cloud is designed to support and enhance the core Terraform workflow for anyone collaborating on infrastructure, from small teams to large organizations.
 
 ### Command: init
-- The terraform init command is used to **initialize a working directory** containing Terraform *configuration files*.
+- The `terraform init` command is used to **initialize a working directory** containing Terraform *configuration files*.
 - This command is always safe to run **multiple** times.
 - This command <ins>will never delete</ins> your existing configuration or state.
 
     ### Copy a Source Module
-    -  `init` can be run against an empty directory with the `-from-module=MODULE-SOURCE` option, in which case the given module will be copied into the target directory before any other initialization steps are run.
-       -  This special mode of operation supports two use-cases:
-          -  Given a version control source, it can serve as a shorthand for checking out a configuration from version control and then initializing the working directory for it.
+    -  `init` can be run against <ins>an empty directory</ins> with the `-from-module=MODULE-SOURCE` option, in which case <ins>the given module will be copied into the target directory</ins> before any other initialization steps are run.
+       -  This special mode of operation supports <ins>two use-cases</ins>:
+          -  Given a version control source, it can serve as a shorthand **for checking out** a configuration <ins>from version control</ins> and then initializing the working directory for it.
           -  If the source refers to an example configuration, it can be copied into a local directory to be used as a basis for a new configuration.
     - For routine use it is recommended to check out configuration from version control separately, using the version control system's own commands.
     - 
