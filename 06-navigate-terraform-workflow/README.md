@@ -104,7 +104,7 @@ There are many different ways to use Terraform:
     - Use `-upgrade` to override this behavior, updating all modules to the latest available source code.
 
     ### Plugin Installation
-    - `terraform init` will automatically find, download, and install the necessary provider plugins
+    - `terraform init` will automatically find, download, and install the necessary provider plugins.
     - `-get-plugins=false` — Skip plugin installation.
-    - `-plugin-dir=PATH` — Force plugin installation to read plugins only from the specified directory,
+    - `-plugin-dir=PATH` — Force plugin installation to read plugins only from the specified directory.
   
