@@ -107,4 +107,13 @@ There are many different ways to use Terraform:
     - `terraform init` will automatically find, download, and install the necessary provider plugins.
     - `-get-plugins=false` — Skip plugin installation.
     - `-plugin-dir=PATH` — Force plugin installation to read plugins only from the specified directory.
-  
+
+### Command: validate
+- The `terraform validate` command validates the configuration files in a directory, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
+- Validate runs checks that verify whether a configuration is syntactically valid and internally consistent.
+- It is safe to run this command automatically, for example as a post-save check in a text editor or as a test step for a **re-usable** module in a **CI** system.
+- Validation *requires* **an initialized working directory** with any referenced **plugins** and **modules installed**.
+- To initialize a working directory for validation <ins>without accessing any configured backend</ins>, use:
+    ```sh
+    terraform init -backend=false
+    ```
