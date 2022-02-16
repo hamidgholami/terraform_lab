@@ -79,3 +79,32 @@ There are many different ways to use Terraform:
     > - **Backends** define where <ins>Terraform's state snapshots</ins> are stored.
     > - Terraform defaults to using the `local` backend,
     > - We can use `remote` backend for storing Terraform snapshots.
+
+    </br >
+
+    ### Backend Initialization
+    - The `-migrate-state` option will attempt to copy *existing state* to the **new backend**.
+    - The `-reconfigure` option disregards any existing configuration, **preventing migration** of any existing state.
+    - The `-backend-config=...` option can be used for partial backend configuration, in situations where the backend settings are **dynamic or sensitive** and so *cannot be statically specified* in the configuration file.
+    - For an instance this is a backend config file (e.g `config.consul.tfbackend`):
+        ```tf
+        address = "demo.consul.io"
+        path    = "example_app/terraform_state"
+        scheme  = "https"
+        ```
+    - And we use `backend` block in `main.tf`.
+        ```tf
+        terraform {  
+            backend "consul" {}
+        }
+        ```
+    ### Child Module Installation
+
+    - During `init`, the configuration is searched for module blocks, and the `source` code for referenced modules is retrieved from the locations given in their `source` arguments.
+    - Use `-upgrade` to override this behavior, updating all modules to the latest available source code.
+
+    ### Plugin Installation
+    - `terraform init` will automatically find, download, and install the necessary provider plugins
+    - `-get-plugins=false` — Skip plugin installation.
+    - `-plugin-dir=PATH` — Force plugin installation to read plugins only from the specified directory,
+  
