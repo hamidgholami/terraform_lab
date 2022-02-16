@@ -73,5 +73,9 @@ There are many different ways to use Terraform:
           -  If the source refers to an example configuration, it can be copied into a local directory to be used as a basis for a new configuration.
     - For routine use it is recommended to check out configuration from version control separately, using the version control system's own commands.
   
+  <br />
 
-- **Backends** define where <ins>Terraform's state snapshots</ins> are stored.
+    > ### Backend
+    > - **Backends** define where <ins>Terraform's state snapshots</ins> are stored.
+    > - Terraform defaults to using the `local` backend,
+    > - We can use `remote` backend for storing Terraform snapshots.
