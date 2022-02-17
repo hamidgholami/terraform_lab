@@ -162,6 +162,13 @@ There are many different ways to use Terraform:
     - `-out=FILENAME` - Writes the generated plan to the given filename in an opaque file format
 
 ### Command: apply
+- Another way to use `terraform apply` is to pass it the filename of a saved plan file you created earlier with `terraform plan -out=...`, in which case Terraform will apply the changes in the plan without any confirmation prompt.
+- We can use `terraform apply -auto-approve` for skipping confirmation prompt.
+- `-input=false`  - Mostly it uses in running Terraform in automation.
+- Switching working directory with `-chdir`.
+  ```sh
+  terraform -chdir=environments/production apply
+  ```
 
 ### Command: destroy
 - The `terraform destroy` command is a convenient way to destroy all remote objects managed by a particular Terraform configuration.
