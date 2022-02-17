@@ -160,3 +160,18 @@ There are many different ways to use Terraform:
     - `-target=ADDRESS` - Instructs Terraform to focus its planning efforts only on resource instances which match the given address and on any objects that those instances depend on.
     - `-var-file=FILENAME` - Sets values for potentially many input variables declared in the root module of the configuration, using definitions from a "`tfvars`" file.
     - `-out=FILENAME` - Writes the generated plan to the given filename in an opaque file format
+
+### Command: apply
+
+### Command: destroy
+- The `terraform destroy` command is a convenient way to destroy all remote objects managed by a particular Terraform configuration.
+- `terraform destroy` is just a convenience alias for the following command:
+
+  ```sh
+  terraform apply -destroy
+  ```
+- Also we can create a destroy plan, to see what the effect of destroying would be.
+
+  ```sh
+  terraform plan -destroy
+  ```
