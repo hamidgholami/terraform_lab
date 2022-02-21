@@ -424,142 +424,219 @@
     https://learn.hashicorp.com/terraform/getting-started/provision
     ```
 62. Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens. Why?
-Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens, because that would go against the execution plan: the execution plan would've said a resource will be created, but does not say it will ever be deleted. If you create an execution plan with a tainted resource, however, the plan will clearly state that the resource will be destroyed because it is tainted.
-https://learn.hashicorp.com/terraform/getting-started/provision
+    ```txt
+    Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens, because that would go against the execution plan: the execution plan would've said a resource will be created, but does not say it will ever be deleted. If you create an execution plan with a tainted resource, however, the plan will clearly state that the resource will be destroyed because it is tainted.
+    https://learn.hashicorp.com/terraform/getting-started/provision
+    ```
 63. How do you manually taint a resource?
-terraform taint resource.id
+    ```txt
+    terraform taint resource.id
+    ```
 64. Does the taint command modify the infrastructure?
-terraform taint resource.id
-This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+    ```txt
+    terraform taint resource.id
+    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+    ```
 65. By default, provisioners that fail will also cause the Terraform apply itself to fail. Is this true?
-True
+    ```txt
+    True
+    ```
 66. By default, provisioners that fail will also cause the Terraform apply itself to fail. How do you change this?
-The on_failure setting can be used to change this. 
-The allowed values are:
-continue: Ignore the error and continue with creation or destruction.
-fial: Raise an error and stop applying (the default behavior). If this is a creation provisioner, taint the resource.
+    ```txt
+    The on_failure setting can be used to change this. 
+    The allowed values are:
+    continue: Ignore the error and continue with creation or destruction.
+    fial: Raise an error and stop applying (the default behavior). If this is a creation provisioner, taint the resource.
 
-// Example
-resource "aws_instance" "web" {
-  # ...
+    // Example
+    resource "aws_instance" "web" {
+      # ...
 
-  provisioner "local-exec" {
-    command  = "echo The server's IP address is ${self.private_ip}"
-    on_failure = "continue"
-  }
-}
-67. How do you define destroy provisioner and give an example?
-You can define destroy provisioner with the parameter when
-provisioner "remote-exec" {
-    when = "destroy"
+      provisioner "local-exec" {
+        command  = "echo The server's IP address is ${self.private_ip}"
+        on_failure = "continue"
+      }
+    }
+    1.  How do you define destroy provisioner and give an example?
+    You can define destroy provisioner with the parameter when
+    provisioner "remote-exec" {
+        when = "destroy"
 
-    # <...snip...>
+        # <...snip...>
 
-}
-68. How do you apply constraints for the provider versions?
-The required_providers setting is a map specifying a version constraint for each provider required by your configuration.
-terraform {
-  required_providers {
-    aws = ">= 2.7.0"
-  }
-}
+    }
+    ```
+67. How do you apply constraints for the provider versions?
+    ```txt
+    The required_providers setting is a map specifying a version constraint for each provider required by your configuration.
+    terraform {
+      required_providers {
+        aws = ">= 2.7.0"
+      }
+    }
+    ```
 69. What should you use to set both a lower and upper bound on versions for each provider?
-~>
-terraform {
-  required_providers {
-    aws = "~> 2.7.0"
-  }
-}
+    ```txt
+    ~>
+    terraform {
+      required_providers {
+        aws = "~> 2.7.0"
+      }
+    }
+    ```
 70. How do you try experimental features?
-In releases where experimental features are available, you can enable them on a per-module basis by setting the experiments argument inside a terraform block:
-terraform {
-  experiments = [example]
-}
+    ```txt
+    In releases where experimental features are available, you can enable them on a per-module basis by setting the experiments argument inside a terraform block:
+    terraform {
+      experiments = [example]
+    }
+    ```
 71. When does the terraform does not recommend using provisions?
-Passing data into virtual machines and other compute resources
-https://www.terraform.io/docs/provisioners/#passing-data-into-virtual-machines-and-other-compute-resources
-Running configuration management software
-https://www.terraform.io/docs/provisioners/#running-configuration-management-software
+    ```txt
+    Passing data into virtual machines and other compute resources
+    https://www.terraform.io/docs/provisioners/#passing-data-into-virtual-machines-and-other-compute-resources
+    Running configuration management software
+    https://www.terraform.io/docs/provisioners/#running-configuration-management-software
+    ```
 72. Expressions in provisioner blocks cannot refer to their parent resource by name. Is this true?
-True
-The self object represents the provisioner's parent resource, and has all of that resource's attributes. 
-For example, use self.public_ip to reference an aws_instance's public_ip attribute.
+    ```txt
+    True
+    
+    The self object represents the provisioner's parent resource, and has all of that resource's attributes. 
+    For example, use self.public_ip to reference an aws_instance's public_ip attribute.
+    ```
 73. What does this symbol version = “~> 1.0” mean when defining versions?
-Any version more than 1.0 and less than 2.0
+    ```txt
+    Any version more than 1.0 and less than 2.0
+    ```
 74. Terraform supports both cloud and on-premises infrastructure platforms. Is this true?
-True
+    ```txt
+    True
+    ```
 75. Terraform assumes an empty default configuration for any provider that is not explicitly configured. A provider block can be empty. Is this true?
-True
+    ```txt
+    True
+    ```
 76. How do you configure the required version of Terraform CLI can be used with your configuration?
-The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration. If the running version of Terraform doesn't match the constraints specified, Terraform will produce an error and exit without taking any further actions.
+    ```txt
+    The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration. If the running version of Terraform doesn't match the constraints specified, Terraform will produce an error and exit without taking any further actions.
+    ```
 77. Terraform CLI versions and provider versions are independent of each other. Is this true?
-True
+    ```txt
+    True
+    ```
 78. You are configuring aws provider and it is always recommended to hard code aws credentials in *.tf files. Is this true?
-False
-HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
-If you leave out your AWS credentials, Terraform will automatically search for saved API credentials (for example, in ~/.aws/credentials) or IAM instance profile credentials. This is cleaner when .tf files are checked into source control or if there is more than one admin user
+    ```txt
+    False
+    HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
+    If you leave out your AWS credentials, Terraform will automatically search for saved API credentials (for example, in ~/.aws/credentials) or IAM instance profile credentials. This is cleaner when .tf files are checked into source control or if there is more than one admin user
+    ```
 79. You are provisioning the infrastructure with the command terraform apply and you noticed one of the resources failed. How do you remove that resource without affecting the whole infrastructure?
-You can taint the resource ans the next apply will destroy the resource
-terraform taint <resource.id>
-Use the Terraform CLI (outside of core workflow)
-Practice questions based on these concepts
-Given a scenario: choose when to use terraform fmt to format code
-Given a scenario: choose when to use terraform taint to taint Terraform resources
-Given a scenario: choose when to use terraform import to import existing infrastructure into your Terraform state
-Given a scenario: choose when to use terraform workspace to create workspaces
-Given a scenario: choose when to use terraform state to view Terraform state
-Given a scenario: choose when to enable verbose logging and what the outcome/value is
+    ```txt
+    You can taint the resource ans the next apply will destroy the resource
+    terraform taint <resource.id>
+    Use the Terraform CLI (outside of core workflow)
+    Practice questions based on these concepts
+    Given a scenario: choose when to use terraform fmt to format code
+    Given a scenario: choose when to use terraform taint to taint Terraform resources
+    Given a scenario: choose when to use terraform import to import existing infrastructure into your Terraform state
+    Given a scenario: choose when to use terraform workspace to create workspaces
+    Given a scenario: choose when to use terraform state to view Terraform state
+    Given a scenario: choose when to enable verbose logging and what the outcome/value is
+    ```
 80. What is command fmt?
-The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
+    ```txt
+    The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
+    ```
 81. What is the recommended approach after upgrading terraform?
-The canonical format may change in minor ways between Terraform versions, so after upgrading Terraform we recommend to proactively run terraform fmt on your modules along with any other changes you are making to adopt the new version.
+    ```txt
+    The canonical format may change in minor ways between Terraform versions, so after upgrading Terraform we recommend to proactively run terraform fmt on your modules along with any other changes you are making to adopt the new version.
+    ```
 82. What is the command usage?
-terraform fmt [options] [DIR]
+    ```txt
+    terraform fmt [options] [DIR]
+    ```
 83. By default, fmt scans the current directory for configuration files. Is this true?
-True
-By default, fmt scans the current directory for configuration files. If the dir argument is provided then it will scan that given directory instead. If dir is a single dash (-) then fmt will read from standard input (STDIN).
+    ```txt
+    True
+    By default, fmt scans the current directory for configuration files. If the dir argument is provided then it will scan that given directory instead. If dir is a single dash (-) then fmt will read from standard input (STDIN).
+    ```
 84. You are formatting the configuration files and what is the flag you should use to see the differences?
-terraform fmt -diff
+    ```txt
+    terraform fmt -diff
+    ```
 85. You are formatting the configuration files and what is the flag you should use to process the subdirectories as well?
-terraform fmt -recursive
+    ```txt
+    terraform fmt -recursive
+    ```
 86. You are formatting configuration files in a lot of directories and you don’t want to see the list of file changes. What is the flag that you should use?
-terraform fmt -list=false
+    ```txt
+    terraform fmt -list=false
+    ```
 87. What is the command taint?
-The terraform taint command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed and recreated on the next apply.
-This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+    ```txt
+    The terraform taint command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed and recreated on the next apply.
+    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+    ```
 88. What is the command usage?
-terraform taint [options] address
-The address argument is the address of the resource to mark as tainted. The address is in the resource address syntax syntax
+    ```txt
+    terraform taint [options] address
+    The address argument is the address of the resource to mark as tainted. The address is in the resource address syntax syntax
+    ```
 89. When you are tainting a resource terraform reads the default state file terraform.tfstate. What is the flag you should use to read from a different path?
-terraform taint -state=path
+    ```txt
+    terraform taint -state=path
+    ```
 90. Give an example of tainting a single resource?
-terraform taint aws_security_group.allow_all
-The resource aws_security_group.allow_all in the module root has been marked as tainted.
+    ```txt
+    terraform taint aws_security_group.allow_all
+    The resource aws_security_group.allow_all in the module root has been marked as tainted.
+    ```
 91. Give an example of tainting a resource within a module?
-terraform taint "module.couchbase.aws_instance.cb_node[9]"
-Resource instance module.couchbase.aws_instance.cb_node[9] has been marked as tainted.
+    ```txt
+    terraform taint "module.couchbase.aws_instance.cb_node[9]"
+    Resource instance module.couchbase.aws_instance.cb_node[9] has been marked as tainted.
+    ```
 92. What is the command import?
-The terraform import command is used to import existing resources into Terraform.
-Terraform is able to import existing infrastructure. This allows you take resources you've created by some other means and bring it under Terraform management.
-This is a great way to slowly transition infrastructure to Terraform, or to be able to be confident that you can use Terraform in the future if it potentially doesn't support every feature you need today.
+    ```txt
+    The terraform import command is used to import existing resources into Terraform.
+    Terraform is able to import existing infrastructure. This allows you take resources you've created by some other means and bring it under Terraform management.
+    This is a great way to slowly transition infrastructure to Terraform, or to be able to be confident that you can use Terraform in the future if it potentially doesn't support every feature you need today.
+    ```
 93. What is the command import usage?
-terraform import [options] ADDRESS ID
+    ```txt
+    terraform import [options] ADDRESS ID
+    ```
 94. What is the default workspace name?
-default
+    ```txt
+    default
+    ```
 95. What are workspaces?
-Each Terraform configuration has an associated backend that defines how operations are executed and where persistent data such as the Terraform state are stored.
-The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace, called "default", and thus there is only one Terraform state associated with that configuration.
-Certain backends support multiple named workspaces, allowing multiple states to be associated with a single configuration.
+    ```txt
+    Each Terraform configuration has an associated backend that defines how operations are executed and where persistent data such as the Terraform state are stored.
+    The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace, called "default", and thus there is only one Terraform state associated with that configuration.
+    Certain backends support multiple named workspaces, allowing multiple states to be associated with a single configuration.
+    ```
 96. What is the command to list the workspaces?
-terraform workspace list
+    ```txt
+    terraform workspace list
+    ```
 97. What is the command to create a new workspace?
-terraform workspace new <name>
+    ```txt
+    terraform workspace new <name>
+    ```
 98. What is the command to show the current workspace?
-terraform workspace show
+    ```txt
+    terraform workspace show
+    ```
 99. What is the command to switch the workspace?
-terraform workspace select <workspace name>
+    ```txt
+    terraform workspace select <workspace name>
+    ```
 100. What is the command to delete the workspace?
-terraform workspace delete <workspace name>
+    ```txt
+    terraform workspace delete <workspace name>
+    ```
 101. Can you delete the default workspace?
 No. You can't ever delete default workspace
 102. You are working on the different workspaces and you want to use a different number of instances based on the workspace. How do you achieve that?
