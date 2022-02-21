@@ -992,71 +992,109 @@
      ```txt
      True
      ```
-1.   When using a new module for the first time, you must run either terraform init or terraform get to install the module. Is this true?
-True
-1.   When installing the modules and where does the terraform save these modules?
-.terraform/modules
-// Example
-.terraform/modules
-├── ec2_instances
-│   └── terraform-aws-modules-terraform-aws-ec2-instance-ed6dcd9
-├── modules.json
-└── vpc
-    └── terraform-aws-modules-terraform-aws-vpc-2417f60
-1.   What is the required argument for the module?
-source
-All modules require a source argument, which is a meta-argument defined by Terraform CLI. Its value is either the path to a local directory of the module's configuration files, or a remote module source that Terraform should download and use. This value must be a literal string with no template sequences; arbitrary expressions are not allowed. For more information on possible values for this argument, see Module Sources.
-1.   What are the other optional meta-arguments along with the source when defining modules
-version - (Optional) A version constraint string that specifies which versions of the referenced module are acceptable. The newest version matching the constraint will be used. version is supported only for modules retrieved from module registries.
-providers - (Optional) A map whose keys are provider configuration names that are expected by child module and whose values are corresponding provider names in the calling module. This allows provider configurations to be passed explicitly to child modules. If not specified, the child module inherits all of the default (un-aliased) provider configurations from the calling module.
-Navigate Terraform workflow
-Practice questions based on these concepts
-Describe Terraform workflow ( Write -> Plan -> Create )
-Initialize a Terraform working directory (terraform init)
-Validate a Terraform configuration (terraform validate)
-Generate and review an execution plan for Terraform (terraform plan)
-Execute changes to infrastructure with Terraform (terraform apply)
-Destroy Terraform managed infrastructure (terraform destroy)
-1.   What is the Core Terraform workflow?
-The core Terraform workflow has three steps:
-1. Write - Author infrastructure as code.
-2. Plan - Preview changes before applying.
-3. Apply - Provision reproducible infrastructure.
-4.   What is the workflow when you work as an Individual Practitioner?
-https://www.terraform.io/guides/core-workflow.html#working-as-an-individual-practitioner
-1.   What is the workflow when you work as a team?
-https://www.terraform.io/guides/core-workflow.html#working-as-a-team
-1.   What is the workflow when you work as a large organization?
-https://www.terraform.io/guides/core-workflow.html#the-core-workflow-enhanced-by-terraform-cloud
-1.   What is the command init?
-The terraform init command is used to initialize a working directory containing Terraform configuration files. 
-This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. 
-It is safe to run this command multiple times.
-1.   You recently joined a team and you cloned a terraform configuration files from the version control system. What is the first command you should use?
-terraform init
-This command performs several different initialization steps in order to prepare a working directory for use.
-This command is always safe to run multiple times, to bring the working directory up to date with changes in the configuration. 
-Though subsequent runs may give errors, this command will never delete your existing configuration or state.
-If no arguments are given, the configuration in the current working directory is initialized. It is recommended to run Terraform with the current working directory set to the root directory of the configuration, and omit the DIR argument.
-https://www.terraform.io/docs/commands/init.html
-1.   What is the flag you should use to upgrade modules and plugins a part of their respective installation steps?
-upgrade
-terraform init -upgrade
-1.   When you are doing initialization with terraform init, you want to skip backend initialization. What should you do?
-terraform init -backend=false
-1.   When you are doing initialization with terraform init, you want to skip child module installation. What should you do?
+146. When using a new module for the first time, you must run either terraform init or terraform get to install the module. Is this true?
+     ```txt
+     True
+     ```
+147. When installing the modules and where does the terraform save these modules?
+     ```txt
+     .terraform/modules
+     // Example
+     .terraform/modules
+     ├── ec2_instances
+     │   └── terraform-aws-modules-terraform-aws-ec2-instance-ed6dcd9
+     ├── modules.json
+     └── vpc
+         └── terraform-aws-modules-terraform-aws-vpc-2417f60
+     ```
+148. What is the required argument for the module?
+     ```txt
+     source
+     All modules require a source argument, which is a meta-argument defined by Terraform CLI. Its value is either the path to a local directory of the module's configuration files, or a remote module source that Terraform should download and use. This value must be a literal string with no template sequences; arbitrary expressions are not allowed. For more information on possible values for this argument, see Module Sources.
+     ```
+149. What are the other optional meta-arguments along with the source when defining modules?
+     ```txt
+     version - (Optional) A version constraint string that specifies which versions of the referenced module are acceptable. The newest version matching the constraint will be used. version is supported only for modules retrieved from module registries.
+     providers - (Optional) A map whose keys are provider configuration names that are expected by child module and whose values are corresponding provider names in the calling module. This allows provider configurations to be passed explicitly to child modules. If not specified, the child module inherits all of the default (un-aliased) provider configurations from the calling module.
+     ```
+150. What is the Core Terraform workflow?
+     ```txt
+     The core Terraform workflow has three steps:
+     1. Write - Author infrastructure as code.
+     2. Plan - Preview changes before applying.
+     3. Apply - Provision reproducible infrastructure.
+     ```
+151. What is the workflow when you work as an Individual Practitioner?
+
+     ```txt
+     https://www.terraform.io/guides/core-workflow.html#working-as-an-individual-practitioner
+     ```
+152. What is the workflow when you work as a team?
+
+     ```txt
+     https://www.terraform.io/guides/core-workflow.html#working-as-a-team
+     ```
+153. What is the workflow when you work as a large organization?
+
+     ```txt
+     https://www.terraform.io/guides/core-workflow.html#the-core-workflow-enhanced-by-terraform-cloud
+     ```
+
+154. What is the command init?
+
+     ```txt
+     The terraform init command is used to initialize a working directory containing Terraform configuration files. 
+     This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. 
+     It is safe to run this command multiple times.
+     ```
+155. You recently joined a team and you cloned a terraform configuration files from the version control system. What is the first command you should use?
+
+     ```txt
+     terraform init
+     This command performs several different initialization steps in order to prepare a working directory for use.
+     This command is always safe to run multiple times, to bring the working directory up to date with changes in the configuration. 
+     Though subsequent runs may give errors, this command will never delete your existing configuration or state.
+     If no arguments are given, the configuration in the current working directory is initialized. It is recommended to run Terraform with the current working directory set to the root directory of the configuration, and omit the DIR argument.
+     https://www.terraform.io/docs/commands/init.html
+     ```
+156. What is the flag you should use to upgrade modules and plugins a part of their respective installation steps?
+
+     ```txt
+     upgrade
+     terraform init -upgrade
+     ```
+157. When you are doing initialization with terraform init, you want to skip backend initialization. What should you do?
+
+     ```txt
+     terraform init -backend=false
+     ```
+158. When you are doing initialization with terraform init, you want to skip child module installation. What should you do?
+
+```txt
 terraform init -get=false
-1.   When you are doing initialization where do all the plugins stored?
-On most operationg systems :         ~/.terraform.d/plugins
-on Windows                 :         %APPDATA%\terraform.d\plugins
-1.   When you are doing initialization with terraform init, you want to skip plugin installation. What should you do?
-terraform init -get-plugins=false
-Skips plugin installation. Terraform will use plugins installed in the user plugins directory, and any plugins already installed for the current working directory. If the installed plugins aren't sufficient for the configuration, init fails.
-1.   What does the command terraform validate does?
-The terraform validate command validates the configuration files in a directory, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
-Validate runs checks that verify whether a configuration is syntactically valid and internally consistent, regardless of any provided variables or existing state. 
-It is thus primarily useful for general verification of reusable modules, including correctness of attribute names and value types.
-https://www.terraform.io/docs/commands/validate.html
+```
+
+159. When you are doing initialization where do all the plugins stored?
+
+     ```txt
+     On most operationg systems :         ~/.terraform.d/plugins
+     on Windows                 :         %APPDATA%\terraform.d\plugins
+     ```
+160. When you are doing initialization with terraform init, you want to skip plugin installation. What should you do?
+
+     ```txt
+     terraform init -get-plugins=false
+     Skips plugin installation. Terraform will use plugins installed in the user plugins directory, and any plugins already installed for the current working directory. If the installed plugins aren't sufficient for the configuration, init fails.
+     ```
+161. What does the command terraform validate does?
+
+     ```txt
+     The terraform validate command validates the configuration files in a directory, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
+     Validate runs checks that verify whether a configuration is syntactically valid and internally consistent, regardless of any provided variables or existing state. 
+     It is thus primarily useful for general verification of reusable modules, including correctness of attribute names and value types.
+     https://www.terraform.io/docs/commands/validate.html
+     ```
+
 1.   What does the command plan do?
 The terraform plan command is used to create an execution plan. Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files.
 1.   What does the command apply do?
