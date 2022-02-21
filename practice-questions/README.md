@@ -933,45 +933,65 @@
      You can access them by referring
      module.<MODULE NAME>.<OUTPUT NAME>
      ```
-1.   Where do you put output variables in the configuration?
-Module outputs are usually either passed to other parts of your configuration, or defined as outputs in your root module. You will see both uses in this guide.
-Inside your configuration's directory, outputs.tf will need to contain:
+140. Where do you put output variables in the configuration?
+     ```txt
+     Module outputs are usually either passed to other parts of your configuration, or defined as outputs in your root module. You will see both uses in this guide.
+     Inside your configuration's directory, outputs.tf will need to contain:
 
-outputs.tf
-1.   How do you pass input variables in the configuration?
-You can define variables.tf in the root folder
-variable "vpc_name" {
-  description = "Name of VPC"
-  type        = string
-  default     = "example-vpc"
-}
+     output "vpc_public_subnets" {
+       description = "IDs of the VPC's public subnets"
+       value       = module.vpc.public_subnets
+     }
 
-Then you can access these varibles in the configuration like this
-module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "2.21.0"
+     output "ec2_instance_public_ips" {
+       description = "Public IP addresses of EC2 instances"
+       value       = module.ec2_instances.public_ip
+     }
+     ```
+141. How do you pass input variables in the configuration?
+     ```txt
+     You can define variables.tf in the root folder
+     variable "vpc_name" {
+       description = "Name of VPC"
+       type        = string
+       default     = "example-vpc"
+     }
 
-  name = var.vpc_name
-  cidr = var.vpc_cidr
+     Then you can access these varibles in the configuration like this
+     module "vpc" {
+       source  = "terraform-aws-modules/vpc/aws"
+       version = "2.21.0"
 
-  azs             = var.vpc_azs
-  private_subnets = var.vpc_private_subnets
-  public_subnets  = var.vpc_public_subnets
+       name = var.vpc_name
+       cidr = var.vpc_cidr
 
-  enable_nat_gateway = var.vpc_enable_nat_gateway
+       azs             = var.vpc_azs
+       private_subnets = var.vpc_private_subnets
+       public_subnets  = var.vpc_public_subnets
 
-  tags = var.vpc_tags
-}
-1.   What is the child module?
-A module that is called by another configuration is sometimes referred to as a "child module" of that configuration.
-1.   When you use local modules you don’t have to do the command init or get every time there is a change in the local module. why?
-When installing a local module, Terraform will instead refer directly to the source directory. 
-Because of this, Terraform will automatically notice changes to local modules without having to re-run terraform init or terraform get.
-1.   When you use remote modules what should you do if there is a change in the module?
-When installing a remote module, Terraform will download it into the .terraform directory in your configuration's root directory.
-You should initialize with terraform init
-1.   A simple configuration consisting of a single directory with one or more .tf files is a module. Is this true?
-True
+       enable_nat_gateway = var.vpc_enable_nat_gateway
+
+       tags = var.vpc_tags
+     }
+     ```
+142. What is the child module?
+     ```txt
+     A module that is called by another configuration is sometimes referred to as a "child module" of that configuration.
+     ```
+143. When you use local modules you don’t have to do the command init or get every time there is a change in the local module. why?
+     ```txt
+     When installing a local module, Terraform will instead refer directly to the source directory. 
+     Because of this, Terraform will automatically notice changes to local modules without having to re-run terraform init or terraform get.
+     ```
+144. When you use remote modules what should you do if there is a change in the module?
+     ```txt
+     When installing a remote module, Terraform will download it into the .terraform directory in your configuration's root directory.
+     You should initialize with terraform init
+     ```
+145. A simple configuration consisting of a single directory with one or more .tf files is a module. Is this true?
+     ```txt
+     True
+     ```
 1.   When using a new module for the first time, you must run either terraform init or terraform get to install the module. Is this true?
 True
 1.   When installing the modules and where does the terraform save these modules?
