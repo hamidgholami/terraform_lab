@@ -604,27 +604,37 @@
     This is a great way to slowly transition infrastructure to Terraform, or to be able to be confident that you can use Terraform in the future if it potentially doesn't support every feature you need today.
     ```
 93. What is the command import usage?
+
     ```txt
     terraform import [options] ADDRESS ID
     ```
+
 94. What is the default workspace name?
+
     ```txt
     default
     ```
+
 95. What are workspaces?
+
     ```txt
     Each Terraform configuration has an associated backend that defines how operations are executed and where persistent data such as the Terraform state are stored.
     The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace, called "default", and thus there is only one Terraform state associated with that configuration.
     Certain backends support multiple named workspaces, allowing multiple states to be associated with a single configuration.
     ```
+
 96. What is the command to list the workspaces?
+
     ```txt
     terraform workspace list
     ```
+
 97. What is the command to create a new workspace?
+
     ```txt
     terraform workspace new <name>
     ```
+
 98. What is the command to show the current workspace?
 
     ```txt
@@ -632,11 +642,11 @@
     ```
 
 99. What is the command to switch the workspace?
-
+    
     ```txt
     terraform workspace select <workspace name>
     ```
-
+    
 100. What is the command to delete the workspace?
 
     ```txt
