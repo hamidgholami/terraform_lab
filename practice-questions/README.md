@@ -751,85 +751,117 @@
      https://www.terraform.io/docs/commands/state/push.html
      ```
 117. The command terraform taint modifies the state file and doesn’t modify the infrastructure. Is this true?
-True
-This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+     ```txt
+     True
+     This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+     ```
 118. Your team has decided to use terraform in your company and you have existing infrastructure. How do you migrate your existing resources to terraform and start using it?
-You should use terraform import and modify the infrastrcuture in the terraform files and do the terraform workflow (init, plan, apply)
+     ```txt
+     You should use terraform import and modify the infrastrcuture in the terraform files and do the terraform workflow (init, plan, apply)
+     ```
 119. When you are working with the workspaces how do you access the current workspace in the configuration files?
-${terraform.workspace}
+     ```txt
+     ${terraform.workspace}
+     ```
 120. When you are using workspaces where does the Terraform save the state file for the local state?
-terraform.tfstate.d
-For local state, Terraform stores the workspace states in a directory called terraform.tfstate.d.
+     ```txt
+     terraform.tfstate.d
+     For local state, Terraform stores the workspace states in a directory called terraform.tfstate.d.
+     ```
 121. When you are using workspaces where does the Terraform save the state file for the remote state?
-For remote state, the workspaces are stored directly in the configured backend.
+     ```txt
+     For remote state, the workspaces are stored directly in the configured backend.
+     ```
 122. How do you remove items from the Terraform state?
-terraform state rm 'packet_device.worker'
-The terraform state rm command is used to remove items from the Terraform state. This command can remove single resources, single instances of a resource, entire modules, and more.
-https://www.terraform.io/docs/commands/state/rm.html
+     ```txt
+     terraform state rm 'packet_device.worker'
+     The terraform state rm command is used to remove items from the Terraform state. This command can remove single resources, single instances of a resource, entire modules, and more.
+     https://www.terraform.io/docs/commands/state/rm.html
+     ```
 123. How do you move the state from one source to another?
-terraform state mv 'module.app' 'module.parent.module.app'
-The terraform state mv command is used to move items in a Terraform state. This command can move single resources, single instances of a resource, entire modules, and more. This command can also move items to a completely different state file, enabling efficient refactoring.
-https://www.terraform.io/docs/commands/state/mv.html
+     ```txt
+     terraform state mv 'module.app' 'module.parent.module.app'
+     The terraform state mv command is used to move items in a Terraform state. This command can move single resources, single instances of a resource, entire modules, and more. This command can also move items to a completely different state file, enabling efficient refactoring.
+     https://www.terraform.io/docs/commands/state/mv.html
+     ```
 124. How do you rename a resource in the terraform state file?
-terraform state mv 'packet_device.worker' 'packet_device.helper'
-The above example renames the packet_device resource named worker to helper:
-Interact with Terraform modules
-Practice questions based on these concepts
-Contrast module source options
-Interact with module inputs and outputs
-Describe variable scope within modules/child modules
-Discover modules from the public Terraform Module Registry
-Defining module version
+     ```txt
+     terraform state mv 'packet_device.worker' 'packet_device.helper'
+     The above example renames the packet_device resource named worker to helper:
+     Interact with Terraform modules
+     Practice questions based on these concepts
+     Contrast module source options
+     Interact with module inputs and outputs
+     Describe variable scope within modules/child modules
+     Discover modules from the public Terraform Module Registry
+     Defining module version
+     ```
 125. Where do you find and explore terraform Modules?
-The Terraform Registry makes it simple to find and use modules.
-The search query will look at module name, provider, and description to match your search terms. On the results page, filters can be used further refine search results.
+     ```txt
+     The Terraform Registry makes it simple to find and use modules.
+     The search query will look at module name, provider, and description to match your search terms. On the results page, filters can be used further refine search results.
+     ```
 126. How do you make sure that modules have stability and compatibility?
-By default, only verified modules are shown in search results. 
-Verified modules are reviewed by HashiCorp to ensure stability and compatibility. 
-By using the filters, you can view unverified modules as well.
+     ```txt
+     By default, only verified modules are shown in search results. 
+     Verified modules are reviewed by HashiCorp to ensure stability and compatibility. 
+     By using the filters, you can view unverified modules as well.
+     ```
 127. How do you download any modules?
-You need to add any module in the configuration file like below
-module "consul" {
-  source = "hashicorp/consul/aws"
-  version = "0.1.0"
-}
-terraform init command will download and cache any modules referenced by a configuration.
-128. What is the syntax for referencing a registry module?
-<NAMESPACE>/<NAME>/<PROVIDER>
-// for example
-module "consul" {
-  source = "hashicorp/consul/aws"
-  version = "0.1.0"
-}
-129. What is the syntax for referencing a private registry module?
-<HOSTNAME>/<NAMESPACE>/<NAME>/<PROVIDER>
-// for example
-module "vpc" {
-  source = "app.terraform.io/example_corp/vpc/aws"
-  version = "0.9.3"
-}
-130. The terraform recommends that all modules must follow semantic versioning. Is this true?
-True
-131. What is a Terraform Module?
-A Terraform module is a set of Terraform configuration files in a single directory. Even a simple configuration consisting of a single directory with one or more .tf files is a module.
-132. Why do we use modules for?
-* Organize configuration
-* Encapsulate configuration
-* Re-use configuration
-* Provide consistency and ensure best practices
-https://learn.hashicorp.com/terraform/modules/modules-overview
-133. How do you call modules in your configuration?
-Your configuration can use module blocks to call modules in other directories. 
-When Terraform encounters a module block, it loads and processes that module's configuration files.
-134. How many ways you can load modules?
-Local and remote modules
-Modules can either be loaded from the local filesystem, or a remote source. 
-Terraform supports a variety of remote sources, including the Terraform Registry, most version control systems, HTTP URLs, and Terraform Cloud or Terraform Enterprise private module registries.
-135. What are the best practices for using Modules?
-1. Start writing your configuration with modules in mind. Even for modestly complex Terraform configurations managed by a single person, you'll find the benefits of using modules outweigh the time it takes to use them properly.
-2. Use local modules to organize and encapsulate your code. Even if you aren't using or publishing remote modules, organizing your configuration in terms of modules from the beginning will significantlty reduce the burden of maintaining and updating your configuration as your infrastructure grows in complexity.
-3. Use the public Terraform Registry to find useful modules. This way you can more quickly and confidently implement your configuration by relying on the work of others to implement common infrastructure scenarios.
-4. Publish and share modules with your team. Most infrastructure is managed by a team of people, and modules are important way that teams can work together to create and maintain infrastructure. As mentioned earlier, you can publish modules either publicly or privately. We will see how to do this in a future guide in this series.
+     ```txt
+     You need to add any module in the configuration file like below
+     module "consul" {
+       source = "hashicorp/consul/aws"
+       version = "0.1.0"
+     }
+     terraform init command will download and cache any modules referenced by a configuration.
+     1.   What is the syntax for referencing a registry module?
+     <NAMESPACE>/<NAME>/<PROVIDER>
+     // for example
+     module "consul" {
+       source = "hashicorp/consul/aws"
+       version = "0.1.0"
+     }
+     1.   What is the syntax for referencing a private registry module?
+     <HOSTNAME>/<NAMESPACE>/<NAME>/<PROVIDER>
+     // for example
+     module "vpc" {
+       source = "app.terraform.io/example_corp/vpc/aws"
+       version = "0.9.3"
+     }
+     ```
+128. The terraform recommends that all modules must follow semantic versioning. Is this true?
+     ```txt
+     True
+     ```
+129. What is a Terraform Module?
+     ```txt
+     A Terraform module is a set of Terraform configuration files in a single directory. Even a simple configuration consisting of a single directory with one or more .tf files is a module.
+     ```
+130. Why do we use modules for?
+     ```txt
+     * Organize configuration
+     * Encapsulate configuration
+     * Re-use configuration
+     * Provide consistency and ensure best practices
+     https://learn.hashicorp.com/terraform/modules/modules-overview
+     ```
+131. How do you call modules in your configuration?
+     ```txt
+     Your configuration can use module blocks to call modules in other directories. 
+     When Terraform encounters a module block, it loads and processes that module's configuration files.
+     ```
+132. How many ways you can load modules?
+     ```txt
+     Local and remote modules
+     Modules can either be loaded from the local filesystem, or a remote source. 
+     Terraform supports a variety of remote sources, including the Terraform Registry, most version control systems, HTTP URLs, and Terraform Cloud or Terraform Enterprise private module registries.
+     ```
+1.   What are the best practices for using Modules?
+2. Start writing your configuration with modules in mind. Even for modestly complex Terraform configurations managed by a single person, you'll find the benefits of using modules outweigh the time it takes to use them properly.
+3. Use local modules to organize and encapsulate your code. Even if you aren't using or publishing remote modules, organizing your configuration in terms of modules from the beginning will significantlty reduce the burden of maintaining and updating your configuration as your infrastructure grows in complexity.
+4. Use the public Terraform Registry to find useful modules. This way you can more quickly and confidently implement your configuration by relying on the work of others to implement common infrastructure scenarios.
+5. Publish and share modules with your team. Most infrastructure is managed by a team of people, and modules are important way that teams can work together to create and maintain infrastructure. As mentioned earlier, you can publish modules either publicly or privately. We will see how to do this in a future guide in this series.
 https://learn.hashicorp.com/terraform/modules/modules-overview#module-best-practices
 136. What are the different source types for calling modules?
 Local paths
