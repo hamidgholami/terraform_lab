@@ -25,17 +25,21 @@
 3. How using IaC make it easy to provision infrastructure?
     ```txt
     IaC makes it easy to provision and apply infrastructure configurations, saving time. 
-    It standardizes workflows across different infrastructure providers (e.g., VMware, AWS, Azure, GCP, etc.) by using a common syntax across all of them.
+    It standardizes workflows across different infrastructure providers (e.g., VMware, AWS, Azure, GCP, etc.) by 
+    using a common syntax across all of them.
     ```
 4. What is Ideompodent in terms of IaC?
     ```txt
-    The idempotent characteristic provided by IaC tools ensures that, even if the same code is applied multiple times, the result remains the same.
+    The idempotent characteristic provided by IaC tools ensures that, 
+    even if the same code is applied multiple times, the result remains the same.
     ```
 5. What are Day 0 and Day 1 activities?
     ```txt
-    IaC can be applied throughout the lifecycle, both on the initial build, as well as throughout the life of the infrastructure. Commonly, these are referred to as Day 0 and Day 1 activities. 
+    IaC can be applied throughout the lifecycle, both on the initial build, as well as throughout the life 
+    of the infrastructure. Commonly, these are referred to as Day 0 and Day 1 activities. 
     “Day 0” code provisions and configures your initial infrastructure.
-    “Day 1” refers to OS and application configurations you apply after you’ve initially built your infrastructure.
+    “Day 1” refers to OS and application configurations you apply 
+    after you’ve initially built your infrastructure.
     ```
 6. What are the use cases of Terraform?
     ```txt
