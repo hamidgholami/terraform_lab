@@ -1381,34 +1381,46 @@ terraform init -get=false
      }
      This defines the region variable within your Terraform configuration.
      ```
-1.   How do you access the variable in the configuration?
-// accessing a variable
-provider "aws" {
-  region = var.region
-}
-1.   How many ways you can assign variables in the configuration?
-Command-line flags
-terraform apply -var 'region=us-east-1'
-From a file
-To persist variable values, create a file and assign variables within this file. Create a file named terraform.tfvars with the following contents:
-region = "us-east-1"
-terraform apply \
-  -var-file="secret.tfvars" \
-  -var-file="production.tfvars"
-From environment varibles
-Terraform will read environment variables in the form of TF_VAR_name to find the value for a variable. For example, the TF_VAR_region variable can be set in the shell to set the region variable in Terraform.
-UI input
-If you execute terraform apply with any variable unspecified, Terraform will ask you to input the values interactively. These values are not saved, but this provides a convenient workflow when getting started with Terraform. UI input is not recommended for everyday use of Terraform.
-1.   Does environment variables support List and map types?
-No
-Environment variables can only populate string-type variables. List and map type variables must be populated via one of the other mechanisms.
-1.   How do you provision infrastructure in a staging environment or a production environment using the same Terraform configuration?
-You can use different varible files with the same configuration
-// Example
-// For development
-terraform apply -var-file="dev.tfvars"
-// For test
-terraform apply -var-file="test.tfvars"
+203. How do you access the variable in the configuration?
+     ```txt
+     // accessing a variable
+     provider "aws" {
+       region = var.region
+     }
+     ```
+204. How many ways you can assign variables in the configuration?
+     ```txt
+     Command-line flags
+     terraform apply -var 'region=us-east-1'
+     
+     From a file
+     To persist variable values, create a file and assign variables within this file. Create a file named terraform.tfvars with the following contents:
+     region = "us-east-1"
+     terraform apply \
+       -var-file="secret.tfvars" \
+       -var-file="production.tfvars"
+     
+     From environment varibles
+     Terraform will read environment variables in the form of TF_VAR_name to find the value for a variable. For example, the TF_VAR_region variable can be set in the shell to set the region variable in Terraform.
+     
+     UI input
+     If you execute terraform apply with any variable unspecified, Terraform will ask you to input the values interactively. These values are not saved, but this provides a convenient workflow when getting started with Terraform. UI input is not recommended for everyday use of Terraform.
+     ```
+205. Does environment variables support List and map types?
+     ```txt
+     No
+     Environment variables can only populate string-type variables. List and map type variables must be populated via one of the other mechanisms.
+     ```
+206. How do you provision infrastructure in a staging environment or a production 
+     ```txt
+     environment using the same Terraform configuration?
+     You can use different varible files with the same configuration
+     // Example
+     // For development
+     terraform apply -var-file="dev.tfvars"
+     // For test
+     terraform apply -var-file="test.tfvars"
+     ```
 1.   How do you assign default values to variables?
 If no value is assigned to a variable via any of these methods and the variable has a default key in its declaration, that value will be used for the variable.
 variable "region" {
