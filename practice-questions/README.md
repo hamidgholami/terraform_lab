@@ -288,103 +288,141 @@
     Alternatively, the TF_PLUGIN_CACHE_DIR environment variable can be used to enable caching or to override an existing cache directory within a particular shell session:
     ```
 43. When you are using plugin cache you end up growing cache directory with different versions. Whose responsibility to clean it?
-User
-Terraform will never itself delete a plugin from the plugin cache once it's been placed there. Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions which must be manually deleted.
+    ```txt
+    User
+    Terraform will never itself delete a plugin from the plugin cache once it's been placed there. Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions which must be manually deleted.
+    ```
 44. Why do we need to initialize the directory?
-When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory
-// Example
-provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
-}
+    ```txt
+    When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory
+    // Example
+    provider "aws" {
+        profile = "default"
+        region  = "us-east-1"
+    }
 
-resource "aws_instance" "example" {
-  ami           = "ami-2757f631"
-  instance_type = "t2.micro"
-}
-Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
+    resource "aws_instance" "example" {
+        ami           = "ami-2757f631"
+        instance_type = "t2.micro"
+    }
+    Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
+    ```
 45. What is the command to initialize the directory?
-terraform init
+    ```txt
+    terraform init
+    ```
 46. If different teams are working on the same configuration. How do you make files to have consistent formatting?
-terraform fmt
-This command automatically updates configurations in the current directory for easy readability and consistency.
+    ```txt
+    terraform fmt
+    This command automatically updates configurations in the current directory for easy readability and consistency.
+    ```
 47. If different teams are working on the same configuration. How do you make files to have syntactically valid and internally consistent?
-terraform validate
-This command will check and report errors within modules, attribute names, and value types.
-Validate your configuration. If your configuration is valid, Terraform will return a success message.
+    ```txt
+    terraform validate
+    This command will check and report errors within modules, attribute names, and value types.
+    Validate your configuration. If your configuration is valid, Terraform will return a success message.
+    ```
 48. What is the command to create infrastructure?
-terraform apply
+    ```txt
+    terraform apply
+    ```
 49. What is the command to show the execution plan and not apply?
-terraform plan
+    ```txt
+    terraform plan
+    ```
 50. How do you inspect the current state of the infrastructure applied?
-terraform show
-When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. This file now contains the IDs and properties of the resources Terraform created so that it can manage or destroy those resources going forward.
+    ```txt
+    terraform show
+    When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. This file now contains the IDs and properties of the resources Terraform created so that it can manage or destroy those resources going forward.
+    ```
 51. If your state file is too big and you want to list the resources from your state. What is the command?
-terraform state list
-https://learn.hashicorp.com/terraform/getting-started/build#manually-managing-state
+    ```txt
+    terraform state list
+    https://learn.hashicorp.com/terraform/getting-started/build#manually-managing-state
+    ```
 52. What is plug-in based architecture?
-Defining additional features as plugins to your core platform or core application. This provides extensibility, flexibility and isolation
+    ```txt
+    Defining additional features as plugins to your core platform or core application. This provides extensibility, flexibility and isolation
+    ```
 53. What are Provisioners?
-If you need to do some initial setup on your instances, then provisioners let you upload files, run shell scripts, or install and trigger other software like configuration management tools, etc.
+    ```txt
+    If you need to do some initial setup on your instances, then provisioners let you upload files, run shell scripts, or install and trigger other software like configuration management tools, etc.
+    ```
 54. How do you define provisioners?
-resource "aws_instance" "example" {
-  ami           = "ami-b374d5a5"
-  instance_type = "t2.micro"
+    ```txt
+    resource "aws_instance" "example" {
+        ami           = "ami-b374d5a5"
+        instance_type = "t2.micro"
 
-  provisioner "local-exec" {
-    command = "echo hello > hello.txt"
-  }
-}
-Provisioner block within the resource block. Multiple provisioner blocks can be added to define multiple provisioning steps. Terraform supports multiple provisioners
-https://learn.hashicorp.com/terraform/getting-started/provision
+    provisioner "local-exec" {
+        command = "echo hello > hello.txt"
+        }
+    }
+    Provisioner block within the resource block. Multiple provisioner blocks can be added to define multiple provisioning steps. Terraform supports multiple provisioners
+    https://learn.hashicorp.com/terraform/getting-started/provision
+    ```
 55. What are the types of provisioners?
-local-exec
-remote-exec
+    ```txt
+    local-exec
+    remote-exec
+    ```
 56. What is a local-exec provisioner and when do we use it?
-The local-exec provisioner executing a command locally on your machine running Terraform.
-We use this when we need to do something on our local machine without needing any external URL
+    ```txt
+    The local-exec provisioner executing a command locally on your machine running Terraform.
+    We use this when we need to do something on our local machine without needing any external URL
+    ```
 57. What is a remote-exec provisioner and when do we use it?
-Another useful provisioner is remote-exec which invokes a script on a remote resource after it is created. 
-This can be used to run a configuration management tool, bootstrap into a cluster, etc.
+    ```txt
+    Another useful provisioner is remote-exec which invokes a script on a remote resource after it is created. 
+    This can be used to run a configuration management tool, bootstrap into a cluster, etc.
+    ```
 58. Are provisioners runs only when the resource is created or destroyed?
-Provisioners are only run when a resource is created or destroyed. Provisioners that are run while destroying are  Destroy provisioners. 
-They are not a replacement for configuration management and changing the software of an already-running server, and are instead just meant as a way to bootstrap a server.
+    ```txt
+    Provisioners are only run when a resource is created or destroyed. Provisioners that are run while destroying are  Destroy provisioners. 
+    They are not a replacement for configuration management and changing the software of an already-running server, and are instead just meant as a way to bootstrap a server.
+    ```
 59. What do we need to use a remote-exec?
-In order to use a remote-exec provisioner, you must choose an ssh or winrm connection in the form of a connection block within the provisioner.
-Here is an example
-provider "aws" {
-  profile = "default"
-  region  = "us-west-2"
-}
-resource "aws_key_pair" "example" {
-  key_name   = "examplekey"
-  public_key = file("~/.ssh/terraform.pub")
-}
-resource "aws_instance" "example" {
-  key_name      = aws_key_pair.example.key_name
-  ami           = "ami-04590e7389a6e577c"
-  instance_type = "t2.micro"
-connection {
-    type        = "ssh"
-    user        = "ec2-user"
-    private_key = file("~/.ssh/terraform")
-    host        = self.public_ip
-  }
-provisioner "remote-exec" {
-    inline = [
-      "sudo amazon-linux-extras enable nginx1.12",
-      "sudo yum -y install nginx",
-      "sudo systemctl start nginx"
-    ]
-  }
-}
+    ```txt
+    In order to use a remote-exec provisioner, you must choose an ssh or winrm connection in the form of a connection block within the provisioner.
+    Here is an example
+    provider "aws" {
+      profile = "default"
+      region  = "us-west-2"
+    }
+    resource "aws_key_pair" "example" {
+      key_name   = "examplekey"
+      public_key = file("~/.ssh/terraform.pub")
+    }
+    resource "aws_instance" "example" {
+      key_name      = aws_key_pair.example.key_name
+      ami           = "ami-04590e7389a6e577c"
+      instance_type = "t2.micro"
+    connection {
+        type        = "ssh"
+        user        = "ec2-user"
+        private_key = file("~/.ssh/terraform")
+        host        = self.public_ip
+      }
+    provisioner "remote-exec" {
+        inline = [
+          "sudo amazon-linux-extras enable nginx1.12",
+          "sudo yum -y install nginx",
+          "sudo systemctl start nginx"
+        ]
+      }
+    }
+    ```
 60. When terraform mark the resources are tainted?
-If a resource successfully creates but fails during provisioning, Terraform will error and mark the resource as "tainted".
-A resource that is tainted has been physically created, but can't be considered safe to use since provisioning failed.
+    ```txt
+    If a resource successfully creates but fails during provisioning, Terraform will error and mark the resource as "tainted".
+    A resource that is tainted has been physically created, but can't be considered safe to use since provisioning failed.
+    ```
 61. You applied the infrastructure with terraform apply and you have some tainted resources. You run an execution plan now what happens to those tainted resources?
-When you generate your next execution plan, Terraform will not attempt to restart provisioning on the same resource because it isn't guaranteed to be safe. 
-Instead, Terraform will remove any tainted resources and create new resources, attempting to provision them again after creation.
-https://learn.hashicorp.com/terraform/getting-started/provision
+    ```txt
+    When you generate your next execution plan, Terraform will not attempt to restart provisioning on the same resource because it isn't guaranteed to be safe. 
+    Instead, Terraform will remove any tainted resources and create new resources, attempting to provision them again after creation.
+    https://learn.hashicorp.com/terraform/getting-started/provision
+    ```
 62. Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens. Why?
 Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens, because that would go against the execution plan: the execution plan would've said a resource will be created, but does not say it will ever be deleted. If you create an execution plan with a tainted resource, however, the plan will clearly state that the resource will be destroyed because it is tainted.
 https://learn.hashicorp.com/terraform/getting-started/provision
