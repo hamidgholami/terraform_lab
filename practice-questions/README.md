@@ -648,16 +648,13 @@
     ```
 
 100. What is the command to delete the workspace?
-
-    ```txt
-    terraform workspace delete <workspace name>
-    ```
-
+     ```txt
+     terraform workspace delete <workspace name>
+     ```
 101. Can you delete the default workspace?
-
-    ```txt
-    No. You can't ever delete default workspace
-    ```
+     ```txt
+     No. You can't ever delete default workspace
+     ```
 
 102. You are working on the different workspaces and you want to use a different number of instances based on the workspace. How do you achieve that?
 
@@ -682,43 +679,48 @@
      ```
 
 104. You want to create a parallel, distinct copy of a set of infrastructure in order to test a set of changes before modifying the main production infrastructure. How do you achieve that?
-
-    ```txt
-    Workspaces
-    ```
+     ```txt
+     Workspaces
+     ```
     
 105. What is the command state?
-    ```txt
-    The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
-    https://www.terraform.io/docs/commands/state/index.html
-    ```
+
+     ```txt
+     The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
+     https://www.terraform.io/docs/commands/state/index.html
+     ```
+
 106. What is the command usage?
-    ```txt
-    terraform state <subcommand> [options] [args]
-    ```
+     ```txt
+     terraform state <subcommand> [options] [args]
+     ```
 107. You are working on terraform files and you want to list all the resources. What is the command you should use?
-    ```txt
-    terraform state list
-    ```
+     ```txt
+     terraform state list
+     ```
 108. How do you list the resources for the given name?
-    ```txt
-    terraform state list <resource name>
-    ```
+     ```txt
+     terraform state list <resource name>
+     ```
 109. What is the command that shows the attributes of a single resource in the state file?
-    ```txt
-    terraform state show 'resource name'
-    ```
+     ```txt
+     terraform state show 'resource name'
+     ```
 110. How do you do debugging terraform?
-Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value. 
-This will cause detailed logs to appear on stderr.
-You can set TF_LOG to one of the log levels TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs. TRACE is the most verbose and it is the default if TF_LOG is set to something other than a log level name.
-To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a specific file when logging is enabled. 
-Note that even when TF_LOG_PATH is set, TF_LOG must be set in order for any logging to be enabled.
-https://www.terraform.io/docs/internals/debugging.html
+     ```txt
+     Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value. 
+     This will cause detailed logs to appear on stderr.
+     You can set TF_LOG to one of the log levels TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs. TRACE is the most verbose and it is the default if TF_LOG is set to something other than a log level name.
+     To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a specific file when logging is enabled. 
+     Note that even when TF_LOG_PATH is set, TF_LOG must be set in order for any logging to be enabled.
+     https://www.terraform.io/docs/internals/debugging.html
+     ```
 111. If terraform crashes where should you see the logs?
-crash.log
-If Terraform ever crashes (a "panic" in the Go runtime), it saves a log file with the debug logs from the session as well as the panic message and backtrace to crash.log.
-https://www.terraform.io/docs/internals/debugging.html
+     ```txt
+     crash.log
+     If Terraform ever crashes (a "panic" in the Go runtime), it saves a log file with the debug logs from the session as well as the panic message and backtrace to crash.log.
+     https://www.terraform.io/docs/internals/debugging.html
+     ```
 112. What is the first thing you should do when the terraform crashes?
 panic message
 The most interesting part of a crash log is the panic message itself and the backtrace immediately following. So the first thing to do is to search the file for panic
