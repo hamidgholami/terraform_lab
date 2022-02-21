@@ -79,87 +79,125 @@
     Provisoning your infrastrcutire into multiple cloud providers to increase fault-tolerance of your applications.
     ```
 11. How multi-cloud deployment is useful?
-By using only a single region or cloud provider, fault tolerance is limited by the availability of that provider. 
-Having a multi-cloud deployment allows for more graceful recovery of the loss of a region or entire provider.
+    ```txt
+    By using only a single region or cloud provider, fault tolerance is limited by the availability of that provider. 
+    Having a multi-cloud deployment allows for more graceful recovery of the loss of a region or entire provider.
+    ```
 12. What is cloud-agnostic in terms of provisioning tools?
-cloud-agnostic and allows a single configuration to be used to manage multiple providers, and to even handle cross-cloud dependencies.
+    ```txt
+    cloud-agnostic and allows a single configuration to be used to manage multiple providers, and to even handle cross-cloud dependencies.
+    ```
 13. Is Terraform cloud-agostic?
-Yes
+    ```txt
+    Yes
+    ```
 14. What is the use of terraform being cloud-agnostic?
-It simplifies management and orchestration, helping operators build large-scale multi-cloud infrastructures.
+    ```txt
+    It simplifies management and orchestration, helping operators build large-scale multi-cloud infrastructures.
+    ```
 15. What is the Terraform State?
-Every time you run Terraform, it records information about what infrastructure it created in a Terraform state file. 
-By default, when you run Terraform in the folder /some/folder, Terraform creates the file /some/folder/terraform.tfstate. 
-This file contains a custom JSON format that records a mapping from the Terraform resources in your configuration files to the representation of those resources in the real world.
+    ```txt
+    Every time you run Terraform, it records information about what infrastructure it created in a Terraform state file. 
+    By default, when you run Terraform in the folder /some/folder, Terraform creates the file /some/folder/terraform.tfstate. 
+    This file contains a custom JSON format that records a mapping from the Terraform resources in your configuration files to the representation of those resources in the real world.
+    ```
 16. What is the purpose of the Terraform State?
-Mapping to the Real World
-Terraform requires some sort of database to map Terraform config to the real world because you can't find the same functionality in every cloud provider. You need to have some kind of mechanism to be cloud-agnostic
-Metadata
-Terraform must also track metadata such as resource dependencies, pointer to the provider configuration that was most recently used with the resource in situations where multiple aliased providers are present.
-Performance
-When running a terraform plan, Terraform must know the current state of resources in order to effectively determine the changes that it needs to make to reach your desired configuration.
-For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to query multiple resources at once, and the round trip time for each resource is hundreds of milliseconds. So, Terraform stores a cache of the attribute values for all resources in the state. This is the most optional feature of Terraform state and is done only as a performance improvement.
-Syncing
-When two people works on the same file and doing some changes to the infrastructure. Its very important for everyone to be working with the same state so that operations will be applied to the same remote objects.
-https://www.terraform.io/docs/state/purpose.html
+    ```txt
+    Mapping to the Real World
+    Terraform requires some sort of database to map Terraform config to the real world because you can't find the same functionality in every cloud provider. You need to have some kind of mechanism to be cloud-agnostic
+    Metadata
+    Terraform must also track metadata such as resource dependencies, pointer to the provider configuration that was most recently used with the resource in situations where multiple aliased providers are present.
+    Performance
+    When running a terraform plan, Terraform must know the current state of resources in order to effectively determine the changes that it needs to make to reach your desired configuration.
+    For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to query multiple resources at once, and the round trip time for each resource is hundreds of milliseconds. So, Terraform stores a cache of the attribute values for all resources in the state. This is the most optional feature of Terraform state and is done only as a performance improvement.
+    Syncing
+    When two people works on the same file and doing some changes to the infrastructure. Its very important for everyone to be working with the same state so that operations will be applied to the same remote objects.
+    https://www.terraform.io/docs/state/purpose.html
+    ```
 17. What is the name of the terraform state file?
-terraform.tfstate
-Understand Terraform basics
-Practice questions based on these concepts
-Handle Terraform and provider installation and versioning
-Describe the plug-in based architecture
-Demonstrate using multiple providers
-Describe how Terraform finds and fetches providers
-Explain when to use and not use provisioners and when to use local-exec or remote-exec
+    ```txt
+    terraform.tfstate
+    Understand Terraform basics
+    Practice questions based on these concepts
+    Handle Terraform and provider installation and versioning
+    Describe the plug-in based architecture
+    Demonstrate using multiple providers
+    Describe how Terraform finds and fetches providers
+    Explain when to use and not use provisioners and when to use local-exec or remote-exec
+    ```
 18. How do you install terraform on different OS?
-// Mac OS
-brew install terraform
-// Windows
-choco install terraform
-https://learn.hashicorp.com/terraform/getting-started/install
+    ```txt
+    // Mac OS
+    brew install terraform
+    // Windows
+    choco install terraform
+    https://learn.hashicorp.com/terraform/getting-started/install
+    ```
 19. How do you manually install terraform?
-step 1: Download the zip fille
-step 2: mv ~/Downloads/terraform /usr/local/bin/terraform
+    ```txt
+    step 1: Download the zip fille
+    step 2: mv ~/Downloads/terraform /usr/local/bin/terraform
+    ```
 20. Where do you put terraform configurations so that you can configure some behaviors of Terraform itself?
-The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
-terraform {
-  # ...
-}
+    ```txt
+    The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
+    terraform {
+    # ...
+    }
+    ```
 21. Only constants are allowed inside the terraform block. Is this correct?
-Yes
-Within a terraform block, only constant values can be used; arguments may not refer to named objects such as resources, input variables, etc, and may not use any of the Terraform language built-in functions.
+    ```txt
+    Yes
+    Within a terraform block, only constant values can be used; arguments may not refer to named objects such as resources, input variables, etc, and may not use any of the Terraform language built-in functions.
+    ```
 22. What are the Providers?
-A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for understanding API interactions and exposing resources. Because Terraform can interact with any API, you can represent almost any infrastructure type as a resource in Terraform.
-https://www.terraform.io/docs/configuration/providers.html
+    ```txt
+    A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for understanding API interactions and exposing resources. Because Terraform can interact with any API, you can represent almost any infrastructure type as a resource in Terraform.
+    https://www.terraform.io/docs/configuration/providers.html
+    ```
 23. How do you configure a Provider?
-provider "google" {
-  project = "acme-app"
-  region  = "us-central1"
-}
-The name given in the block header ("google" in this example) is the name of the provider to configure. Terraform associates each resource type with a provider by taking the first word of the resource type name (separated by underscores), and so the "google" provider is assumed to be the provider for the resource type name google_compute_instance.
-The body of the block (between { and }) contains configuration arguments for the provider itself. Most arguments in this section are specified by the provider itself; in this example both project and region are specific to the google provider.
+    ```txt
+    provider "google" {
+        project = "acme-app"
+        region  = "us-central1"
+    }
+    The name given in the block header ("google" in this example) is the name of the provider to configure. Terraform associates each resource type with a provider by taking the first word of the resource type name (separated by underscores), and so the "google" provider is assumed to be the provider for the resource type name google_compute_instance.
+    The body of the block (between { and }) contains configuration arguments for the provider itself. Most arguments in this section are specified by the provider itself; in this example both project and region are specific to the google provider.
+    ```
 24. What are the meta-arguments that are defined by Terraform itself and available for all provider blocks?
-version: Constraining the allowed provider versions
-alias: using the same provider with different configurations for different resources
+    ```txt
+    version: Constraining the allowed provider versions
+    alias: using the same provider with different configurations for different resources
+    ```
 25. What is Provider initialization and why do we need?
-Each time a new provider is added to configuration -- either explicitly via a provider block or by adding a resource from that provider -- Terraform must initialize the provider before it can be used. 
-Initialization downloads and installs the provider's plugin so that it can later be executed.
+    ```txt
+    Each time a new provider is added to configuration -- either explicitly via a provider block or by adding a resource from that provider -- Terraform must initialize the provider before it can be used. 
+    Initialization downloads and installs the provider's plugin so that it can later be executed.
+    ```
 26. How do you initialize any Provider?
-Provider initialization is one of the actions of terraform init. Running this command will download and initialize any providers that are not already initialized.
+    ```txt
+    Provider initialization is one of the actions of terraform init. Running this command will download and initialize any providers that are not already initialized.
+    ```
 27. When you run terraform init command, all the providers are installed in the current working directory. Is this true?
-Providers downloaded by terraform init are only installed for the current working directory; other working directories can have their own installed provider versions.
-Note that terraform init cannot automatically download providers that are not distributed by HashiCorp. See Third-party Plugins below for installation instructions.
+    ```txt
+    Providers downloaded by terraform init are only installed for the current working directory; other working directories can have their own installed provider versions.
+    Note that terraform init cannot automatically download providers that are not distributed by HashiCorp. See Third-party Plugins below for installation instructions.
+    ```
 28. How do you constrain the provider version?
-To constrain the provider version as suggested, add a required_providers block inside a terraform block:
-terraform {
-  required_providers {
-    aws = "~> 1.0"
-  }
-}
+    ```txt
+    To constrain the provider version as suggested, add a required_providers block inside a terraform block:
+    terraform {
+        required_providers {
+        aws = "~> 1.0"
+        }
+    }
+    ```
 29. How do you upgrade to the latest acceptable version of the provider?
-terraform init --upgrade
-It upgrade to the latest acceptable version of each provider
-This command also upgrades to the latest versions of all Terraform modules.
+    ```txt
+    terraform init --upgrade
+    It upgrade to the latest acceptable version of each provider
+    This command also upgrades to the latest versions of all Terraform modules.
+    ```
 30. How many ways you can configure provider versions?
 1. With required_providers blocks under terraform block
 terraform {
