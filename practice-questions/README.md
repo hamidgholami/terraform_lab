@@ -199,69 +199,94 @@
     This command also upgrades to the latest versions of all Terraform modules.
     ```
 30. How many ways you can configure provider versions?
-1. With required_providers blocks under terraform block
-terraform {
-  required_providers {
-    aws = "~> 1.0"
-  }
-}
-2. Provider version constraints can also be specified using a version argument within a provider block
-provider {
-  version= "1.0"
-}
+    ```txt
+    1. With required_providers blocks under terraform block
+    terraform {
+        required_providers {
+        aws = "~> 1.0"
+        }
+    }
+    2. Provider version constraints can also be specified using a version argument within a provider block
+    provider {
+        version= "1.0"
+    }
+    ```
 31. How do you configure Multiple Provider Instances?
-alias
-You can optionally define multiple configurations for the same provider, and select which one to use on a per-resource or per-module basis. 
+    ```txt
+    alias
+    You can optionally define multiple configurations for the same provider, and select which one to use on a per-resource or per-module basis. 
+    ```
 32. Why do we need Multiple Provider instances?
-Some of the example scenarios:
-a. multiple regions for a cloud platform
-b. targeting multiple Docker hosts
-c. multiple Consul hosts, etc.
+    ```txt
+    Some of the example scenarios:
+    a. multiple regions for a cloud platform
+    b. targeting multiple Docker hosts
+    c. multiple Consul hosts, etc.
+    ```
 33. How do we define multiple Provider configurations?
-To include multiple configurations for a given provider, include multiple provider blocks with the same provider name, but set the alias meta-argument to an alias name to use for each additional configuration.
-# The default provider configuration
-provider "aws" {
-  region = "us-east-1"
-}
+    ```txt
+    To include multiple configurations for a given provider, include multiple provider blocks with the same provider name, but set the alias meta-argument to an alias name to use for each additional configuration.
+    # The default provider configuration
+    provider "aws" {
+        region = "us-east-1"
+    }
 
-# Additional provider configuration for west coast region
-provider "aws" {
-  alias  = "west"
-  region = "us-west-2"
-}
+    # Additional provider configuration for west coast region
+    provider "aws" {
+        alias  = "west"
+        region = "us-west-2"
+    }
+    ```
 34. How do you select alternate providers?
-By default, resources use a default provider configuration inferred from the first word of the resource type name. For example, a resource of type aws_instance uses the default (un-aliased) aws provider configuration unless otherwise stated.
-resource "aws_instance" "foo" {
-  provider = aws.west
-
-  # ...
-}
+    ```txt
+    By default, resources use a default provider configuration inferred from the first word of the resource type name. For example, a resource of type aws_instance uses the default (un-aliased) aws provider configuration unless otherwise stated.
+    resource "aws_instance" "foo" {
+        provider = aws.west
+    # ...
+    }
+    ```
 35. What is the location of the user plugins directory?
-Windows                     %APPDATA%\terraform.d\plugins
-All other systems           ~/.terraform.d/plugins
+    ```txt
+    Windows                     %APPDATA%\terraform.d\plugins
+    All other systems           ~/.terraform.d/plugins
+    ```
 36. Third-party plugins should be manually installed. Is that true?
-True
+    ```txt
+    True
+    ```
 37. The command terraform init cannot install third-party plugins? True or false?
-True
-Install third-party providers by placing their plugin executables in the user plugins directory. The user plugins directory is in one of the following locations, depending on the host operating system
-Once a plugin is installed, terraform init can initialize it normally. You must run this command from the directory where the configuration files are located.
+    ```txt
+    True
+    Install third-party providers by placing their plugin executables in the user plugins directory. The user plugins directory is in one of the following locations, depending on the host operating system
+    Once a plugin is installed, terraform init can initialize it normally. You must run this command from the directory where the configuration files are located.
+    ```
 38. What is the naming scheme for provider plugins?
-terraform-provider-<NAME>_vX.Y.Z
+    ```txt
+    terraform-provider-<NAME>_vX.Y.Z
+    ```
 39. What is the CLI configuration File?
-The CLI configuration file configures per-user settings for CLI behaviors, which apply across all Terraform working directories.
-It is named either .terraformrc or terraform.rc
+    ```txt
+    The CLI configuration file configures per-user settings for CLI behaviors, which apply across all Terraform working directories.
+    It is named either .terraformrc or terraform.rc
+    ```
 40. Where is the location of the CLI configuration File?
-On Windows, the file must be named named terraform.rc and placed in the relevant user's %APPDATA% directory.
-On all other systems, the file must be named .terraformrc (note the leading period) and placed directly in the home directory of the relevant user.
-The location of the Terraform CLI configuration file can also be specified using the TF_CLI_CONFIG_FILE environment variable.
+    ```txt
+    On Windows, the file must be named named terraform.rc and placed in the relevant user's %APPDATA% directory.
+    On all other systems, the file must be named .terraformrc (note the leading period) and placed directly in the home directory of the relevant user.
+    The location of the Terraform CLI configuration file can also be specified using the TF_CLI_CONFIG_FILE environment variable.
+    ```
 41. What is Provider Plugin Cache?
-By default, terraform init downloads plugins into a subdirectory of the working directory so that each working directory is self-contained. As a consequence, if you have multiple configurations that use the same provider then a separate copy of its plugin will be downloaded for each configuration.
-Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior can be inconvenient for those with slow or metered Internet connections. 
-Therefore Terraform optionally allows the use of a local directory as a shared plugin cache, which then allows each distinct plugin binary to be downloaded only once.
+    ```txt
+    By default, terraform init downloads plugins into a subdirectory of the working directory so that each working directory is self-contained. As a consequence, if you have multiple configurations that use the same provider then a separate copy of its plugin will be downloaded for each configuration.
+    Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior can be inconvenient for those with slow or metered Internet connections. 
+    Therefore Terraform optionally allows the use of a local directory as a shared plugin cache, which then allows each distinct plugin binary to be downloaded only once.
+    ```
 42. How do you enable Provider Plugin Cache?
-To enable the plugin cache, use the plugin_cache_dir setting in the CLI configuration file.
-plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
-Alternatively, the TF_PLUGIN_CACHE_DIR environment variable can be used to enable caching or to override an existing cache directory within a particular shell session:
+    ```txt
+    To enable the plugin cache, use the plugin_cache_dir setting in the CLI configuration file.
+    plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
+    Alternatively, the TF_PLUGIN_CACHE_DIR environment variable can be used to enable caching or to override an existing cache directory within a particular shell session:
+    ```
 43. When you are using plugin cache you end up growing cache directory with different versions. Whose responsibility to clean it?
 User
 Terraform will never itself delete a plugin from the plugin cache once it's been placed there. Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions which must be manually deleted.
