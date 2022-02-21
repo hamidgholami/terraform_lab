@@ -626,22 +626,31 @@
     terraform workspace new <name>
     ```
 98. What is the command to show the current workspace?
+
     ```txt
     terraform workspace show
     ```
+
 99. What is the command to switch the workspace?
+
     ```txt
     terraform workspace select <workspace name>
     ```
+
 100. What is the command to delete the workspace?
+
     ```txt
     terraform workspace delete <workspace name>
     ```
+
 101. Can you delete the default workspace?
+
     ```txt
     No. You can't ever delete default workspace
     ```
+
 102. You are working on the different workspaces and you want to use a different number of instances based on the workspace. How do you achieve that?
+
      ```txt
      resource "aws_instance" "example" {
        count = "${terraform.workspace == "default" ? 5 : 1}"
@@ -649,7 +658,9 @@
        # ... other arguments
      }
      ```
+
 103. You are working on the different workspaces and you want to use tags based on the workspace. How do you achieve that?
+
      ```txt
      resource "aws_instance" "example" {
        tags = {
@@ -659,10 +670,13 @@
        # ... other arguments
      }
      ```
+
 104. You want to create a parallel, distinct copy of a set of infrastructure in order to test a set of changes before modifying the main production infrastructure. How do you achieve that?
+
     ```txt
     Workspaces
     ```
+    
 105. What is the command state?
 The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
 https://www.terraform.io/docs/commands/state/index.html
