@@ -646,7 +646,7 @@
     ```txt
     terraform workspace select <workspace name>
     ```
-    
+
 100. What is the command to delete the workspace?
 
     ```txt
@@ -688,16 +688,26 @@
     ```
     
 105. What is the command state?
-The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
-https://www.terraform.io/docs/commands/state/index.html
+    ```txt
+    The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
+    https://www.terraform.io/docs/commands/state/index.html
+    ```
 106. What is the command usage?
-terraform state <subcommand> [options] [args]
+    ```txt
+    terraform state <subcommand> [options] [args]
+    ```
 107. You are working on terraform files and you want to list all the resources. What is the command you should use?
-terraform state list
+    ```txt
+    terraform state list
+    ```
 108. How do you list the resources for the given name?
-terraform state list <resource name>
+    ```txt
+    terraform state list <resource name>
+    ```
 109. What is the command that shows the attributes of a single resource in the state file?
-terraform state show 'resource name'
+    ```txt
+    terraform state show 'resource name'
+    ```
 110. How do you do debugging terraform?
 Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value. 
 This will cause detailed logs to appear on stderr.
