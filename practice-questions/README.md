@@ -1,5 +1,9 @@
 # Practice Questions
 
+I collected some practice questions which I searched and found on the internet.
+
+
+
 1. What is Infrastructure as Code?
 
     ```txt
@@ -1752,3 +1756,6 @@ terraform init -get=false
      ```txt
      Yes. The Terraform Cloud Team plan is charged on a per-user basis so adding new users to your organization incurs cost.
      ```
+
+> references:
+> - [250 practice questions for terraform associate certification](https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a)
