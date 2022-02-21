@@ -1162,21 +1162,29 @@ terraform init -get=false
        depends_on = [aws_s3_bucket.example]
      }
      ```
-1.   How do you save the execution plan?
-terraform plan -out=tfplan
-you can use that file with apply
-terraform apply tfplan
-1.   You have started writing terraform configuration and you are using some sample configuration as a basis. How do you copy the example configuration into your working directory?
-terraform init -from-module=MODULE-SOURCE
-https://www.terraform.io/docs/commands/init.html#copy-a-source-module
-1.   What is the flag you should use with the terraform plan to get detailed on the exit codes?
-terraform plan -detailed-exitcode
-Return a detailed exit code when the command exits. When provided, this argument changes the exit codes and their meanings to provide more granular information about what the resulting plan contains:
-* 0 = Succeeded with empty diff (no changes)
-* 1 = Error
-* 2 = Succeeded with non-empty diff (changes present)
-1.   How do you target only specific resources when you run a terraform plan?
--target=resource - A Resource Address to target. This flag can be used multiple times. See below for more information.
+170. How do you save the execution plan?
+     ```txt
+     terraform plan -out=tfplan
+     you can use that file with apply
+     terraform apply tfplan
+     ```
+171. You have started writing terraform configuration and you are using some sample configuration as a basis. How do you copy the example configuration into your working directory?
+     ```txt
+     terraform init -from-module=MODULE-SOURCE
+     https://www.terraform.io/docs/commands/init.html#copy-a-source-module
+     ```
+172. What is the flag you should use with the terraform plan to get detailed on the exit codes?
+     ```txt
+     terraform plan -detailed-exitcode
+     Return a detailed exit code when the command exits. When provided, this argument changes the exit codes and their meanings to provide more granular information about what the resulting plan contains:
+     * 0 = Succeeded with empty diff (no changes)
+     * 1 = Error
+     * 2 = Succeeded with non-empty diff (changes present)
+     ```
+173. How do you target only specific resources when you run a terraform plan?
+     ```txt
+     -target=resource - A Resource Address to target. This flag can be used multiple times. See below for more information.
+     ```
 1.   How do you update the state prior to checking differences when you run a terraform plan?
 terraform plan -refresh=true
 1.   The behavior of any terraform destroy command can be previewed at any time with an equivalent terraform plan -destroy command. Is this true?
