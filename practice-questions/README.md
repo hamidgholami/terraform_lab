@@ -65,13 +65,18 @@
     Configuration files ends with *.tf
     ```
 9. How can Terraform build infrastructure so efficiently?
-Terraform builds a graph of all your resources, and parallelizes the creation and modification of any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, and operators get insight into dependencies in their infrastructure.
-Understand Terraform’s purpose (vs other IaC)
-Practice questions based on these concepts
-Explain multi-cloud and provider-agnostic benefits
-Explain the benefits of state
+    ```txt
+    Terraform builds a graph of all your resources, and parallelizes the creation and modification of 
+    any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, and operators get insight into dependencies in their infrastructure.
+    Understand Terraform’s purpose (vs other IaC)
+    Practice questions based on these concepts
+    Explain multi-cloud and provider-agnostic benefits
+    Explain the benefits of state
+    ```
 10. What is multi-cloud deployment?
-Provisoning your infrastrcutire into multiple cloud providers to increase fault-tolerance of your applications.
+    ```txt
+    Provisoning your infrastrcutire into multiple cloud providers to increase fault-tolerance of your applications.
+    ```
 11. How multi-cloud deployment is useful?
 By using only a single region or cloud provider, fault tolerance is limited by the availability of that provider. 
 Having a multi-cloud deployment allows for more graceful recovery of the loss of a region or entire provider.
