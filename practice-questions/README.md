@@ -1,7 +1,7 @@
 # Practice Questions
 
-I collected some practice questions which I searched and found on the internet.
-
+I collected some practice questions which I searched and found on the internet.<br />
+Also I mentined the refrences at the end of this page.
 
 
 1. What is Infrastructure as Code?
