@@ -37,3 +37,8 @@
     }
     ```
 - Some backends act like plain "remote disks" for state files; others support locking the state while operations are being performed, which helps prevent conflicts and inconsistencies.
+    ### State Locking
+    - If supported by your backend, Terraform will lock your state for all operations that could write state. This prevents others from acquiring the lock and potentially corrupting your state.
+    - State locking happens automatically on all operations that could write state.
+    ### Command: refresh
+    - The `terraform refresh` command reads the current settings from all managed remote objects and updates the Terraform state to match.
