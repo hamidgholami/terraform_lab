@@ -42,3 +42,7 @@
     - State locking happens automatically on all operations that could write state.
     ### Command: refresh
     - The `terraform refresh` command reads the current settings from all managed remote objects and updates the Terraform state to match.
+
+    ### Sensitive Data in State
+    - When using local state, state is stored in plain-text JSON files.
+    - When using remote state, state is only ever held in memory when used by Terraform. It may be encrypted at rest, but this depends on the specific remote state backend.
