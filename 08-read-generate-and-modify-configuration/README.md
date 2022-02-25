@@ -45,3 +45,16 @@
         - `validation` - A block to define validation rules, usually in addition to type constraints.
         - `sensitive` - Limits Terraform UI output when the variable is used in configuration.
         - `nullable` - Specify if the variable can be null within the module.
+        
+        ### Type Constraints
+        - The `type` argument in a `variable` block allows you to restrict the type of value that will be accepted as the value for a variable.
+        - Type constraints are created from a mixture of type keywords and type constructors. The supported type keywords are:
+          - `string`
+          - `number`
+          - `bool`
+        - The type constructors allow you to specify complex types such as collections:
+          - `list(<TYPE>)`
+          - `set(<TYPE>)`
+          - `map(<TYPE>)`
+          - `object({<ATTR NAME> = <TYPE>, ... })`
+          - `tuple([<TYPE>, ...])`
