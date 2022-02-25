@@ -74,3 +74,20 @@
               }
             }
             ```
+        ### Sensitive Data as variable
+        - Setting a variable as `sensitive` prevents Terraform from showing its value in the plan or apply output, when you use that variable elsewhere in your configuration.
+
+            ```tf
+            variable "user_information" {
+              type = object({
+                name    = string
+                address = string
+              })
+              sensitive = true
+            }
+
+            resource "some_resource" "a" {
+              name    = var.user_information.name
+              address = var.user_information.address
+            }
+            ```
