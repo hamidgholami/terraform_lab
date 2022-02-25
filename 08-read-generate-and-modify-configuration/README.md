@@ -58,3 +58,19 @@
           - `map(<TYPE>)`
           - `object({<ATTR NAME> = <TYPE>, ... })`
           - `tuple([<TYPE>, ...])`
+        - The keyword `any` may be used to indicate that any type is acceptable.
+        
+        ### Custom Validation Rules
+        - In addition to Type Constraints as described above, a module author can specify arbitrary custom validation rules for a particular variable using a `validation` block nested within the corresponding `variable` block:
+            
+            ```tf
+            variable "image_id" {
+              type        = string
+              description = "The id of the machine image (AMI) to use for the server."
+
+              validation {
+                condition     = length(var.image_id) > 4 && substr(var.image_id, 0, 4) == "ami-"
+                error_message = "The image_id value must be a valid AMI id, starting with \"ami-\"."
+              }
+            }
+            ```
