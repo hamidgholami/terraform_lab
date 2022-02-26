@@ -92,3 +92,41 @@
             address = var.user_information.address
           }
           ```
+### Output Values
+- Output values make information about your infrastructure available on the command line, and can expose information for other Terraform configurations to use.
+
+### Suppressing Values in CLI Output
+- An output can be marked as containing sensitive material using the optional sensitive argument:
+
+    ```tf
+    output "db_password" {
+      value       = aws_db_instance.db.password
+      description = "The password for logging in to the database."
+      sensitive   = true
+    }
+    ```
+### Output Value Documentation
+- Because the output values of a module are part of its user interface, you can briefly describe the purpose of each value using the optional `description` argument:
+
+    ```tf
+    output "instance_ip_addr" {
+      value       = aws_instance.server.private_ip
+      description = "The private IP address of the main server instance."
+    }
+    ```
+### Explicit Output Dependencies
+- Since output values are just a means for passing data out of a module, it is usually not necessary to worry about their relationships with other nodes in the dependency graph.
+
+    ```tf
+    output "instance_ip_addr" {
+      value       = aws_instance.server.private_ip
+      description = "The private IP address of the main server instance."
+
+      depends_on = [
+        # Security group rule must be created before this IP address could
+        # actually be used, otherwise the services will be unreachable.
+        aws_security_group_rule.local_access,
+      ]
+    }
+    ```
+- The depends_on argument should be used only as a last resort. When using it, always include a comment explaining why it is being used, to help future maintainers understand the purpose of the additional dependency.
