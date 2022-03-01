@@ -73,10 +73,6 @@ Also I mentined the refrences at the end of this page.
     Terraform builds a graph of all your resources, and parallelizes the creation and modification of 
     any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, 
     and operators get insight into dependencies in their infrastructure.
-    Understand Terraform’s purpose (vs other IaC)
-    Practice questions based on these concepts
-    Explain multi-cloud and provider-agnostic benefits
-    Explain the benefits of state
     ```
 10. What is multi-cloud deployment?
     ```txt
