@@ -127,6 +127,8 @@ Also I mentined the refrences at the end of this page.
     to be working with the same state so that operations will be applied to the same remote objects.
     https://www.terraform.io/docs/state/purpose.html
     ```
+[Back to top](#practice-questions)
+
 17. What is the name of the terraform state file?
     ```txt
     terraform.tfstate
