@@ -343,7 +343,7 @@ Also I mentined the refrences at the end of this page.
 43. When you are using plugin cache you end up growing cache directory with different versions. Whose responsibility to clean it?
     ```txt
     User
-    
+
     Terraform will never itself delete a plugin from the plugin cache once it's been placed there.
     Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions
     which must be manually deleted.
@@ -391,7 +391,9 @@ Also I mentined the refrences at the end of this page.
 50. How do you inspect the current state of the infrastructure applied?
     ```txt
     terraform show
-    When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. This file now contains the IDs and properties of the resources Terraform created so that it can manage or destroy those resources going forward.
+    When you applied your configuration, Terraform wrote data into a file called terraform.tfstate.
+    This file now contains the IDs and properties of the resources Terraform created so that it can manage
+    or destroy those resources going forward.
     ```
 [Back to top](#practice-questions)
 
