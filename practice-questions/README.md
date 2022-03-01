@@ -119,8 +119,8 @@ Also I mentined the refrences at the end of this page.
     
     For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to
     query multiple resources at once, and the round trip time for each resource is hundreds of milliseconds. So,
-    Terraform stores a cache of the attribute values for all resources in the state. This is the most optional feature of Terraform state and is done only
-    as a performance improvement.
+    Terraform stores a cache of the attribute values for all resources in the state. This is the most optional feature
+    of Terraform state and is done only as a performance improvement.
     
     "Syncing"
     When two people works on the same file and doing some changes to the infrastructure. Its very important
