@@ -210,7 +210,8 @@ Also I mentined the refrences at the end of this page.
     ```
 28. How do you constrain the provider version?
     ```txt
-    To constrain the provider version as suggested, add a required_providers block inside a terraform block:
+    To constrain the provider version as suggested, add a "required_providers" block inside a terraform block:
+
     terraform {
         required_providers {
         aws = "~> 1.0"
@@ -219,7 +220,8 @@ Also I mentined the refrences at the end of this page.
     ```
 29. How do you upgrade to the latest acceptable version of the provider?
     ```txt
-    terraform init --upgrade
+    "terraform init --upgrade"
+
     It upgrade to the latest acceptable version of each provider
     This command also upgrades to the latest versions of all Terraform modules.
     ```
