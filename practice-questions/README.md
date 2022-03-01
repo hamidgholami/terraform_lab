@@ -196,12 +196,17 @@ Also I mentined the refrences at the end of this page.
     ```
 26. How do you initialize any Provider?
     ```txt
-    Provider initialization is one of the actions of terraform init. Running this command will download and initialize any providers that are not already initialized.
+    Provider initialization is one of the actions of "terraform init". Running this command will download and
+    initialize any providers that are not already initialized.
     ```
 27. When you run terraform init command, all the providers are installed in the current working directory. Is this true?
     ```txt
-    Providers downloaded by terraform init are only installed for the current working directory; other working directories can have their own installed provider versions.
-    Note that terraform init cannot automatically download providers that are not distributed by HashiCorp. See Third-party Plugins below for installation instructions.
+    Providers downloaded by terraform init are only installed for the current working directory; other working directories
+    can have their own installed provider versions.
+    
+    Note that terraform init cannot automatically download providers that are not distributed by HashiCorp.
+    See Third-party Plugins below for installation instructions.
+    https://www.terraform.io/language/providers/configuration#third-party-plugins
     ```
 28. How do you constrain the provider version?
     ```txt
