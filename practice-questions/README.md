@@ -100,7 +100,8 @@ Also I mentined the refrences at the end of this page.
     ```txt
     Every time you run Terraform, it records information about what infrastructure it created in a Terraform state file. 
     By default, when you run Terraform in the folder /some/folder, Terraform creates the file /some/folder/terraform.tfstate. 
-    This file contains a custom JSON format that records a mapping from the Terraform resources in your configuration files to the representation of those resources in the real world.
+    This file contains a custom JSON format that records a mapping from the Terraform resources in your configuration files
+    to the representation of those resources in the real world.
     ```
 16. What is the purpose of the Terraform State?
     ```txt
