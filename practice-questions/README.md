@@ -85,8 +85,8 @@ Also I mentined the refrences at the end of this page.
     ```
 12. What is cloud-agnostic in terms of provisioning tools?
     ```txt
-    cloud-agnostic allows a single configuration to be used to manage multiple providers, and to 
-    even handle cross-cloud dependencies.
+    cloud-agnostic allows a single configuration to be used to manage multiple providers, and to even handle
+    cross-cloud dependencies.
     ```
 13. Is Terraform cloud-agnostic?
     ```txt
