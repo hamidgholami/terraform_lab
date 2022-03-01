@@ -307,20 +307,28 @@ Also I mentined the refrences at the end of this page.
     ```
 39. What is the CLI configuration File?
     ```txt
-    The CLI configuration file configures per-user settings for CLI behaviors, which apply across all Terraform working directories.
-    It is named either .terraformrc or terraform.rc
+    The CLI configuration file configures per-user settings for CLI behaviors,
+    which apply across all Terraform working directories.
+    
+    It is named either ".terraformrc" or "terraform.rc"
     ```
 40. Where is the location of the CLI configuration File?
     ```txt
     On Windows, the file must be named named terraform.rc and placed in the relevant user's %APPDATA% directory.
-    On all other systems, the file must be named .terraformrc (note the leading period) and placed directly in the home directory of the relevant user.
-    The location of the Terraform CLI configuration file can also be specified using the TF_CLI_CONFIG_FILE environment variable.
+    On all other systems, the file must be named .terraformrc (note the leading period) and placed directly
+    in the home directory of the relevant user.
+    The location of the Terraform CLI configuration file can also be specified using the TF_CLI_CONFIG_FILE 
+    environment variable.
     ```
 41. What is Provider Plugin Cache?
     ```txt
-    By default, terraform init downloads plugins into a subdirectory of the working directory so that each working directory is self-contained. As a consequence, if you have multiple configurations that use the same provider then a separate copy of its plugin will be downloaded for each configuration.
-    Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior can be inconvenient for those with slow or metered Internet connections. 
-    Therefore Terraform optionally allows the use of a local directory as a shared plugin cache, which then allows each distinct plugin binary to be downloaded only once.
+    By default, terraform init downloads plugins into a subdirectory of the working directory so that each working
+    directory is self-contained. As a consequence, if you have multiple configurations that use the same provider then a separate copy of its plugin will be downloaded for each configuration.
+    Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior
+    can be inconvenient for those with slow or metered Internet connections. 
+    Therefore Terraform optionally
+    allows the use of a local directory as a shared plugin cache, which then allows each distinct plugin binary
+    to be downloaded only once.
     ```
 42. How do you enable Provider Plugin Cache?
     ```txt
