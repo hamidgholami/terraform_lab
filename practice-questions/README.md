@@ -250,19 +250,22 @@ Also I mentined the refrences at the end of this page.
 32. Why do we need Multiple Provider instances?
     ```txt
     Some of the example scenarios:
+
     a. multiple regions for a cloud platform
     b. targeting multiple Docker hosts
     c. multiple Consul hosts, etc.
     ```
 33. How do we define multiple Provider configurations?
     ```txt
-    To include multiple configurations for a given provider, include multiple provider blocks with the same provider name, but set the alias meta-argument to an alias name to use for each additional configuration.
-    # The default provider configuration
+    To include multiple configurations for a given provider, include multiple provider blocks with
+    the same provider name, but set the alias meta-argument to an alias name to use for each additional configuration.
+
+    ## The default provider configuration
     provider "aws" {
         region = "us-east-1"
     }
 
-    # Additional provider configuration for west coast region
+    ## Additional provider configuration for west coast region
     provider "aws" {
         alias  = "west"
         region = "us-west-2"
@@ -270,7 +273,10 @@ Also I mentined the refrences at the end of this page.
     ```
 34. How do you select alternate providers?
     ```txt
-    By default, resources use a default provider configuration inferred from the first word of the resource type name. For example, a resource of type aws_instance uses the default (un-aliased) aws provider configuration unless otherwise stated.
+    By default, resources use a default provider configuration inferred from the first word of
+    the resource type name. For example, a resource of type aws_instance uses the default (un-aliased) aws provider
+    configuration unless otherwise stated.
+    
     resource "aws_instance" "foo" {
         provider = aws.west
     # ...
