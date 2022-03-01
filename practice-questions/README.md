@@ -227,13 +227,14 @@ Also I mentined the refrences at the end of this page.
     ```
 30. How many ways you can configure provider versions?
     ```txt
-    1. With required_providers blocks under terraform block
+    1. With "required_providers" blocks under terraform block
     terraform {
         required_providers {
         aws = "~> 1.0"
         }
     }
-    2. Provider version constraints can also be specified using a version argument within a provider block
+
+    2. Provider version constraints can also be specified using a version argument within a "provider" block
     provider {
         version= "1.0"
     }
@@ -242,8 +243,9 @@ Also I mentined the refrences at the end of this page.
 
 31. How do you configure Multiple Provider Instances?
     ```txt
-    alias
-    You can optionally define multiple configurations for the same provider, and select which one to use on a per-resource or per-module basis. 
+    "alias"
+    You can optionally define multiple configurations for the same provider, and select which one to use on
+    a per-resource or per-module basis. 
     ```
 32. Why do we need Multiple Provider instances?
     ```txt
