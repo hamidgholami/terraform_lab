@@ -327,9 +327,9 @@ Also I mentined the refrences at the end of this page.
     provider then a separate copy of its plugin will be downloaded for each configuration.
     Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior
     can be inconvenient for those with slow or metered Internet connections. 
-    Therefore Terraform optionally
-    allows the use of a local directory as a shared plugin cache, which then allows each distinct plugin binary
-    to be downloaded only once.
+    
+    Therefore Terraform optionally allows the use of a local directory as a shared plugin cache, which then allows
+    each distinct plugin binary to be downloaded only once.
     ```
 42. How do you enable Provider Plugin Cache?
     ```txt
