@@ -87,7 +87,7 @@ Also I mentined the refrences at the end of this page.
     ```txt
     cloud-agnostic and allows a single configuration to be used to manage multiple providers, and to even handle cross-cloud dependencies.
     ```
-13. Is Terraform cloud-agostic?
+13. Is Terraform cloud-agnostic?
     ```txt
     Yes
     ```
