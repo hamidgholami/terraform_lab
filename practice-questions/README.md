@@ -106,25 +106,25 @@ Also I mentined the refrences at the end of this page.
 16. What is the purpose of the Terraform State?
     ```txt
     "Mapping to the Real World"
-    Terraform requires some sort of database to map Terraform config to the real world because you can't find the same functionality
-    in every cloud provider. You need to have some kind of mechanism to be cloud-agnostic
+    Terraform requires some sort of database to map Terraform config to the real world because you can't find the same
+    functionality in every cloud provider. You need to have some kind of mechanism to be cloud-agnostic
     
     "Metadata"
-    Terraform must also track metadata such as resource dependencies, pointer to the provider configuration that was most recently used
-    with the resource in situations where multiple aliased providers are present.
+    Terraform must also track metadata such as resource dependencies, pointer to the provider configuration that was most
+    recently used with the resource in situations where multiple aliased providers are present.
     
     "Performance"
-    When running a terraform plan, Terraform must know the current state of resources in order to effectively determine the changes that
-    it needs to make to reach your desired configuration.
+    When running a terraform plan, Terraform must know the current state of resources in order to effectively determine
+    the changes that it needs to make to reach your desired configuration.
     
-    For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to query multiple
-    resources at once, and the round trip time for each resource is hundreds of milliseconds. So, Terraform stores a cache of
-    the attribute values for all resources in the state. This is the most optional feature of Terraform state and is done only
+    For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to
+    query multiple resources at once, and the round trip time for each resource is hundreds of milliseconds. So,
+    Terraform stores a cache of the attribute values for all resources in the state. This is the most optional feature of Terraform state and is done only
     as a performance improvement.
     
     "Syncing"
-    When two people works on the same file and doing some changes to the infrastructure. Its very important for everyone
-    to be working with the same state so that operations will be applied to the same remote objects.
+    When two people works on the same file and doing some changes to the infrastructure. Its very important
+    for everyone to be working with the same state so that operations will be applied to the same remote objects.
     https://www.terraform.io/docs/state/purpose.html
     ```
 [Back to top](#practice-questions)
