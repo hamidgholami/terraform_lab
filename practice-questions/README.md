@@ -178,7 +178,9 @@ Also I mentined the refrences at the end of this page.
     Terraform associates each resource type with a provider by taking the first word of the resource type name
     (separated by underscores), and so the "google" provider is assumed to be the provider for the resource type name
     google_compute_instance. The body of the block (between { and }) contains configuration arguments for the
-    provider itself. Most arguments in this section are specified by the provider itself; in this example both
+    provider itself. 
+    
+    Most arguments in this section are specified by the provider itself; in this example both
     project and region are specific to the google provider.
     ```
 24. What are the meta-arguments that are defined by Terraform itself and available for all provider blocks?
@@ -188,7 +190,8 @@ Also I mentined the refrences at the end of this page.
     ```
 25. What is Provider initialization and why do we need?
     ```txt
-    Each time a new provider is added to configuration -- either explicitly via a provider block or by adding a resource from that provider -- Terraform must initialize the provider before it can be used. 
+    Each time a new provider is added to configuration -- either explicitly via a provider block or by adding
+    a resource from that provider -- Terraform must initialize the provider before it can be used. 
     Initialization downloads and installs the provider's plugin so that it can later be executed.
     ```
 26. How do you initialize any Provider?
