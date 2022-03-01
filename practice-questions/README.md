@@ -294,9 +294,12 @@ Also I mentined the refrences at the end of this page.
 37. The command terraform init cannot install third-party plugins? True or false?
     ```txt
     True
+    
     Install third-party providers by placing their plugin executables in the user plugins directory.
     The user plugins directory is in one of the following locations, depending on the host operating system
-    Once a plugin is installed, terraform init can initialize it normally. You must run this command from the directory where the configuration files are located.
+    Once a plugin is installed, terraform init can initialize it normally.
+    
+    You must run this command from the directory where the configuration files are located.
     ```
 38. What is the naming scheme for provider plugins?
     ```txt
