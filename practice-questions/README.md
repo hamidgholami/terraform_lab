@@ -314,10 +314,10 @@ Also I mentined the refrences at the end of this page.
     ```
 40. Where is the location of the CLI configuration File?
     ```txt
-    On Windows, the file must be named named terraform.rc and placed in the relevant user's %APPDATA% directory.
-    On all other systems, the file must be named .terraformrc (note the leading period) and placed directly
+    On Windows, the file must be named "terraform.rc" and placed in the relevant user's '%APPDATA%' directory.
+    On all other systems, the file must be named ".terraformrc" (note the leading period) and placed directly
     in the home directory of the relevant user.
-    The location of the Terraform CLI configuration file can also be specified using the TF_CLI_CONFIG_FILE 
+    The location of the Terraform CLI configuration file can also be specified using the 'TF_CLI_CONFIG_FILE' 
     environment variable.
     ```
 41. What is Provider Plugin Cache?
