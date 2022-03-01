@@ -148,7 +148,8 @@ Also I mentined the refrences at the end of this page.
     ```
 20. Where do you put terraform configurations so that you can configure some behaviors of Terraform itself?
     ```txt
-    The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
+    The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as
+    requiring a minimum Terraform version to apply your configuration.
     
     terraform {
     # ...
@@ -157,11 +158,14 @@ Also I mentined the refrences at the end of this page.
 21. Only constants are allowed inside the terraform block. Is this correct?
     ```txt
     Yes
-    Within a terraform block, only constant values can be used; arguments may not refer to named objects such as resources, input variables, etc, and may not use any of the Terraform language built-in functions.
+    Within a terraform block, only constant values can be used; arguments may not refer to named objects such as resources,
+    input variables, etc, and may not use any of the Terraform language built-in functions.
     ```
 22. What are the Providers?
     ```txt
-    A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for understanding API interactions and exposing resources. Because Terraform can interact with any API, you can represent almost any infrastructure type as a resource in Terraform.
+    A provider is a plugin that Terraform uses to translate the API interactions with the service. A provider is responsible for
+    understanding API interactions and exposing resources. Because Terraform can interact with any API, you can represent
+    almost any infrastructure type as a resource in Terraform.
     https://www.terraform.io/docs/configuration/providers.html
     ```
 23. How do you configure a Provider?
