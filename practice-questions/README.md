@@ -323,7 +323,8 @@ Also I mentined the refrences at the end of this page.
 41. What is Provider Plugin Cache?
     ```txt
     By default, terraform init downloads plugins into a subdirectory of the working directory so that each working
-    directory is self-contained. As a consequence, if you have multiple configurations that use the same provider then a separate copy of its plugin will be downloaded for each configuration.
+    directory is self-contained. As a consequence, if you have multiple configurations that use the same
+    provider then a separate copy of its plugin will be downloaded for each configuration.
     Given that provider plugins can be quite large (on the order of hundreds of megabytes), this default behavior
     can be inconvenient for those with slow or metered Internet connections. 
     Therefore Terraform optionally
