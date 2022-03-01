@@ -333,18 +333,24 @@ Also I mentined the refrences at the end of this page.
     ```
 42. How do you enable Provider Plugin Cache?
     ```txt
-    To enable the plugin cache, use the plugin_cache_dir setting in the CLI configuration file.
+    To enable the plugin cache, use the 'plugin_cache_dir' setting in the CLI configuration file.
+
     plugin_cache_dir = "$HOME/.terraform.d/plugin-cache"
-    Alternatively, the TF_PLUGIN_CACHE_DIR environment variable can be used to enable caching or to override an existing cache directory within a particular shell session:
+    
+    Alternatively, the 'TF_PLUGIN_CACHE_DIR' environment variable can be used to enable caching or to override
+    an existing cache directory within a particular shell session
     ```
 43. When you are using plugin cache you end up growing cache directory with different versions. Whose responsibility to clean it?
     ```txt
     User
-    Terraform will never itself delete a plugin from the plugin cache once it's been placed there. Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions which must be manually deleted.
+    Terraform will never itself delete a plugin from the plugin cache once it's been placed there.
+    Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions
+    which must be manually deleted.
     ```
 44. Why do we need to initialize the directory?
     ```txt
-    When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory
+    When you create a new configuration — or check out an existing configuration from version control — you need
+    to initialize the directory
     // Example
     provider "aws" {
         profile = "default"
@@ -355,7 +361,8 @@ Also I mentined the refrences at the end of this page.
         ami           = "ami-2757f631"
         instance_type = "t2.micro"
     }
-    Initializing a configuration directory downloads and installs providers used in the configuration, which in this case is the aws provider. Subsequent commands will use local settings and data during initialization.
+    Initializing a configuration directory downloads and installs providers used in the configuration, which in this
+    case is the aws provider. Subsequent commands will use local settings and data during initialization.
     ```
 45. What is the command to initialize the directory?
     ```txt
