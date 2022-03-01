@@ -143,12 +143,13 @@ Also I mentined the refrences at the end of this page.
     ```
 19. How do you manually install terraform?
     ```txt
-    step 1: Download the zip fille
+    step 1: Download the zip file and extract it
     step 2: mv ~/Downloads/terraform /usr/local/bin/terraform
     ```
 20. Where do you put terraform configurations so that you can configure some behaviors of Terraform itself?
     ```txt
     The special terraform configuration block type is used to configure some behaviors of Terraform itself, such as requiring a minimum Terraform version to apply your configuration.
+    
     terraform {
     # ...
     }
