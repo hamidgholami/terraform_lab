@@ -132,13 +132,6 @@ Also I mentined the refrences at the end of this page.
 17. What is the name of the terraform state file?
     ```txt
     terraform.tfstate
-    Understand Terraform basics
-    Practice questions based on these concepts
-    Handle Terraform and provider installation and versioning
-    Describe the plug-in based architecture
-    Demonstrate using multiple providers
-    Describe how Terraform finds and fetches providers
-    Explain when to use and not use provisioners and when to use local-exec or remote-exec
     ```
 18. How do you install terraform on different OS?
     ```txt
@@ -226,6 +219,8 @@ Also I mentined the refrences at the end of this page.
         version= "1.0"
     }
     ```
+[Back to top](#practice-questions)
+
 31. How do you configure Multiple Provider Instances?
     ```txt
     alias
@@ -350,6 +345,8 @@ Also I mentined the refrences at the end of this page.
     terraform show
     When you applied your configuration, Terraform wrote data into a file called terraform.tfstate. This file now contains the IDs and properties of the resources Terraform created so that it can manage or destroy those resources going forward.
     ```
+[Back to top](#practice-questions)
+
 51. If your state file is too big and you want to list the resources from your state. What is the command?
     ```txt
     terraform state list
@@ -506,6 +503,8 @@ Also I mentined the refrences at the end of this page.
       experiments = [example]
     }
     ```
+[Back to top](#practice-questions)
+
 71. When does the terraform does not recommend using provisions?
     ```txt
     Passing data into virtual machines and other compute resources
@@ -607,6 +606,8 @@ Also I mentined the refrences at the end of this page.
     terraform taint aws_security_group.allow_all
     The resource aws_security_group.allow_all in the module root has been marked as tainted.
     ```
+[Back to top](#practice-questions)
+
 91. Give an example of tainting a resource within a module?
     ```txt
     terraform taint "module.couchbase.aws_instance.cb_node[9]"
@@ -730,6 +731,8 @@ Also I mentined the refrences at the end of this page.
      Note that even when TF_LOG_PATH is set, TF_LOG must be set in order for any logging to be enabled.
      https://www.terraform.io/docs/internals/debugging.html
      ```
+[Back to top](#practice-questions)
+
 111. If terraform crashes where should you see the logs?
      ```txt
      crash.log
@@ -824,6 +827,8 @@ Also I mentined the refrences at the end of this page.
      }
      terraform init command will download and cache any modules referenced by a configuration.
      ```
+[Back to top](#practice-questions)
+
 128. What is the syntax for referencing a registry module?
      ```txt
      <NAMESPACE>/<NAME>/<PROVIDER>
@@ -1039,6 +1044,8 @@ Also I mentined the refrences at the end of this page.
      2. Plan - Preview changes before applying.
      3. Apply - Provision reproducible infrastructure.
      ```
+[Back to top](#practice-questions)
+
 151. What is the workflow when you work as an Individual Practitioner?
 
      ```txt
@@ -1208,6 +1215,8 @@ terraform init -get=false
      ```txt
      True
      ```
+[Back to top](#practice-questions)
+
 176. You have the following file and created two resources docker_image and docker_container with the command `terraform apply` and you go to the terminal and delete the container with the command docker rm. You come back to your configuration and run the command again. Does terraform recreates the resource?
      ```txt
      resource "docker_image" "nginx" {
@@ -1319,6 +1328,8 @@ terraform init -get=false
      The command refresh does not modify infrastructure, but does modify the state file. 
      If the state is changed, this may cause changes to occur during the next plan or apply.
      ```
+[Back to top](#practice-questions)
+
 191. How do you backup the state to the remote backend?
      ```txt
      1. When configuring a backend for the first time (moving from no defined backend to explicitly configuring one), Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
@@ -1385,6 +1396,8 @@ terraform init -get=false
      
      To protect you, the force-unlock command requires a unique lock ID. Terraform will output this lock ID if unlocking fails. This lock ID acts as a nonce, ensuring that locks and unlocks target the correct lock.
      ```
+[Back to top](#practice-questions)
+
 201. You should only use force unlock command when automatic unlocking fails. Is this true?
      ```txt
      True
@@ -1559,6 +1572,8 @@ terraform init -get=false
      condition     = can(formatdate("", var.timestamp))
      https://www.terraform.io/docs/configuration/functions/can.html
      ```
+[Back to top](#practice-questions)
+
 221. What is the built-in function to evaluates all of its argument expressions in turn and returns the result of the first one that does not produce any errors?
      ```txt
      try
@@ -1689,6 +1704,8 @@ terraform init -get=false
      ```txt
      https://www.hashicorp.com/resources/terraform-enterprise-understanding-workspaces-and-modules/
      ```
+[Back to top](#practice-questions)
+
 238. You are configuring a remote backend in the terraform cloud. You didn’t create an organization before you do terraform init. Does it work?
      ```txt
      While the organization defined in the backend stanza must already exist,
@@ -1767,6 +1784,7 @@ terraform init -get=false
      ```txt
      Yes. The Terraform Cloud Team plan is charged on a per-user basis so adding new users to your organization incurs cost.
      ```
-
+[Back to top](#practice-questions)
+***
 > references:
 > - [250 practice questions for terraform associate certification](https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a)
