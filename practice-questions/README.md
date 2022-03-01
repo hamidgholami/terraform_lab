@@ -343,6 +343,7 @@ Also I mentined the refrences at the end of this page.
 43. When you are using plugin cache you end up growing cache directory with different versions. Whose responsibility to clean it?
     ```txt
     User
+    
     Terraform will never itself delete a plugin from the plugin cache once it's been placed there.
     Over time, as plugins are upgraded, the cache directory may grow to contain several unused versions
     which must be manually deleted.
