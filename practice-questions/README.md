@@ -651,7 +651,10 @@ Also I mentined the refrences at the end of this page.
 83. By default, fmt scans the current directory for configuration files. Is this true?
     ```txt
     True
-    By default, fmt scans the current directory for configuration files. If the dir argument is provided then it will scan that given directory instead. If dir is a single dash (-) then fmt will read from standard input (STDIN).
+
+    By default, fmt scans the current directory for configuration files.
+    If the dir argument is provided then it will scan that given directory instead.
+    If dir is a single dash (-) then fmt will read from standard input (STDIN).
     ```
 84. You are formatting the configuration files and what is the flag you should use to see the differences?
     ```txt
