@@ -548,6 +548,17 @@ Also I mentined the refrences at the end of this page.
       }
     }
     ```
+68. How do you define destroy provisioner and give an example?
+     ```txt
+     You can define destroy provisioner with the parameter "when"
+
+     provisioner "remote-exec" {
+        when = "destroy"
+
+        # <...snip...>
+
+     }
+     ```
 69. What should you use to set both a lower and upper bound on versions for each provider?
     ```txt
     ~>
@@ -1845,17 +1856,7 @@ terraform init -get=false
      ```txt
      Yes. The Terraform Cloud Team plan is charged on a per-user basis so adding new users to your organization incurs cost.
      ```
-251. How do you define destroy provisioner and give an example?
-     ```txt
-     You can define destroy provisioner with the parameter "when"
 
-     provisioner "remote-exec" {
-        when = "destroy"
-
-        # <...snip...>
-
-     }
-     ```
 [Back to top](#practice-questions)
 ***
 > references:
