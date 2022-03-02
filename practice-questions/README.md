@@ -561,7 +561,8 @@ Also I mentined the refrences at the end of this page.
      ```
 69. What should you use to set both a lower and upper bound on versions for each provider?
     ```txt
-    ~>
+    With "~>"
+    
     terraform {
       required_providers {
         aws = "~> 2.7.0"
