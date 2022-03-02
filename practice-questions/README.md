@@ -520,10 +520,12 @@ Also I mentined the refrences at the end of this page.
     ```
 66. By default, provisioners that fail will also cause the Terraform apply itself to fail. How do you change this?
     ```txt
-    The on_failure setting can be used to change this. 
+    The "on_failure" setting can be used to change this. 
+    
     The allowed values are:
-    continue: Ignore the error and continue with creation or destruction.
-    fial: Raise an error and stop applying (the default behavior). If this is a creation provisioner, taint the resource.
+    
+    "continue": Ignore the error and continue with creation or destruction.
+    "fial": Raise an error and stop applying (the default behavior). If this is a creation provisioner, taint the resource.
 
     // Example
     resource "aws_instance" "web" {
@@ -533,14 +535,6 @@ Also I mentined the refrences at the end of this page.
         command  = "echo The server's IP address is ${self.private_ip}"
         on_failure = "continue"
       }
-    }
-    1.  How do you define destroy provisioner and give an example?
-    You can define destroy provisioner with the parameter when
-    provisioner "remote-exec" {
-        when = "destroy"
-
-        # <...snip...>
-
     }
     ```
 67. How do you apply constraints for the provider versions?
@@ -1848,6 +1842,17 @@ terraform init -get=false
 250. The Terraform Cloud Team plan charges you on a per-user basis. Is this true?
      ```txt
      Yes. The Terraform Cloud Team plan is charged on a per-user basis so adding new users to your organization incurs cost.
+     ```
+251. How do you define destroy provisioner and give an example?
+     ```txt
+     You can define destroy provisioner with the parameter "when"
+     
+     provisioner "remote-exec" {
+        when = "destroy"
+
+        # <...snip...>
+
+     }
      ```
 [Back to top](#practice-questions)
 ***
