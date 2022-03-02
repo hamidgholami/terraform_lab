@@ -445,14 +445,14 @@ Also I mentined the refrences at the end of this page.
 58. Are provisioners runs only when the resource is created or destroyed?
     ```txt
     Provisioners are only run when a resource is created or destroyed. Provisioners that are run while 
-    destroying are  Destroy provisioners. They are not a replacement for onfiguration management and
+    destroying are Destroy provisioners. They are not a replacement for configuration management and
     changing the software of an already-running server, and are instead just meant as a way to bootstrap a server.
     ```
 59. What do we need to use a remote-exec?
     ```txt
     In order to use a remote-exec provisioner, you must choose an ssh or winrm connection in the form of
     a connection block within the provisioner. Here is an example:
-    
+
     provider "aws" {
       profile = "default"
       region  = "us-west-2"
@@ -482,13 +482,16 @@ Also I mentined the refrences at the end of this page.
     ```
 60. When terraform mark the resources are tainted?
     ```txt
-    If a resource successfully creates but fails during provisioning, Terraform will error and mark the resource as "tainted".
-    A resource that is tainted has been physically created, but can't be considered safe to use since provisioning failed.
+    If a resource successfully creates but fails during provisioning, Terraform will error and mark the resource
+    as "tainted".
+    A resource that is tainted has been physically created, but can't be considered safe to use since 
+    provisioning failed.
     ```
 61. You applied the infrastructure with terraform apply and you have some tainted resources. You run an execution plan now what happens to those tainted resources?
     ```txt
-    When you generate your next execution plan, Terraform will not attempt to restart provisioning on the same resource because it isn't guaranteed to be safe. 
-    Instead, Terraform will remove any tainted resources and create new resources, attempting to provision them again after creation.
+    When you generate your next execution plan, Terraform will not attempt to restart provisioning on the same
+    resource because it isn't guaranteed to be safe. Instead, Terraform will remove any tainted resources and
+    create new resources, attempting to provision them again after creation.
     https://learn.hashicorp.com/terraform/getting-started/provision
     ```
 62. Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens. Why?
