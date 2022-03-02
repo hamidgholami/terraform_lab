@@ -670,13 +670,17 @@ Also I mentined the refrences at the end of this page.
     ```
 87. What is the command taint?
     ```txt
-    The terraform taint command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed and recreated on the next apply.
-    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+    The terraform taint command manually marks a Terraform-managed resource as tainted, forcing it to be destroyed
+    and recreated on the next apply.
+    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted.
+    Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated
+    and the next apply will implement this change.
     ```
 88. What is the command usage?
     ```txt
     terraform taint [options] address
-    The address argument is the address of the resource to mark as tainted. The address is in the resource address syntax syntax
+    The address argument is the address of the resource to mark as tainted. The address is in
+    the resource address syntax syntax
     ```
 89. When you are tainting a resource terraform reads the default state file terraform.tfstate. What is the flag you should use to read from a different path?
     ```txt
@@ -697,8 +701,10 @@ Also I mentined the refrences at the end of this page.
 92. What is the command import?
     ```txt
     The terraform import command is used to import existing resources into Terraform.
-    Terraform is able to import existing infrastructure. This allows you take resources you've created by some other means and bring it under Terraform management.
-    This is a great way to slowly transition infrastructure to Terraform, or to be able to be confident that you can use Terraform in the future if it potentially doesn't support every feature you need today.
+    Terraform is able to import existing infrastructure. This allows you take resources you've created by
+    some other means and bring it under Terraform management.
+    This is a great way to slowly transition infrastructure to Terraform, or to be able to be confident that
+    you can use Terraform in the future if it potentially doesn't support every feature you need today.
     ```
 93. What is the command import usage?
 
@@ -715,8 +721,10 @@ Also I mentined the refrences at the end of this page.
 95. What are workspaces?
 
     ```txt
-    Each Terraform configuration has an associated backend that defines how operations are executed and where persistent data such as the Terraform state are stored.
-    The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace, called "default", and thus there is only one Terraform state associated with that configuration.
+    Each Terraform configuration has an associated backend that defines how operations are executed
+    and where persistent data such as the Terraform state are stored.
+    The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace,
+    called "default", and thus there is only one Terraform state associated with that configuration.
     Certain backends support multiple named workspaces, allowing multiple states to be associated with a single configuration.
     ```
 
