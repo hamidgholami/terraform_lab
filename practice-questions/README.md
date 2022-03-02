@@ -629,7 +629,7 @@ Also I mentined the refrences at the end of this page.
     ```
 79. You are provisioning the infrastructure with the command terraform apply and you noticed one of the resources failed. How do you remove that resource without affecting the whole infrastructure?
     ```txt
-    You can taint the resource ans the next apply will destroy the resource
+    You can taint the resource and the next apply will destroy the resource
     terraform taint <resource.id>
     ```
 80. What is command fmt?
