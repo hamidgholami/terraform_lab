@@ -444,13 +444,15 @@ Also I mentined the refrences at the end of this page.
     ```
 58. Are provisioners runs only when the resource is created or destroyed?
     ```txt
-    Provisioners are only run when a resource is created or destroyed. Provisioners that are run while destroying are  Destroy provisioners. 
-    They are not a replacement for configuration management and changing the software of an already-running server, and are instead just meant as a way to bootstrap a server.
+    Provisioners are only run when a resource is created or destroyed. Provisioners that are run while 
+    destroying are  Destroy provisioners. They are not a replacement for onfiguration management and
+    changing the software of an already-running server, and are instead just meant as a way to bootstrap a server.
     ```
 59. What do we need to use a remote-exec?
     ```txt
-    In order to use a remote-exec provisioner, you must choose an ssh or winrm connection in the form of a connection block within the provisioner.
-    Here is an example
+    In order to use a remote-exec provisioner, you must choose an ssh or winrm connection in the form of
+    a connection block within the provisioner. Here is an example:
+    
     provider "aws" {
       profile = "default"
       region  = "us-west-2"
