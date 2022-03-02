@@ -680,7 +680,7 @@ Also I mentined the refrences at the end of this page.
     ```txt
     terraform taint [options] address
     The address argument is the address of the resource to mark as tainted. The address is in
-    the resource address syntax syntax
+    the resource address syntax 
     ```
 89. When you are tainting a resource terraform reads the default state file terraform.tfstate. What is the flag you should use to read from a different path?
     ```txt
