@@ -725,7 +725,8 @@ Also I mentined the refrences at the end of this page.
     and where persistent data such as the Terraform state are stored.
     The persistent data stored in the backend belongs to a workspace. Initially the backend has only one workspace,
     called "default", and thus there is only one Terraform state associated with that configuration.
-    Certain backends support multiple named workspaces, allowing multiple states to be associated with a single configuration.
+    Certain backends support multiple named workspaces, allowing multiple states to be associated with
+    a single configuration.
     ```
 
 96. What is the command to list the workspaces?
