@@ -539,7 +539,9 @@ Also I mentined the refrences at the end of this page.
     ```
 67. How do you apply constraints for the provider versions?
     ```txt
-    The required_providers setting is a map specifying a version constraint for each provider required by your configuration.
+    The required_providers setting is a map specifying a version constraint for each provider required by your
+    configuration.
+    
     terraform {
       required_providers {
         aws = ">= 2.7.0"
@@ -1846,7 +1848,7 @@ terraform init -get=false
 251. How do you define destroy provisioner and give an example?
      ```txt
      You can define destroy provisioner with the parameter "when"
-     
+
      provisioner "remote-exec" {
         when = "destroy"
 
