@@ -562,7 +562,7 @@ Also I mentined the refrences at the end of this page.
 69. What should you use to set both a lower and upper bound on versions for each provider?
     ```txt
     With "~>"
-    
+
     terraform {
       required_providers {
         aws = "~> 2.7.0"
@@ -571,7 +571,9 @@ Also I mentined the refrences at the end of this page.
     ```
 70. How do you try experimental features?
     ```txt
-    In releases where experimental features are available, you can enable them on a per-module basis by setting the experiments argument inside a terraform block:
+    In releases where experimental features are available, you can enable them on a per-module basis by
+    setting the experiments argument inside a terraform block:
+    
     terraform {
       experiments = [example]
     }
