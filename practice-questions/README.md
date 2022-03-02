@@ -496,7 +496,10 @@ Also I mentined the refrences at the end of this page.
     ```
 62. Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens. Why?
     ```txt
-    Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens, because that would go against the execution plan: the execution plan would've said a resource will be created, but does not say it will ever be deleted. If you create an execution plan with a tainted resource, however, the plan will clearly state that the resource will be destroyed because it is tainted.
+    Terraform also does not automatically roll back and destroy the resource during the apply when the failure happens,
+    because that would go against the execution plan: the execution plan would've said a resource will be created,
+    but does not say it will ever be deleted. If you create an execution plan with a tainted resource, however,
+    the plan will clearly state that the resource will be destroyed because it is tainted.
     https://learn.hashicorp.com/terraform/getting-started/provision
     ```
 63. How do you manually taint a resource?
@@ -506,7 +509,10 @@ Also I mentined the refrences at the end of this page.
 64. Does the taint command modify the infrastructure?
     ```txt
     terraform taint resource.id
-    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+
+    This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted.
+    Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated
+    and the next apply will implement this change.
     ```
 65. By default, provisioners that fail will also cause the Terraform apply itself to fail. Is this true?
     ```txt
