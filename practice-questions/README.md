@@ -404,11 +404,13 @@ Also I mentined the refrences at the end of this page.
     ```
 52. What is plug-in based architecture?
     ```txt
-    Defining additional features as plugins to your core platform or core application. This provides extensibility, flexibility and isolation
+    Defining additional features as plugins to your core platform or core application.
+    This provides extensibility, flexibility and isolation
     ```
 53. What are Provisioners?
     ```txt
-    If you need to do some initial setup on your instances, then provisioners let you upload files, run shell scripts, or install and trigger other software like configuration management tools, etc.
+    If you need to do some initial setup on your instances, then provisioners let you upload files, run shell scripts,
+    or install and trigger other software like configuration management tools, etc.
     ```
 54. How do you define provisioners?
     ```txt
@@ -420,7 +422,9 @@ Also I mentined the refrences at the end of this page.
         command = "echo hello > hello.txt"
         }
     }
-    Provisioner block within the resource block. Multiple provisioner blocks can be added to define multiple provisioning steps. Terraform supports multiple provisioners
+    Provisioner block within the resource block.
+    Multiple provisioner blocks can be added to define multiple provisioning steps.
+    Terraform supports multiple provisioners
     https://learn.hashicorp.com/terraform/getting-started/provision
     ```
 55. What are the types of provisioners?
