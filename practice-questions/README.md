@@ -792,7 +792,9 @@ Also I mentined the refrences at the end of this page.
 105. What is the command state?
 
      ```txt
-     The terraform state command is used for advanced state management. As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state. Rather than modify the state directly, the terraform state commands can be used in many cases instead.
+     The terraform state command is used for advanced state management.
+     As your Terraform usage becomes more advanced, there are some cases where you may need to modify the Terraform state.
+     Rather than modify the state directly, the terraform state commands can be used in many cases instead.
      https://www.terraform.io/docs/commands/state/index.html
      ```
 
