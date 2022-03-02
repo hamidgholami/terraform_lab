@@ -573,7 +573,7 @@ Also I mentined the refrences at the end of this page.
     ```txt
     In releases where experimental features are available, you can enable them on a per-module basis by
     setting the experiments argument inside a terraform block:
-    
+
     terraform {
       experiments = [example]
     }
@@ -608,7 +608,10 @@ Also I mentined the refrences at the end of this page.
     ```
 76. How do you configure the required version of Terraform CLI can be used with your configuration?
     ```txt
-    The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration. If the running version of Terraform doesn't match the constraints specified, Terraform will produce an error and exit without taking any further actions.
+    The required_version setting can be used to constrain which versions of the Terraform CLI
+    can be used with your configuration.
+    If the running version of Terraform doesn't match the constraints specified, Terraform will produce an error
+    and exit without taking any further actions.
     ```
 77. Terraform CLI versions and provider versions are independent of each other. Is this true?
     ```txt
@@ -617,21 +620,17 @@ Also I mentined the refrences at the end of this page.
 78. You are configuring aws provider and it is always recommended to hard code aws credentials in *.tf files. Is this true?
     ```txt
     False
-    HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
-    If you leave out your AWS credentials, Terraform will automatically search for saved API credentials (for example, in ~/.aws/credentials) or IAM instance profile credentials. This is cleaner when .tf files are checked into source control or if there is more than one admin user
+
+    HashiCorp recommends that you never hard-code credentials into *.tf configuration files. We are explicitly defining
+    the default AWS config profile here to illustrate how Terraform should access sensitive credentials.
+    If you leave out your AWS credentials, Terraform will automatically search for saved API credentials
+    (for example, in ~/.aws/credentials) or IAM instance profile credentials. This is cleaner when .tf files are checked
+    into source control or if there is more than one admin user
     ```
 79. You are provisioning the infrastructure with the command terraform apply and you noticed one of the resources failed. How do you remove that resource without affecting the whole infrastructure?
     ```txt
     You can taint the resource ans the next apply will destroy the resource
     terraform taint <resource.id>
-    Use the Terraform CLI (outside of core workflow)
-    Practice questions based on these concepts
-    Given a scenario: choose when to use terraform fmt to format code
-    Given a scenario: choose when to use terraform taint to taint Terraform resources
-    Given a scenario: choose when to use terraform import to import existing infrastructure into your Terraform state
-    Given a scenario: choose when to use terraform workspace to create workspaces
-    Given a scenario: choose when to use terraform state to view Terraform state
-    Given a scenario: choose when to enable verbose logging and what the outcome/value is
     ```
 80. What is command fmt?
     ```txt
