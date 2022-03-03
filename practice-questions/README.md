@@ -1089,9 +1089,10 @@ Also I mentined the refrences at the end of this page.
      ```
 140. Where do you put output variables in the configuration?
      ```txt
-     Module outputs are usually either passed to other parts of your configuration, or defined as outputs in your root module.
-     You will see both uses in this guide.
-     Inside your configuration's directory, outputs.tf will need to contain:
+     Module outputs are usually either passed to other parts of your configuration, or defined as outputs
+      in your root module. You will see both uses in this guide.
+     Inside your configuration's 
+     directory, outputs.tf will need to contain:
 
      output "vpc_public_subnets" {
        description = "IDs of the VPC's public subnets"
