@@ -996,10 +996,20 @@ Also I mentined the refrences at the end of this page.
      ```
 135. What are the best practices for using Modules?
      ```txt
-     1. Start writing your configuration with modules in mind. Even for modestly complex Terraform configurations managed by a single person, you'll find the benefits of using modules outweigh the time it takes to use them properly.
-     2. Use local modules to organize and encapsulate your code. Even if you aren't using or publishing remote modules, organizing your configuration in terms of modules from the beginning will significantlty reduce the burden of maintaining and updating your configuration as your infrastructure grows in complexity.
-     3. Use the public Terraform Registry to find useful modules. This way you can more quickly and confidently implement your configuration by relying on the work of others to implement common infrastructure scenarios.
-     4. Publish and share modules with your team. Most infrastructure is managed by a team of people, and modules are important way that teams can work together to create and maintain infrastructure. As mentioned earlier, you can publish modules either publicly or privately. We will see how to do this in a future guide in this series.
+     1. Start writing your configuration with modules in mind. Even for modestly complex Terraform configurations managed
+     by a single person, you'll find the benefits of using modules outweigh the time it takes to use them properly.
+
+     2. Use local modules to organize and encapsulate your code. Even if you aren't using or publishing remote modules,
+     organizing your configuration in terms of modules from the beginning will significantlty reduce the burden of
+     maintaining and updating your configuration as your infrastructure grows in complexity.
+
+     3. Use the public Terraform Registry to find useful modules. This way you can more quickly and confidently implement
+     your configuration by relying on the work of others to implement common infrastructure scenarios.
+
+     4. Publish and share modules with your team. Most infrastructure is managed by a team of people, and modules
+     are important way that teams can work together to create and maintain infrastructure. 
+     As mentioned earlier, you can publish modules either publicly or privately.
+     We will see how to do this in a future guide in this series.
      https://learn.hashicorp.com/terraform/modules/modules-overview#module-best-practices
      ```
 136. What are the different source types for calling modules?
@@ -1017,6 +1027,7 @@ Also I mentined the refrences at the end of this page.
 137. What are the arguments you need for using modules in your configuration?
      ```txt
      source and version
+     
      // example
      module "consul" {
        source = "hashicorp/consul/aws"
