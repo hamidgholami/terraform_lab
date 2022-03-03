@@ -1027,7 +1027,7 @@ Also I mentined the refrences at the end of this page.
 137. What are the arguments you need for using modules in your configuration?
      ```txt
      source and version
-     
+
      // example
      module "consul" {
        source = "hashicorp/consul/aws"
@@ -1036,8 +1036,11 @@ Also I mentined the refrences at the end of this page.
      ```
 138. How do you set input variables for the modules?
      ```txt
-     The configuration that calls a module is responsible for setting its input values, which are passed as arguments in the module block. Aside from source and version, most of the arguments to a module block will set variable values.
-     On the Terraform registry page for the AWS VPC module, you will see an Inputs tab that describes all of the input variables that module supports.
+     The configuration that calls a module is responsible for setting its input values,
+     which are passed as arguments in the module block.
+     Aside from source and version, most of the arguments to a module block will set variable values.
+     On the Terraform registry page for the AWS VPC module, you will see an Inputs tab that describes all of 
+     the input variables that module supports.
 
      For example, we have defined a lot of input variables for the modules such as ads, cidr, name, etc
 
@@ -1086,7 +1089,8 @@ Also I mentined the refrences at the end of this page.
      ```
 140. Where do you put output variables in the configuration?
      ```txt
-     Module outputs are usually either passed to other parts of your configuration, or defined as outputs in your root module. You will see both uses in this guide.
+     Module outputs are usually either passed to other parts of your configuration, or defined as outputs in your root module.
+     You will see both uses in this guide.
      Inside your configuration's directory, outputs.tf will need to contain:
 
      output "vpc_public_subnets" {
