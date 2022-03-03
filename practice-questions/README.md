@@ -934,10 +934,12 @@ Also I mentined the refrences at the end of this page.
 127. How do you download any modules?
      ```txt
      You need to add any module in the configuration file like below
+
      module "consul" {
        source = "hashicorp/consul/aws"
        version = "0.1.0"
      }
+
      terraform init command will download and cache any modules referenced by a configuration.
      ```
 [Back to top](#practice-questions)
@@ -945,6 +947,7 @@ Also I mentined the refrences at the end of this page.
 128. What is the syntax for referencing a registry module?
      ```txt
      <NAMESPACE>/<NAME>/<PROVIDER>
+
      // for example
      module "consul" {
        source = "hashicorp/consul/aws"
@@ -954,6 +957,7 @@ Also I mentined the refrences at the end of this page.
 129.   What is the syntax for referencing a private registry module?
        ```txt
        <HOSTNAME>/<NAMESPACE>/<NAME>/<PROVIDER>
+
        // for example
        module "vpc" {
             source = "app.terraform.io/example_corp/vpc/aws"
@@ -966,7 +970,8 @@ Also I mentined the refrences at the end of this page.
      ```
 131. What is a Terraform Module?
      ```txt
-     A Terraform module is a set of Terraform configuration files in a single directory. Even a simple configuration consisting of a single directory with one or more .tf files is a module.
+     A Terraform module is a set of Terraform configuration files in a single directory.
+     Even a simple configuration consisting of a single directory with one or more .tf files is a module.
      ```
 132. Why do we use modules for?
      ```txt
@@ -978,14 +983,16 @@ Also I mentined the refrences at the end of this page.
      ```
 133. How do you call modules in your configuration?
      ```txt
-     Your configuration can use module blocks to call modules in other directories. 
+     Your configuration can use module blocks to call modules in other directories.
      When Terraform encounters a module block, it loads and processes that module's configuration files.
      ```
 134. How many ways you can load modules?
      ```txt
      Local and remote modules
-     Modules can either be loaded from the local filesystem, or a remote source. 
-     Terraform supports a variety of remote sources, including the Terraform Registry, most version control systems, HTTP URLs, and Terraform Cloud or Terraform Enterprise private module registries.
+
+     Modules can either be loaded from the local filesystem, or a remote source.
+     Terraform supports a variety of remote sources, including the Terraform Registry, most version control systems,
+      HTTP URLs, and Terraform Cloud or Terraform Enterprise private module registries.
      ```
 135. What are the best practices for using Modules?
      ```txt
