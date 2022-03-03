@@ -1106,13 +1106,15 @@ Also I mentined the refrences at the end of this page.
 141. How do you pass input variables in the configuration?
      ```txt
      You can define variables.tf in the root folder
+
      variable "vpc_name" {
        description = "Name of VPC"
        type        = string
        default     = "example-vpc"
      }
 
-     Then you can access these varibles in the configuration like this
+     Then you can access these varibles in the configuration like this:
+
      module "vpc" {
        source  = "terraform-aws-modules/vpc/aws"
        version = "2.21.0"
@@ -1131,7 +1133,8 @@ Also I mentined the refrences at the end of this page.
      ```
 142. What is the child module?
      ```txt
-     A module that is called by another configuration is sometimes referred to as a "child module" of that configuration.
+     A module that is called by another configuration is sometimes referred to as a "child module" of 
+     that configuration.
      ```
 143. When you use local modules you don’t have to do the command init or get every time there is a change in the local module. why?
      ```txt
