@@ -830,12 +830,15 @@ Also I mentined the refrences at the end of this page.
 111. If terraform crashes where should you see the logs?
      ```txt
      crash.log
-     If Terraform ever crashes (a "panic" in the Go runtime), it saves a log file with the debug logs from the session as well as the panic message and backtrace to crash.log.
+     
+     If Terraform ever crashes (a "panic" in the Go runtime), it saves a log file with the debug logs from the 
+     session as well as the panic message and backtrace to crash.log.
      https://www.terraform.io/docs/internals/debugging.html
      ```
 112. What is the first thing you should do when the terraform crashes?
      ```txt
      panic message
+     
      The most interesting part of a crash log is the panic message itself and the backtrace immediately following.
      So the first thing to do is to search the file for panic
      https://www.terraform.io/docs/internals/debugging.html
@@ -843,17 +846,23 @@ Also I mentined the refrences at the end of this page.
 113. You are building infrastructure for different environments for example test and dev. How do you maintain separate states?
      ```txt
      There are two primary methods to separate state between environments:
+     
      directories
      workspaces
      ```
 114. What is the difference between directory-separated and workspace-separated environments?
      ```txt
-     Directory separated environments rely on duplicate Terraform code, which may be useful if your deployments need differ, for example to test infrastructure changes in development. But they can run the risk of creating drift between the environments over time.
-     Workspace-separated environments use the same Terraform code but have different state files, which is useful if you want your environments to stay as similar to each other as possible, for example if you are providing development infrastructure to a team that wants to simulate running in production.
+     Directory separated environments rely on duplicate Terraform code, which may be useful if your deployments need differ,
+     for example to test infrastructure changes in development. But they can run the risk of creating drift between 
+     the environments over time.
+     Workspace-separated environments use the same Terraform code but have different state files, which is useful if you 
+     want your environments to stay as similar to each other as possible, for example if you are providing development 
+     infrastructure to a team that wants to simulate running in production.
      ```
 115. What is the command to pull the remote state?
      ```txt
      terraform state pull
+     
      This command will download the state from its current location and output the raw format to stdout.
      https://www.terraform.io/docs/commands/state/pull.html
      ```
