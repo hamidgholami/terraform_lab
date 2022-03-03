@@ -816,10 +816,12 @@ Also I mentined the refrences at the end of this page.
      ```
 110. How do you do debugging terraform?
      ```txt
-     Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value. 
+     Terraform has detailed logs which can be enabled by setting the TF_LOG environment variable to any value.
      This will cause detailed logs to appear on stderr.
-     You can set TF_LOG to one of the log levels TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs. TRACE is the most verbose and it is the default if TF_LOG is set to something other than a log level name.
-     To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a specific file when logging is enabled. 
+     You can set TF_LOG to one of the log levels TRACE, DEBUG, INFO, WARN or ERROR to change the verbosity of the logs.
+     TRACE is the most verbose and it is the default if TF_LOG is set to something other than a log level name.
+     To persist logged output you can set TF_LOG_PATH in order to force the log to always be appended to a 
+     specific file when logging is enabled. 
      Note that even when TF_LOG_PATH is set, TF_LOG must be set in order for any logging to be enabled.
      https://www.terraform.io/docs/internals/debugging.html
      ```
@@ -834,7 +836,8 @@ Also I mentined the refrences at the end of this page.
 112. What is the first thing you should do when the terraform crashes?
      ```txt
      panic message
-     The most interesting part of a crash log is the panic message itself and the backtrace immediately following. So the first thing to do is to search the file for panic
+     The most interesting part of a crash log is the panic message itself and the backtrace immediately following.
+     So the first thing to do is to search the file for panic
      https://www.terraform.io/docs/internals/debugging.html
      ```
 113. You are building infrastructure for different environments for example test and dev. How do you maintain separate states?
