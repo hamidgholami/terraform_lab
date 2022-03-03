@@ -922,11 +922,12 @@ Also I mentined the refrences at the end of this page.
 125. Where do you find and explore terraform Modules?
      ```txt
      The Terraform Registry makes it simple to find and use modules.
-     The search query will look at module name, provider, and description to match your search terms. On the results page, filters can be used further refine search results.
+     The search query will look at module name, provider, and description to match your search terms.
+     On the results page, filters can be used further refine search results.
      ```
 126. How do you make sure that modules have stability and compatibility?
      ```txt
-     By default, only verified modules are shown in search results. 
+     By default, only verified modules are shown in search results.
      Verified modules are reviewed by HashiCorp to ensure stability and compatibility. 
      By using the filters, you can view unverified modules as well.
      ```
