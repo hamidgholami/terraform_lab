@@ -902,13 +902,16 @@ Also I mentined the refrences at the end of this page.
 122. How do you remove items from the Terraform state?
      ```txt
      terraform state rm 'packet_device.worker'
-     The terraform state rm command is used to remove items from the Terraform state. This command can remove single resources, single instances of a resource, entire modules, and more.
+     The terraform state rm command is used to remove items from the Terraform state.
+     This command can remove single resources, single instances of a resource, entire modules, and more.
      https://www.terraform.io/docs/commands/state/rm.html
      ```
 123. How do you move the state from one source to another?
      ```txt
      terraform state mv 'module.app' 'module.parent.module.app'
-     The terraform state mv command is used to move items in a Terraform state. This command can move single resources, single instances of a resource, entire modules, and more. This command can also move items to a completely different state file, enabling efficient refactoring.
+     The terraform state mv command is used to move items in a Terraform state.
+     This command can move single resources, single instances of a resource, entire modules, and more.
+     This command can also move items to a completely different state file, enabling efficient refactoring.
      https://www.terraform.io/docs/commands/state/mv.html
      ```
 124. How do you rename a resource in the terraform state file?
