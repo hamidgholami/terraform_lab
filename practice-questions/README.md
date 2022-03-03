@@ -862,24 +862,29 @@ Also I mentined the refrences at the end of this page.
 115. What is the command to pull the remote state?
      ```txt
      terraform state pull
-     
+
      This command will download the state from its current location and output the raw format to stdout.
      https://www.terraform.io/docs/commands/state/pull.html
      ```
 116. What is the command is used manually to upload a local state file to a remote state?
      ```txt
      terraform state push
-     The terraform state push command is used to manually upload a local state file to remote state. This command also works with local state.
+
+     The terraform state push command is used to manually upload a local state file to remote state.
+     This command also works with local state.
      https://www.terraform.io/docs/commands/state/push.html
      ```
 117. The command terraform taint modifies the state file and doesn’t modify the infrastructure. Is this true?
      ```txt
      True
-     This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted. Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated and the next apply will implement this change.
+     This command will not modify infrastructure, but does modify the state file in order to mark a resource as tainted.
+     Once a resource is marked as tainted, the next plan will show that the resource will be destroyed and recreated
+     and the next apply will implement this change.
      ```
 118. Your team has decided to use terraform in your company and you have existing infrastructure. How do you migrate your existing resources to terraform and start using it?
      ```txt
-     You should use terraform import and modify the infrastrcuture in the terraform files and do the terraform workflow (init, plan, apply)
+     You should use terraform import and modify the infrastrcuture in the terraform files and do 
+     the terraform workflow (init, plan, apply)
      ```
 119. When you are working with the workspaces how do you access the current workspace in the configuration files?
      ```txt
