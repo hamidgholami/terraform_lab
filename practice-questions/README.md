@@ -1447,12 +1447,15 @@ Also I mentined the refrences at the end of this page.
      ```
 179. What are Backends?
      ```txt
-     A "backend" in Terraform determines how state is loaded and how an operation such as apply is executed. This abstraction enables non-local file state storage, remote execution, etc.
+     A "backend" in Terraform determines how state is loaded and how an operation such as apply is executed.
+     This abstraction enables non-local file state storage, remote execution, etc.
      By default, Terraform uses the "local" backend, which is the normal behavior of Terraform
      ```
 180. What is local Backend?
      ```txt
-     The local backend stores state on the local filesystem, locks that state using system APIs, and performs operations locally.
+     The local backend stores state on the local filesystem, locks that state using system APIs,
+     and performs operations locally.
+
      // Example
      terraform {
        backend "local" {
@@ -1466,8 +1469,10 @@ Also I mentined the refrences at the end of this page.
      ```
 182. What is State Locking?
      ```txt
-     If supported by your backend, Terraform will lock your state for all operations that could write state. This prevents others from acquiring the lock and potentially corrupting your state.
-     State locking happens automatically on all operations that could write state. You won't see any message that it is happening. If state locking fails, Terraform will not continue.
+     If supported by your backend, Terraform will lock your state for all operations that could write state.
+     This prevents others from acquiring the lock and potentially corrupting your state.
+     State locking happens automatically on all operations that could write state. You won't see any message that it is happening.
+     If state locking fails, Terraform will not continue.
      ```
 183. Does Terraform continue if state locking fails?
      ```txt
