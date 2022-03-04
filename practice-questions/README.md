@@ -1323,7 +1323,9 @@ Also I mentined the refrences at the end of this page.
      ```
 168. Give an example of implicit dependency?
      ```txt
-     In the example below, the reference to aws_instance.example.id creates an implicit dependency on the aws_instance named example.
+     In the example below, the reference to "aws_instance.example.id" creates an implicit dependency on 
+     the "aws_instance" named example.
+
      provider "aws" {
        profile    = "default"
        region     = "us-east-1"
@@ -1340,7 +1342,10 @@ Also I mentined the refrences at the end of this page.
      ```
 169. Give an example of explicit dependency?
      ```txt
-     In the example below, an application we will run on our EC2 instance expects to use a specific Amazon S3 bucket, but that dependency is configured inside the application code and thus not visible to Terraform. In that case, we can use depends_on to explicitly declare the dependency
+     In the example below, an application we will run on our EC2 instance expects to use a specific Amazon S3 bucket,
+     but that dependency is configured inside the application code and thus not visible to Terraform.
+     In that case, we can use depends_on to explicitly declare the dependency
+
      resource "aws_s3_bucket" "example" {
        bucket = "some_bucket"
        acl    = "private"
@@ -1361,6 +1366,7 @@ Also I mentined the refrences at the end of this page.
 171. You have started writing terraform configuration and you are using some sample configuration as a basis. How do you copy the example configuration into your working directory?
      ```txt
      terraform init -from-module=MODULE-SOURCE
+     
      https://www.terraform.io/docs/commands/init.html#copy-a-source-module
      ```
 172. What is the flag you should use with the terraform plan to get detailed on the exit codes?
