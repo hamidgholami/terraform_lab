@@ -1246,9 +1246,9 @@ Also I mentined the refrences at the end of this page.
      ```
 158. When you are doing initialization with terraform init, you want to skip child module installation. What should you do?
 
-```txt
-terraform init -get=false
-```
+     ```txt
+     terraform init -get=false
+     ```
 
 159. When you are doing initialization where do all the plugins stored?
 
