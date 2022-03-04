@@ -1550,7 +1550,9 @@ Also I mentined the refrences at the end of this page.
      ```
 194. What is the basic requirement when using partial configuration?
      ```txt
-     When using partial configuration, Terraform requires at a minimum that an empty backend configuration is specified in one of the root Terraform configuration files, to specify the backend type
+     When using partial configuration, Terraform requires at a minimum that an empty backend configuration is specified
+     in one of the root Terraform configuration files, to specify the backend type
+     
      // Example
      terraform {
        backend "consul" {}
@@ -1565,9 +1567,11 @@ Also I mentined the refrences at the end of this page.
      ```
 196. How to unconfigure a backend?
      ```txt
-     If you no longer want to use any backend, you can simply remove the configuration from the file. Terraform will detect this like any other change and prompt you to reinitialize.
+     If you no longer want to use any backend, you can simply remove the configuration from the file.
+     Terraform will detect this like any other change and prompt you to reinitialize.
      
-     As part of the reinitialization, Terraform will ask if you'd like to migrate your state back down to normal local state. Once this is complete then Terraform is back to behaving as it does by default.
+     As part of the reinitialization, Terraform will ask if you'd like to migrate your state back down to normal local state.
+     Once this is complete then Terraform is back to behaving as it does by default.
      ```
 197. How do you encrypt sensitive data in the state?
      ```txt
