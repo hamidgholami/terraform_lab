@@ -1178,8 +1178,9 @@ Also I mentined the refrences at the end of this page.
      ```
 149. What are the other optional meta-arguments along with the source when defining modules?
      ```txt
-     "version" - (Optional) A version constraint string that specifies which versions of the referenced module are acceptable.
-     The newest version matching the constraint will be used. version is supported only for modules retrieved from module registries.
+     "version" - (Optional) A version constraint string that specifies which versions of the referenced module are
+     acceptable. The newest version matching the constraint will be used.
+     version is supported only for modules retrieved from module registries.
 
      "providers" - (Optional) A map whose keys are provider configuration names that are expected by child module and
      whose values are corresponding provider names in the calling module.
