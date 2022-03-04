@@ -1138,8 +1138,9 @@ Also I mentined the refrences at the end of this page.
      ```
 143. When you use local modules you don’t have to do the command init or get every time there is a change in the local module. why?
      ```txt
-     When installing a local module, Terraform will instead refer directly to the source directory. 
-     Because of this, Terraform will automatically notice changes to local modules without having to re-run terraform init or terraform get.
+     When installing a local module, Terraform will instead refer directly to the source directory.
+     Because of this, Terraform will automatically notice changes to local modules without having to re-run
+     terraform init or terraform get.
      ```
 144. When you use remote modules what should you do if there is a change in the module?
      ```txt
