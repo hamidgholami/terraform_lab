@@ -1366,13 +1366,17 @@ Also I mentined the refrences at the end of this page.
 171. You have started writing terraform configuration and you are using some sample configuration as a basis. How do you copy the example configuration into your working directory?
      ```txt
      terraform init -from-module=MODULE-SOURCE
-     
+
      https://www.terraform.io/docs/commands/init.html#copy-a-source-module
      ```
 172. What is the flag you should use with the terraform plan to get detailed on the exit codes?
      ```txt
      terraform plan -detailed-exitcode
-     Return a detailed exit code when the command exits. When provided, this argument changes the exit codes and their meanings to provide more granular information about what the resulting plan contains:
+
+     Return a detailed exit code when the command exits.
+     When provided, this argument changes the exit codes and their meanings to provide more granular information
+     about what the resulting plan contains:
+     
      * 0 = Succeeded with empty diff (no changes)
      * 1 = Error
      * 2 = Succeeded with non-empty diff (changes present)
