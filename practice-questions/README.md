@@ -1293,7 +1293,7 @@ Also I mentined the refrences at the end of this page.
 
      ```txt
      terraform apply -auto-approve
-     
+
      https://www.terraform.io/docs/commands/apply.html
      ```
 165. What does the command destroy do?
@@ -1308,14 +1308,18 @@ Also I mentined the refrences at the end of this page.
 167. What are implicit and explicit dependencies?
      ```txt
      Implicit dependency:
-     By studying the resource attributes used in interpolation expressions, Terraform can automatically infer when one resource depends on another.
+     By studying the resource attributes used in interpolation expressions, Terraform can automatically infer when
+     one resource depends on another.
      
      Terraform uses this dependency information to determine the correct order in which to create the different resources.
      
-     Implicit dependencies via interpolation expressions are the primary way to inform Terraform about these relationships, and should be used whenever possible.
+     Implicit dependencies via interpolation expressions are the primary way to inform Terraform about these relationships,
+     and should be used whenever possible.
      
      Explicit dependency:
-     Sometimes there are dependencies between resources that are not visible to Terraform. The depends_on argument is accepted by any resource and accepts a list of resources to create explicit dependencies for.
+     Sometimes there are dependencies between resources that are not visible to Terraform.
+     The "depends_on" argument is accepted by any resource and accepts a list of resources to create explicit
+     dependencies for.
      ```
 168. Give an example of implicit dependency?
      ```txt
