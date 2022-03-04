@@ -1395,7 +1395,7 @@ Also I mentined the refrences at the end of this page.
      ```
 [Back to top](#practice-questions)
 
-176. You have the following file and created two resources docker_image and docker_container with the command `terraform apply` and you go to the terminal and delete the container with the command docker rm. You come back to your configuration and run the command again. Does terraform recreates the resource?
+176. You have the following file and created two resources docker_image and docker_container with <br/>the command `terraform apply` and you go to the terminal and delete the container with the command docker rm. You come back to your configuration and run the command again.<br />Does terraform recreates the resource?
      ```txt
      resource "docker_image" "nginx" {
          name = "nginx:latest"
@@ -1414,7 +1414,9 @@ Also I mentined the refrences at the end of this page.
              file = "/usr/share/nginx/html/index.html"
          }
      }
-     Yes. Terrsform creates the resource again since the execution plan says two resources and the terraform always maintains the desired state
+
+     Yes. Terrsform creates the resource again since the execution plan says two resources and the terraform
+     always maintains the desired state
      ```
 177. You created a VM instance on AWS cloud provider with the terraform configuration and you log in AWS console and removed the instance. What does the next apply do?
      ```txt
