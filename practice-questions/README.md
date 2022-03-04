@@ -1634,26 +1634,32 @@ Also I mentined the refrences at the end of this page.
      ```
 204. How many ways you can assign variables in the configuration?
      ```txt
-     Command-line flags
+     "Command-line flags"
      terraform apply -var 'region=us-east-1'
      
-     From a file
-     To persist variable values, create a file and assign variables within this file. Create a file named terraform.tfvars with the following contents:
+     "From a file"
+     To persist variable values, create a file and assign variables within this file. Create a file named 
+     'terraform.tfvars' with the following contents:
+
      region = "us-east-1"
      terraform apply \
        -var-file="secret.tfvars" \
        -var-file="production.tfvars"
      
-     From environment varibles
-     Terraform will read environment variables in the form of TF_VAR_name to find the value for a variable. For example, the TF_VAR_region variable can be set in the shell to set the region variable in Terraform.
+     "From environment varibles"
+     Terraform will read environment variables in the form of TF_VAR_name to find the value for a variable.
+     For example, the TF_VAR_region variable can be set in the shell to set the region variable in Terraform.
      
-     UI input
-     If you execute terraform apply with any variable unspecified, Terraform will ask you to input the values interactively. These values are not saved, but this provides a convenient workflow when getting started with Terraform. UI input is not recommended for everyday use of Terraform.
+     "UI input"
+     If you execute terraform apply with any variable unspecified, Terraform will ask you to input the values interactively.
+     These values are not saved, but this provides a convenient workflow when getting started with Terraform.
+     UI input is not recommended for everyday use of Terraform.
      ```
 205. Does environment variables support List and map types?
      ```txt
      No
-     Environment variables can only populate string-type variables. List and map type variables must be populated via one of the other mechanisms.
+     Environment variables can only populate string-type variables.
+     List and map type variables must be populated via one of the other mechanisms.
      ```
 206. How do you provision infrastructure in a staging environment or a production 
      ```txt
@@ -1667,7 +1673,9 @@ Also I mentined the refrences at the end of this page.
      ```
 207. How do you assign default values to variables?
      ```txt
-     If no value is assigned to a variable via any of these methods and the variable has a default key in its declaration, that value will be used for the variable.
+     If no value is assigned to a variable via any of these methods and the variable has a default key in its declaration,
+     that value will be used for the variable.
+
      variable "region" {
        default = "us-east-1"
      }
@@ -1686,6 +1694,7 @@ Also I mentined the refrences at the end of this page.
 209. Give an example of data type List variables?
      ```txt
      Lists are defined either explicitly or implicitly.
+
      variable "availability_zone_names" {
        type    = list(string)
        default = ["us-west-1a"]
@@ -1709,39 +1718,47 @@ Also I mentined the refrences at the end of this page.
      ```
 211. What is the Variable Definition Precedence?
      ```txt
-     The above mechanisms for setting variables can be used together in any combination. If the same variable is assigned multiple values, Terraform uses the last value it finds, overriding any previous values. Note that the same variable cannot be assigned multiple values within a single source.
+     The above mechanisms for setting variables can be used together in any combination.
+     If the same variable is assigned multiple values, Terraform uses the last value it finds, overriding any previous values.
+     Note that the same variable cannot be assigned multiple values within a single source.
      Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
+
      * Environment variables
      * The terraform.tfvars file, if present.
      * The terraform.tfvars.json file, if present.
      * Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
-     * Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+     * Any -var and -var-file options on the command line, in the order they are provided.
+     (This includes variables set by a Terraform Cloud workspace.)
      ```
 212. What are the output variables?
      ```txt
      output variables as a way to organize data to be easily queried and shown back to the Terraform user.
-     Outputs are a way to tell Terraform what data is important. This data is outputted when apply is called, and can be queried using the terraform output command.
+     Outputs are a way to tell Terraform what data is important.
+     This data is outputted when apply is called, and can be queried using the terraform output command.
      ```
 213. How do you define an output variable?
      ```txt
      output "ip" {
        value = aws_eip.ip.public_ip
      }
+
      Multiple output blocks can be defined to specify multiple output variables.
      ```
 
 214. How do you view outputs and queries them?
      ```txt
      You will see the output when you run the following command
-     terraform apply
+     "terraform apply"
      You can query the output with the following command
-     terraform output ip
+     "terraform output ip"
      ```
 215. What are the dynamic blocks?
      ```txt
      some resource types include repeatable nested blocks in their arguments, which do not accept expressions
-     You can dynamically construct repeatable nested blocks like setting using a special dynamic block type, which is supported inside resource, data, provider, and provisioner blocks:
-     A dynamic block acts much like a for expression, but produces nested blocks instead of a complex typed value. It iterates over a given complex value, and generates a nested block for each element of that complex value.
+     You can dynamically construct repeatable nested blocks like setting using a special dynamic block type,
+     which is supported inside resource, data, provider, and provisioner blocks:
+     A dynamic block acts much like a for expression, but produces nested blocks instead of a complex typed value.
+     It iterates over a given complex value, and generates a nested block for each element of that complex value.
      https://www.terraform.io/docs/configuration/expressions.html#dynamic-blocks
 
      resource "aws_elastic_beanstalk_environment" "tfenvtest" {
@@ -1761,12 +1778,14 @@ Also I mentined the refrences at the end of this page.
      ```
 216. What are the best practices for dynamic blocks?
      ```txt
-     Overuse of dynamic blocks can make configuration hard to read and maintain, so we recommend using them only when you need to hide details in order to build a clean user interface for a re-usable module. 
+     Overuse of dynamic blocks can make configuration hard to read and maintain, so we recommend using them only
+     when you need to hide details in order to build a clean user interface for a re-usable module. 
      Always write nested blocks out literally where possible.
      ```
 217. What are the Built-in Functions?
      ```txt
-     The Terraform language includes a number of built-in functions that you can call from within expressions to transform and combine values.
+     The Terraform language includes a number of built-in functions that you can call from within expressions
+     to transform and combine values.
      max(5, 12, 9)
      ```
 218. Does Terraform language support user-defined functions?
