@@ -1265,7 +1265,7 @@ Also I mentined the refrences at the end of this page.
      plugins already installed for the current working directory.
      If the installed plugins aren't sufficient for the configuration, init fails.
      ```
-161. What does the command terraform validate does?
+161. What does the command terraform validate do?
 
      ```txt
      The terraform validate command validates the configuration files in a directory, referring only to the configuration
