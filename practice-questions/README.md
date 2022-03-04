@@ -1178,8 +1178,13 @@ Also I mentined the refrences at the end of this page.
      ```
 149. What are the other optional meta-arguments along with the source when defining modules?
      ```txt
-     version - (Optional) A version constraint string that specifies which versions of the referenced module are acceptable. The newest version matching the constraint will be used. version is supported only for modules retrieved from module registries.
-     providers - (Optional) A map whose keys are provider configuration names that are expected by child module and whose values are corresponding provider names in the calling module. This allows provider configurations to be passed explicitly to child modules. If not specified, the child module inherits all of the default (un-aliased) provider configurations from the calling module.
+     "version" - (Optional) A version constraint string that specifies which versions of the referenced module are acceptable.
+     The newest version matching the constraint will be used. version is supported only for modules retrieved from module registries.
+
+     "providers" - (Optional) A map whose keys are provider configuration names that are expected by child module and
+     whose values are corresponding provider names in the calling module.
+     This allows provider configurations to be passed explicitly to child modules. If not specified,
+     the child module inherits all of the default (un-aliased) provider configurations from the calling module.
      ```
 150. What is the Core Terraform workflow?
      ```txt
