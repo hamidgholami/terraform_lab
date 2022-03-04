@@ -1530,8 +1530,8 @@ Also I mentined the refrences at the end of this page.
 192. What is a partial configuration in terms of configuring Backends?
      ```txt
      You do not need to specify every required argument in the backend configuration.
-     Omitting certain arguments may be desirable to avoid storing secrets, such as access keys, within the main configuration.
-     When some or all of the arguments are omitted, we call this a partial configuration.
+     Omitting certain arguments may be desirable to avoid storing secrets, such as access keys, within the main
+     configuration. When some or all of the arguments are omitted, we call this a partial configuration.
      ```
 193. What are the ways to provide remaining arguments when using partial configuration?
      ```txt
