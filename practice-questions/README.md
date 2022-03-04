@@ -1170,7 +1170,11 @@ Also I mentined the refrences at the end of this page.
 148. What is the required argument for the module?
      ```txt
      source
-     All modules require a source argument, which is a meta-argument defined by Terraform CLI. Its value is either the path to a local directory of the module's configuration files, or a remote module source that Terraform should download and use. This value must be a literal string with no template sequences; arbitrary expressions are not allowed. For more information on possible values for this argument, see Module Sources.
+     All modules require a source argument, which is a meta-argument defined by Terraform CLI.
+     Its value is either the path to a local directory of the module's configuration files, or a remote module source
+     that Terraform should download and use.
+     This value must be a literal string with no template sequences; arbitrary expressions are not allowed.
+     For more information on possible values for this argument, see Module Sources.
      ```
 149. What are the other optional meta-arguments along with the source when defining modules?
      ```txt
