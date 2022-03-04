@@ -1491,7 +1491,8 @@ Also I mentined the refrences at the end of this page.
      ```
 186. What are remote Backends?
      ```txt
-     Remote backends allow Terraform to use a shared storage space for state data, so any member of your team can use Terraform to manage the same infrastructure.
+     Remote backends allow Terraform to use a shared storage space for state data, so any member of your team can
+     use Terraform to manage the same infrastructure.
      ```
 187. What is the benefit of using remote backend?
      ```txt
@@ -1500,7 +1501,8 @@ Also I mentined the refrences at the end of this page.
      ```
 188. If you want to switch from using remote backend to local backend. What should you do?
      ```txt
-     If you want to move back to local state, you can remove the backend configuration block from your configuration and run terraform init again. 
+     If you want to move back to local state, you can remove the backend configuration block from your
+     configuration and run terraform init again. 
      Terraform will once again ask if you want to migrate your state back to local.
      ```
 189. What does the command refresh do?
