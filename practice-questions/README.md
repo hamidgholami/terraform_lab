@@ -1507,7 +1507,8 @@ Also I mentined the refrences at the end of this page.
      ```
 189. What does the command refresh do?
      ```txt
-     The terraform refresh command is used to reconcile the state Terraform knows about (via its state file) with the real-world infrastructure.
+     The terraform refresh command is used to reconcile the state Terraform knows about (via its state file)
+     with the real-world infrastructure.
      This can be used to detect any drift from the last-known state, and to update the state file.
      ```
 190. Does the command refresh modify the infrastructure?
