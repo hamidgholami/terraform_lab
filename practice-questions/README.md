@@ -1144,7 +1144,8 @@ Also I mentined the refrences at the end of this page.
      ```
 144. When you use remote modules what should you do if there is a change in the module?
      ```txt
-     When installing a remote module, Terraform will download it into the .terraform directory in your configuration's root directory.
+     When installing a remote module, Terraform will download it into the .terraform directory in 
+     your configuration's root directory.
      You should initialize with terraform init
      ```
 145. A simple configuration consisting of a single directory with one or more .tf files is a module. Is this true?
