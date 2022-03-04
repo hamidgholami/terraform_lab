@@ -1222,11 +1222,15 @@ Also I mentined the refrences at the end of this page.
 155. You recently joined a team and you cloned a terraform configuration files from the version control system. What is the first command you should use?
 
      ```txt
-     terraform init
+     "terraform init"
+
      This command performs several different initialization steps in order to prepare a working directory for use.
-     This command is always safe to run multiple times, to bring the working directory up to date with changes in the configuration. 
+     This command is always safe to run multiple times, to bring the working directory up to date with 
+     changes in the configuration.
      Though subsequent runs may give errors, this command will never delete your existing configuration or state.
-     If no arguments are given, the configuration in the current working directory is initialized. It is recommended to run Terraform with the current working directory set to the root directory of the configuration, and omit the DIR argument.
+     If no arguments are given, the configuration in the current working directory is initialized.
+     It is recommended to run Terraform with the current working directory set to the root directory of the 
+     configuration, and omit the DIR argument.
      https://www.terraform.io/docs/commands/init.html
      ```
 156. What is the flag you should use to upgrade modules and plugins a part of their respective installation steps?
