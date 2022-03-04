@@ -1471,8 +1471,8 @@ Also I mentined the refrences at the end of this page.
      ```txt
      If supported by your backend, Terraform will lock your state for all operations that could write state.
      This prevents others from acquiring the lock and potentially corrupting your state.
-     State locking happens automatically on all operations that could write state. You won't see any message that it is happening.
-     If state locking fails, Terraform will not continue.
+     State locking happens automatically on all operations that could write state. You won't see any message that 
+     it is happening. If state locking fails, Terraform will not continue.
      ```
 183. Does Terraform continue if state locking fails?
      ```txt
