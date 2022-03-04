@@ -1575,21 +1575,31 @@ Also I mentined the refrences at the end of this page.
      ```
 197. How do you encrypt sensitive data in the state?
      ```txt
-     Terraform Cloud always encrypts state at rest and protects it with TLS in transit. Terraform Cloud also knows the identity of the user requesting state and maintains a history of state changes. This can be used to control access and track activity. Terraform Enterprise also supports detailed audit logging.
+     Terraform Cloud always encrypts state at rest and protects it with TLS in transit.
+     Terraform Cloud also knows the identity of the user requesting state and maintains a history of state changes.
+     This can be used to control access and track activity. Terraform Enterprise also supports detailed audit logging.
       
-      The S3 backend supports encryption at rest when the encrypt option is enabled. IAM policies and logging can be used to identify any invalid access. Requests for the state go over a TLS connection.
+      The S3 backend supports encryption at rest when the encrypt option is enabled.
+      IAM policies and logging can be used to identify any invalid access. Requests for the state go over a TLS connection.
       ```
 198. Backends are completely optional. Is this true?
      ```txt
-     Backends are completely optional. You can successfully use Terraform without ever having to learn or use backends. However, they do solve pain points that afflict teams at a certain scale. If you're an individual, you can likely get away with never using backends.
+     Backends are completely optional. You can successfully use Terraform without ever having to learn or use backends.
+     However, they do solve pain points that afflict teams at a certain scale. If you're an individual,
+     you can likely get away with never using backends.
      ```
 199. What are the benefits of Backends?
      ```txt
-     Working in a team: Backends can store their state remotely and protect that state with locks to prevent corruption. Some backends such as Terraform Cloud even automatically store a history of all state revisions.
+     Working in a team: Backends can store their state remotely and protect that state with locks to prevent corruption.
+     Some backends such as Terraform Cloud even automatically store a history of all state revisions.
 
-     Keeping sensitive information off disk: State is retrieved from backends on demand and only stored in memory. If you’re using a backend such as Amazon S3, the only location the state ever is persisted is in S3.
+     Keeping sensitive information off disk: State is retrieved from backends on demand and only stored in memory.
+     If you’re using a backend such as Amazon S3, the only location the state ever is persisted is in S3.
 
-     Remote operations: For larger infrastructures or certain changes, terraform apply can take a long, long time. Some backends support remote operations which enable the operation to execute remotely. You can then turn off your computer and your operation will still complete. Paired with remote state storage and locking above, this also helps in team environments.
+     Remote operations: For larger infrastructures or certain changes, terraform apply can take a long, long time.
+     Some backends support remote operations which enable the operation to execute remotely.
+     You can then turn off your computer and your operation will still complete.
+     Paired with remote state storage and locking above, this also helps in team environments.
      ```
 200. Why should you be very careful with the Force unlocking the state?
      ```txt
