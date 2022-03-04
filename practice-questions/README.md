@@ -1376,14 +1376,14 @@ Also I mentined the refrences at the end of this page.
      Return a detailed exit code when the command exits.
      When provided, this argument changes the exit codes and their meanings to provide more granular information
      about what the resulting plan contains:
-     
+
      * 0 = Succeeded with empty diff (no changes)
      * 1 = Error
      * 2 = Succeeded with non-empty diff (changes present)
      ```
 173. How do you target only specific resources when you run a terraform plan?
      ```txt
-     -target=resource - A Resource Address to target. This flag can be used multiple times. See below for more information.
+     -target=resource - A Resource Address to target. This flag can be used multiple times.
      ```
 174. How do you update the state prior to checking differences when you run a terraform plan?
      ```txt
