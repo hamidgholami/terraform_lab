@@ -1520,21 +1520,32 @@ Also I mentined the refrences at the end of this page.
 
 191. How do you backup the state to the remote backend?
      ```txt
-     1. When configuring a backend for the first time (moving from no defined backend to explicitly configuring one), Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
+     1. When configuring a backend for the first time (moving from no defined backend to explicitly configuring one),
+     Terraform will give you the option to migrate your state to the new backend.
+     This lets you adopt backends without losing any existing state.
 
-     2. To be extra careful, we always recommend manually backing up your state as well. You can do this by simply copying your terraform.tfstate file to another location.
+     2. To be extra careful, we always recommend manually backing up your state as well.
+     You can do this by simply copying your terraform.tfstate file to another location.
      ```
 192. What is a partial configuration in terms of configuring Backends?
      ```txt
-     You do not need to specify every required argument in the backend configuration. Omitting certain arguments may be desirable to avoid storing secrets, such as access keys, within the main configuration. When some or all of the arguments are omitted, we call this a partial configuration.
+     You do not need to specify every required argument in the backend configuration.
+     Omitting certain arguments may be desirable to avoid storing secrets, such as access keys, within the main configuration.
+     When some or all of the arguments are omitted, we call this a partial configuration.
      ```
 193. What are the ways to provide remaining arguments when using partial configuration?
      ```txt
-     Interactively: Terraform will interactively ask you for the required values, unless interactive input is disabled. Terraform will not prompt for optional values.
+     Interactively: Terraform will interactively ask you for the required values, unless interactive input is disabled.
+     Terraform will not prompt for optional values.
      
-     File: A configuration file may be specified via the init command line. To specify a file, use the -backend-config=PATH option when running terraform init. If the file contains secrets it may be kept in a secure data store, such as Vault, in which case it must be downloaded to the local disk before running Terraform.
+     File: A configuration file may be specified via the init command line. To specify a file, use 
+     the -backend-config=PATH option when running terraform init.
+     If the file contains secrets it may be kept in a secure data store, such as Vault, in which case
+     it must be downloaded to the local disk before running Terraform.
      
-     Command-line key/value pairs: Key/value pairs can be specified via the init command line. Note that many shells retain command-line flags in a history file, so this isn't recommended for secrets. To specify a single key/value pair, use the -backend-config="KEY=VALUE" option when running terraform init.
+     Command-line key/value pairs: Key/value pairs can be specified via the init command line.
+     Note that many shells retain command-line flags in a history file, so this isn't recommended for secrets.
+     To specify a single key/value pair, use the -backend-config="KEY=VALUE" option when running terraform init.
      https://www.terraform.io/docs/backends/config.html
      ```
 194. What is the basic requirement when using partial configuration?
