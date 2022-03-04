@@ -1215,9 +1215,9 @@ Also I mentined the refrences at the end of this page.
 154. What is the command init?
 
      ```txt
-     The terraform init command is used to initialize a working directory containing Terraform configuration files. 
-     This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. 
-     It is safe to run this command multiple times.
+     The terraform init command is used to initialize a working directory containing Terraform configuration files.
+     This is the first command that should be run after writing a new Terraform configuration or cloning an 
+     existing one from version control. It is safe to run this command multiple times.
      ```
 155. You recently joined a team and you cloned a terraform configuration files from the version control system. What is the first command you should use?
 
