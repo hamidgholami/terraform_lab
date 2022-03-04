@@ -1260,14 +1260,20 @@ Also I mentined the refrences at the end of this page.
 
      ```txt
      terraform init -get-plugins=false
-     Skips plugin installation. Terraform will use plugins installed in the user plugins directory, and any plugins already installed for the current working directory. If the installed plugins aren't sufficient for the configuration, init fails.
+
+     Skips plugin installation. Terraform will use plugins installed in the user plugins directory, and any 
+     plugins already installed for the current working directory.
+     If the installed plugins aren't sufficient for the configuration, init fails.
      ```
 161. What does the command terraform validate does?
 
      ```txt
-     The terraform validate command validates the configuration files in a directory, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
-     Validate runs checks that verify whether a configuration is syntactically valid and internally consistent, regardless of any provided variables or existing state. 
-     It is thus primarily useful for general verification of reusable modules, including correctness of attribute names and value types.
+     The terraform validate command validates the configuration files in a directory, referring only to the configuration
+     and not accessing any remote services such as remote state, provider APIs, etc.
+     Validate runs checks that verify whether a configuration is syntactically valid and internally consistent, regardless
+     of any provided variables or existing state. 
+     It is thus primarily useful for general verification of reusable modules, including correctness of attribute
+     names and value types.
      https://www.terraform.io/docs/commands/validate.html
      ```
 
