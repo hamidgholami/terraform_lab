@@ -1605,11 +1605,12 @@ Also I mentined the refrences at the end of this page.
      ```txt
      Terraform has a force-unlock command to manually unlock the state if unlocking failed.
      
-     Be very careful with this command. If you unlock the state when someone else is holding the lock it could cause multiple writers.
-     Force unlock should only be used to unlock your own lock in the situation where automatic unlocking failed.
+     Be very careful with this command. If you unlock the state when someone else is holding the lock it could cause
+     multiple writers. Force unlock should only be used to unlock your own lock in the situation where automatic
+     unlocking failed.
      
-     To protect you, the force-unlock command requires a unique lock ID. Terraform will output this lock ID if unlocking fails.
-     This lock ID acts as a nonce, ensuring that locks and unlocks target the correct lock.
+     To protect you, the force-unlock command requires a unique lock ID. Terraform will output this lock ID if
+     unlocking fails. This lock ID acts as a nonce, ensuring that locks and unlocks target the correct lock.
      ```
 [Back to top](#practice-questions)
 
