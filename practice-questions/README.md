@@ -1869,10 +1869,12 @@ Also I mentined the refrences at the end of this page.
      ```txt
      A complex type is a type that groups multiple values into a single value.
      There are two categories of complex types: 
+     
      collection types (for grouping similar values)
      * list(...): a sequence of values identified by consecutive whole numbers starting with zero.
      * map(...): a collection of values where each is identified by a string label.
      * set(...): a collection of unique values that do not have any secondary identifiers or ordering.
+     
      structural types (for grouping potentially dissimilar values).
      * object(...): a collection of named attributes that each have their own type.
      * tuple(...): a sequence of elements identified by consecutive whole numbers starting with zero, where each element has its own type.
