@@ -1877,7 +1877,8 @@ Also I mentined the refrences at the end of this page.
      
      structural types (for grouping potentially dissimilar values).
      * object(...): a collection of named attributes that each have their own type.
-     * tuple(...): a sequence of elements identified by consecutive whole numbers starting with zero, where each element has its own type.
+     * tuple(...): a sequence of elements identified by consecutive whole numbers starting with zero,
+     where each element has its own type.
      ```
 226. What are the named values available and how do we refer to?
      ```txt
