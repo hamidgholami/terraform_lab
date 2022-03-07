@@ -1845,7 +1845,8 @@ Also I mentined the refrences at the end of this page.
      resource_type.resource_name[resource index]
      * resource_type - Type of the resource being addressed.
      * resource_name - User-defined name of the resource.
-     * [resource index] - an optional index into a resource with multiple instances, surrounded by square brace characters ([ and ]).
+     * [resource index] - an optional index into a resource with multiple instances, surrounded 
+     by square brace characters ([ and ]).
      // Examples
      resource "aws_instance" "web" {
        # ...
