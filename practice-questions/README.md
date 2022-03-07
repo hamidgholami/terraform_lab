@@ -1661,13 +1661,15 @@ Also I mentined the refrences at the end of this page.
      Environment variables can only populate string-type variables.
      List and map type variables must be populated via one of the other mechanisms.
      ```
-206. How do you provision infrastructure in a staging environment or a production 
+206. How do you provision infrastructure in a staging environment or a production?
      ```txt
-     environment using the same Terraform configuration?
-     You can use different varible files with the same configuration
+     environment using the same Terraform configuration.
+     You can use different varible files with the same configuration.
+
      // Example
      // For development
      terraform apply -var-file="dev.tfvars"
+     
      // For test
      terraform apply -var-file="test.tfvars"
      ```
