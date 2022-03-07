@@ -1827,14 +1827,17 @@ Also I mentined the refrences at the end of this page.
      ```
 222. What is Resource Address?
      ```txt
-     A Resource Address is a string that references a specific resource in a larger infrastructure. An address is made up of two parts:
+     A Resource Address is a string that references a specific resource in a larger infrastructure.
+     An address is made up of two parts:
      [module path][resource spec]
      ```
 223. What is the Module path?
      ```txt
      A module path addresses a module within the tree of modules. It takes the form:
      module.A.module.B.module.C...
-     Multiple modules in a path indicate nesting. If a module path is specified without a resource spec, the address applies to every resource within the module. If the module path is omitted, this addresses the root module.
+     Multiple modules in a path indicate nesting. If a module path is specified without a resource spec,
+     the address applies to every resource within the module.
+     If the module path is omitted, this addresses the root module.
      ```
 224. What is the Resource spec?
      ```txt
