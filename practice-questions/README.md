@@ -1940,8 +1940,8 @@ Also I mentined the refrences at the end of this page.
 233. What is the Private Module Registry?
      ```txt
      Terraform Cloud's private module registry helps you share Terraform modules across your organization.
-     It includes support for module versioning, a searchable and filterable list of available modules, and a configuration designer
-     to help you build new workspaces faster.
+     It includes support for module versioning, a searchable and filterable list of available modules, and a configuration
+     designer to help you build new workspaces faster.
      ```
 234. What is the difference between public and private module registries when defined source?
      ```txt
