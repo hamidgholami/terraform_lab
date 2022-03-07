@@ -1933,7 +1933,8 @@ Also I mentined the refrences at the end of this page.
      ```txt
      Codifying policy removes the need for ticketing queues, without sacrificing enforcement.
      One of the other benefits of Sentinel is that it also has a full testing framework.
-     Avoiding a ticketing workflow allows organizations to provide more self-service capabilities and end-to-end automation, minimizing the friction for developers and operators.
+     Avoiding a ticketing workflow allows organizations to provide more self-service capabilities and end-to-end automation,
+     minimizing the friction for developers and operators.
      https://www.hashicorp.com/blog/why-policy-as-code/
      ```
 233. What is the Private Module Registry?
