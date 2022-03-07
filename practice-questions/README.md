@@ -1939,12 +1939,16 @@ Also I mentined the refrences at the end of this page.
      ```
 233. What is the Private Module Registry?
      ```txt
-     Terraform Cloud's private module registry helps you share Terraform modules across your organization. It includes support for module versioning, a searchable and filterable list of available modules, and a configuration designer to help you build new workspaces faster.
+     Terraform Cloud's private module registry helps you share Terraform modules across your organization.
+     It includes support for module versioning, a searchable and filterable list of available modules, and a configuration designer
+     to help you build new workspaces faster.
      ```
 234. What is the difference between public and private module registries when defined source?
      ```txt
      The public registry uses a three-part <NAMESPACE>/<MODULE NAME>/<PROVIDER> format
-     private modules use a four-part <HOSTNAME>/<ORGANIZATION>/<MODULE NAME>/<PROVIDER> format
+     private modules use a
+     four-part <HOSTNAME>/<ORGANIZATION>/<MODULE NAME>/<PROVIDER> format
+     
      // example
      module "vpc" {
        source  = "app.terraform.io/example_corp/vpc/aws"
@@ -1957,7 +1961,8 @@ Also I mentined the refrences at the end of this page.
      ```
 236. What is a workspace?
      ```txt
-     A workspace contains everything Terraform needs to manage a given collection of infrastructure, and separate workspaces function like completely separate working directories.
+     A workspace contains everything Terraform needs to manage a given collection of infrastructure, and separate workspaces
+     function like completely separate working directories.
      ```
 237. What are the benefits of workspaces?
      ```txt
@@ -1971,11 +1976,16 @@ Also I mentined the refrences at the end of this page.
      ```
 239. You are configuring a remote backend in the terraform cloud. You didn’t create a workspace before you do terraform init. Does it work?
      ```txt
-     Terraform Cloud will create it if necessary. If you opt to use a workspace that already exists, the workspace must not have any existing states.
+     Terraform Cloud will create it if necessary. If you opt to use a workspace that already exists, the workspace must not
+     have any existing states.
      ```
 240. Terraform workspaces when you are working with CLI and Terraform workspaces in the Terraform cloud. Is this correct?
      ```txt
-     If you are familiar with running Terraform using the CLI, you may have used Terraform workspaces. Terraform Cloud workspaces behave differently than Terraform CLI workspaces. Terraform CLI workspaces allow multiple state files to exist within a single directory, enabling you to use one configuration for multiple environments. Terraform Cloud workspaces contain everything needed to manage a given set of infrastructure, and function like separate working directories.
+     If you are familiar with running Terraform using the CLI, you may have used Terraform workspaces.
+     Terraform Cloud workspaces behave differently than Terraform CLI workspaces. Terraform CLI workspaces allow
+     multiple state files to exist within a single directory, enabling you to use one configuration for multiple environments.
+     Terraform Cloud workspaces contain everything needed to manage a given set of infrastructure, and function
+     like separate working directories.
      ```
 241. How do you authenticate the CLI with the terraform cloud?
      ```txt
@@ -1994,8 +2004,11 @@ Also I mentined the refrences at the end of this page.
 242. You are building infrastructure on your local machine and you changed your backend to remote backend with the Terraform cloud. What should you do to migrate the state to the remote backend?
      ```txt
      terraform init
-     Once you have authenticated the remote backend, you're ready to migrate your local state file to Terraform Cloud. To begin the migration, reinitialize. This causes Terraform to recognize your changed backend configuration.
-     During reinitialization, Terraform presents a prompt saying that it will copy the state file to the new backend. Enter "yes" and Terraform will migrate the state from your local machine to Terraform Cloud.
+
+     Once you have authenticated the remote backend, you're ready to migrate your local state file to Terraform Cloud.
+     To begin the migration, reinitialize. This causes Terraform to recognize your changed backend configuration.
+     During reinitialization, Terraform presents a prompt saying that it will copy the state file to the new backend.
+     Enter "yes" and Terraform will migrate the state from your local machine to Terraform Cloud.
      https://learn.hashicorp.com/terraform/tfc/tfc_migration#migrate-the-state-file
      ```
 243. How do you configure remote backend with the terraform cloud?
@@ -2014,13 +2027,17 @@ Also I mentined the refrences at the end of this page.
      ```
 244. What is Run Triggers?
      ```txt
-     Terraform Cloud’s run triggers allow you to link workspaces so that a successful apply in a source workspace will queue a run in the workspace linked to it with a run trigger. 
-     For example, adding new subnets to your network configuration could trigger an update to your application configuration to rebalance servers across the new subnets.
+     Terraform Cloud’s run triggers allow you to link workspaces so that a successful apply in a source workspace will
+     queue a run in the workspace linked to it with a run trigger. 
+     For example, adding new subnets to your network configuration could trigger an update to your application configuration
+     to rebalance servers across the new subnets.
      ```
 245. What is the benefit of Run Triggers?
      ```txt
-     When managing complex infrastructure with Terraform Cloud, organizing your configuration into different workspaces helps you to better manage and design your infrastructure. 
-     Configuring run triggers between workspaces allows you to set up infrastructure pipelines as part of your overall deployment strategy.
+     When managing complex infrastructure with Terraform Cloud, organizing your configuration into different workspaces
+     helps you to better manage and design your infrastructure. 
+     Configuring run triggers between workspaces allows you to set up infrastructure pipelines as part of your overall
+     deployment strategy.
      ```
 246. What are the available permissions that terraform clouds can have?
      ```txt
@@ -2028,7 +2045,8 @@ Also I mentined the refrences at the end of this page.
      ```
 247. Who can grant permissions on the workspaces?
      ```txt
-     Organization owners grant permissions by grouping users into teams and giving those teams priviliges based on their need for access to individual workspaces.
+     Organization owners grant permissions by grouping users into teams and giving those teams priviliges based
+     on their need for access to individual workspaces.
      ```
 248. Which plan do you need to manage teams on Terraform cloud?
      ```txt
@@ -2037,7 +2055,8 @@ Also I mentined the refrences at the end of this page.
 249. How can you add users to an organization?
      ```txt
      You can add users to an organization by inviting them using their email address.
-     Even if your team member has not signed up for Terraform Cloud yet, they can still accept the invitation and create a new account.
+     Even if your team member has not
+     signed up for Terraform Cloud yet, they can still accept the invitation and create a new account.
      ```
 250. The Terraform Cloud Team plan charges you on a per-user basis. Is this true?
      ```txt
