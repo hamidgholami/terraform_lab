@@ -1926,7 +1926,8 @@ Also I mentined the refrences at the end of this page.
 
 231. What is Sentinel?
      ```txt
-     Sentinel is an embedded policy-as-code framework integrated with the HashiCorp Enterprise products. It enables fine-grained, logic-based policy decisions, and can be extended to use information from external sources.
+     Sentinel is an embedded policy-as-code framework integrated with the HashiCorp Enterprise products.
+     It enables fine-grained, logic-based policy decisions, and can be extended to use information from external sources.
      ```
 232. What is the benefit of Sentinel?
      ```txt
