@@ -1994,6 +1994,7 @@ Also I mentined the refrences at the end of this page.
      2. it will open the terraform cloud and generate the token
      3. paste that token back in the CLI
      https://learn.hashicorp.com/terraform/tfc/tfc_login
+     
      Older versions:
      keep the following token in the CLI configuration file
      credentials "app.terraform.io" {
