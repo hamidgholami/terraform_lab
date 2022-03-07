@@ -1882,15 +1882,24 @@ Also I mentined the refrences at the end of this page.
      ```
 226. What are the named values available and how do we refer to?
      ```txt
-     Terraform makes several kinds of named values available. Each of these names is an expression that references the associated value; you can use them as standalone expressions, or combine them with other expressions to compute new values.
-     * <RESOURCE TYPE>.<NAME> is an object representing a managed resource of the given type and name. The attributes of the resource can be accessed using dot or square bracket notation.
+     Terraform makes several kinds of named values available. Each of these names is an expression that references
+     the associated value; you can use them as standalone expressions, or combine them with other expressions
+     to compute new values.
+     
+     * <RESOURCE TYPE>.<NAME> is an object representing a managed resource of the given type and name.
+     The attributes of the resource can be accessed using dot or square bracket notation.
      * var.<NAME> is the value of the input variable of the given name.
      * local.<NAME> is the value of the local value of the given name.
-     * module.<MODULE NAME>.<OUTPUT NAME> is the value of the specified output value from a child module called by the current module.
-     * data.<DATA TYPE>.<NAME> is an object representing a data resource of the given data source type and name. If the resource has the count argument set, the value is a list of objects representing its instances. If the resource has the for_each argument set, the value is a map of objects representing its instances.
+     * module.<MODULE NAME>.<OUTPUT NAME> is the value of the specified output value from a child module
+     called by the current module.
+     * data.<DATA TYPE>.<NAME> is an object representing a data resource of the given data source type and name.
+     If the resource has the count argument set, the value is a list of objects representing its instances.
+     If the resource has the for_each argument set, the value is a map of objects representing its instances.
      * path.module is the filesystem path of the module where the expression is placed.
      * path.root is the filesystem path of the root module of the configuration.
-     * path.cwd is the filesystem path of the current working directory. In normal use of Terraform this is the same as path.root, but some advanced uses of Terraform run it from a directory other than the root module directory, causing these paths to be different.
+     * path.cwd is the filesystem path of the current working directory.
+     In normal use of Terraform this is the same as path.root, but some advanced uses of Terraform run it from
+     a directory other than the root module directory, causing these paths to be different.
      * terraform.workspace is the name of the currently selected workspace.
      ```
 227. What is the built-in function that reads the contents of a file at the given path and returns them as a base64-encoded string?
