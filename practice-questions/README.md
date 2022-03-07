@@ -1793,11 +1793,15 @@ Also I mentined the refrences at the end of this page.
 218. Does Terraform language support user-defined functions?
      ```txt
      No
-     The Terraform language does not support user-defined functions, and so only the functions built in to the language are available for use.
+
+     The Terraform language does not support user-defined functions, and so only the functions built in to
+     the language are available for use.
      ```
 219. What is the built-in function to change string to a number?
      ```txt
-     parseint parses the given string as a representation of an integer in the specified base and returns the resulting number. The base must be between 2 and 62 inclusive.
+     parseint parses the given string as a representation of an integer in the specified base and returns
+     the resulting number. The base must be between 2 and 62 inclusive.
+     
      > parseint("100", 10)
      100
      More Number Functions here
