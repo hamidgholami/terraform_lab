@@ -7,7 +7,19 @@
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=plastic&logo=terraform&logoColor=white)
 ## Table of content
 
-
+* [Terraform exam review chapters](https://learn.hashicorp.com/tutorials/terraform/associate-review).
+    * [01 understand infrastructure as code concepts](https://github.com/hamidgholami/terraform_lab/blob/main/01-understand-infrastructure-as-code-concepts/README.md)
+    * 02 understand terraform purpose
+    * 03 understand terraform basics
+    * 04 use terraform cli
+    * 05 interact with terraform modules
+    * 06 navigate terraform workflow
+    * 07 implement and maintain state
+    * 08 read,generate and modify configuration
+    * 09 understand terraform cloud and enterprise capabilities
+* [extra documents]
+* [some hands on scenarios]
+* [practice questions for Terraform exam]
 ### Code Structure best practices
 
 - `main.tf` - call modules, locals, and data sources to create all resources
