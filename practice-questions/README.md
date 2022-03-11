@@ -32,7 +32,7 @@ Also I mentined the refrences at the end of this page.
     It standardizes workflows across different infrastructure providers (e.g., VMware, AWS, Azure, GCP, etc.) by 
     using a common syntax across all of them.
     ```
-4. What is Ideompodent in terms of IaC?
+4. What is idempotent in terms of IaC?
     ```txt
     The idempotent characteristic provided by IaC tools ensures that, 
     even if the same code is applied multiple times, the result remains the same.
